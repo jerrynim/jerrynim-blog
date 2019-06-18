@@ -9,7 +9,7 @@ const Index: React.FunctionComponent = () => {
   return (
     <Container>
       <p>hello world</p>
-      <Link href="/map">
+      <Link href="/Counter">
         <a>Map</a>
       </Link>
     </Container>
