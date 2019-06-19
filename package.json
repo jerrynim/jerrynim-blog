@@ -16,20 +16,17 @@
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-page-scroller": "^1.5.1",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "styled-components": "^4.3.1",
     "typescript": "^3.5.2",
-    "webpack": "^4.34.0"
+    "webpack": "^4.34.0",
+    "babel-plugin-styled-components": "^1.10.1"
   },
   "scripts": {
-    "dev": "node server.js",
-    "start": "NODE_ENV=production node server.js",
-    "build": "next build"
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
   },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.1"
-  }
+  "devDependencies": {}
 }
