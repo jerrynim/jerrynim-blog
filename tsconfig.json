@@ -9,5 +9,13 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["es6", "dom"]
   },
-  "exclude": [".next", "next.config.js", "server.js"]
+  "include": ["pages"],
+  "exclude": [
+    ".next",
+    "next.config.js",
+    "server.js",
+    "pages/_app.js",
+    "store",
+    "tsconfig.json"
+  ]
 }
