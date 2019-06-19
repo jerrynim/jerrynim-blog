@@ -2,8 +2,13 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
+import Counter from "./Counter";
 const Container = styled.div`
   border: 1px solid black;
+`;
+const Section = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 const FullPage: React.FunctionComponent = () => {
   return (
@@ -12,10 +17,9 @@ const FullPage: React.FunctionComponent = () => {
         return (
           <ReactFullpage.Wrapper>
             <div className="section">
-              <p>Section 1 (welcome to fullpage.js)</p>
-              <button onClick={() => fullpageApi.moveSectionDown()}>
-                Click me to move down
-              </button>
+              <Section>
+                <Counter />
+              </Section>
             </div>
             <div className="section">
               <p>Section 2</p>

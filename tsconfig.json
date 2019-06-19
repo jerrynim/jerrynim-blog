@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["es6", "dom"]
   },
-  "include": ["pages"],
+  "include": ["pages", "Components"],
   "exclude": [
     ".next",
     "next.config.js",
