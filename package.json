@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
+    "export": "next export",
+    "deploy": "npm run build && npm run export",
     "start": "cross-env NODE_ENV=production node dist/index.js"
   },
-  "author": "zhangist",
-  "license": "ISC",
   "repository": "https://github.com/zhangist/nextjs-typescript-boilerplate",
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.14",
