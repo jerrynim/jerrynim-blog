@@ -1,21 +1,23 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "jsx": "react",
-    "allowJs": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
+    "baseUrl": ".",
     "moduleResolution": "node",
+    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "lib": ["es6", "dom"]
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true
   },
-  "include": ["pages", "Components"],
-  "exclude": [
-    ".next",
-    "next.config.js",
-    "server.js",
-    "pages/_app.js",
-    "store",
-    "tsconfig.json"
-  ]
+  "exclude": ["dist", ".next", "out", "next.config.js"]
 }
