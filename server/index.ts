@@ -14,8 +14,6 @@ app.prepare().then(() => {
 
     if (pathname === "/Counter") {
       app.render(req, res, "/Counter", query);
-    } else if (pathname === "/FullPage") {
-      app.render(req, res, "/FullPage", query);
     } else {
       handle(req, res, parsedUrl);
     }

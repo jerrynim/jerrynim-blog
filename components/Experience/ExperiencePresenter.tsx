@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
-  padding: 100px 100px 0px 100px;
+  padding: 30px 30px 0px 30px;
 `;
 const Background = styled.div`
   position: absolute;
@@ -60,83 +60,49 @@ const Scroller = styled.div`
   animation-iteration-count: infinite;
 `;
 
-const LinkWrapper = styled.div`
-  margin-bottom: 10px;
-`;
-const OutLink = styled.a`
-  margin-left: 10px;
-  color: #212529;
-`;
-const MailSpan = styled.span`
-  margin-left: 10px;
-`;
 const RightContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  width: 400px;
+  margin-right: 30px;
 `;
-const Experience: React.FC = () => {
+
+const ExperiencePresenter: React.FC = () => {
   return (
     <div>
       <Background />
       <Container>
-        <h1>JERRYNIM</h1>
+        <h1>Experience</h1>
         <Wrapper>
           <Articles>
             <section
               className={"nes-container with-title"}
-              style={{ marginBottom: "30px" }}
+              style={{ marginBottom: "30px", width: "fit-content" }}
             >
-              <h2 className={"title"}>Introduce</h2>
-              <div>
-                안녕하세요.저는 Javascript 개발자 입니다.
-                <br />
-                최신기술을 좋아하며 기술을 배우고 발전하는 것을 좋아합니다.
-                <br />
-              </div>
+              <h2 className={"title"}>AndSoOn</h2>
             </section>
             <section
               className={"nes-container with-title"}
-              style={{ marginBottom: "30px" }}
+              style={{ marginBottom: "30px", width: "fit-content" }}
             >
-              <h2 className={"title"}>Position</h2>
-              <div>
-                Fronted Developer
-                <br />
-                Node.js Develpopr
-                <br />
-              </div>
-            </section>
-            <section className={"nes-container with-title"}>
-              <h2 className={"title"}>Links</h2>
-
-              <LinkWrapper>
-                <i className={"nes-icon github"} />
-                <OutLink href="https://github.com/jerrynim">
-                  https://github.com/jerrynim
-                </OutLink>
-              </LinkWrapper>
-              <LinkWrapper>
-                <i className={"nes-icon youtube"} />
-                <OutLink href="https://www.youtube.com/channel/UCWrBP7s_rK1ldBhe-LkYjug?view_as=subscriber">
-                  https://www.youtube.com/channel/
-                </OutLink>
-              </LinkWrapper>
-              <LinkWrapper>
-                <i className={"nes-icon gmail"} />
-                <MailSpan>tjerry3@naver.com</MailSpan>
-              </LinkWrapper>
+              <h2 className={"title"}>Tools</h2>
             </section>
           </Articles>
           <RightContent>
             <div
               className={"nes-balloon from-right"}
-              style={{ marginRight: "80px" }}
+              style={{
+                marginRight: "80px",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "black"
+              }}
             >
-              Pick Me!!
+              <div style={{ color: "papayawhip" }}>adsfasd</div>
             </div>
-            <i className={"nes-octocat animate"} />
+            <i className={"nes-charmander"} />
           </RightContent>
         </Wrapper>
         <Scrolldowns>
@@ -148,4 +114,4 @@ const Experience: React.FC = () => {
     </div>
   );
 };
-export default Experience;
+export default ExperiencePresenter;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
   padding: 30px 30px 0px 30px;
@@ -68,7 +68,13 @@ const RightContent = styled.div`
   width: 400px;
   margin-right: 30px;
 `;
-const TechPresenter: React.FC = () => {
+
+interface IProps {
+  text: string;
+  dispatch: Dispatch<any>;
+}
+
+const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
   return (
     <div>
       <Background />
@@ -81,10 +87,16 @@ const TechPresenter: React.FC = () => {
               style={{ marginBottom: "30px", width: "fit-content" }}
             >
               <h2 className={"title"}>Language</h2>
-              <button className="nes-btn is-warning">Javascript</button>
+              <button
+                className="nes-btn is-warning"
+                onClick={() => dispatch({ type: "JAVASCRIPT" })}
+              >
+                Javascript
+              </button>
               <button
                 className="nes-btn is-primary"
                 style={{ marginLeft: "20px" }}
+                onClick={() => dispatch({ type: "TYPESCRIPT" })}
               >
                 Typescript
               </button>
@@ -98,38 +110,60 @@ const TechPresenter: React.FC = () => {
             >
               <h2 className={"title"}>Front</h2>
               <div style={{ marginBottom: "20px" }}>
-                <button className="nes-btn is-primary">React</button>
+                <button
+                  className="nes-btn is-primary"
+                  onClick={() => dispatch({ type: "REACT" })}
+                >
+                  React
+                </button>
                 <button
                   className="nes-btn is-primary"
                   style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "REACTNATIVE" })}
                 >
                   ReactNative
                 </button>
-                <button className="nes-btn" style={{ marginLeft: "20px" }}>
+                <button
+                  className="nes-btn"
+                  style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "NEXTJS" })}
+                >
                   Next.js
                 </button>
               </div>
-
               <div style={{ marginBottom: "20px" }}>
-                <button className="nes-btn">Apollo</button>
+                <button
+                  className="nes-btn"
+                  onClick={() => dispatch({ type: "APOLLO" })}
+                >
+                  Apollo
+                </button>
                 <button
                   className="nes-btn is-primary"
                   style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "EXPO" })}
                 >
                   Expo
                 </button>
                 <button
                   className="nes-btn is-success"
                   style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "STYLED-COMPONENTS" })}
                 >
                   styled-components
                 </button>
               </div>
               <div>
-                <button className="nes-btn is-error">Html5</button>
+                <button
+                  className="nes-btn is-error"
+                  onClick={() => dispatch({ type: "HTML5" })}
+                >
+                  Html5
+                </button>
                 <button
                   className="nes-btn is-primary"
                   style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "CSS" })}
                 >
                   css
                 </button>
@@ -141,32 +175,53 @@ const TechPresenter: React.FC = () => {
             >
               <h2 className={"title"}>Back</h2>
               <div style={{ marginBottom: "20px" }}>
-                <button className={"nes-btn is-success"}>Node.js</button>
+                <button
+                  className={"nes-btn is-success"}
+                  onClick={() => dispatch({ type: "NODEJS" })}
+                >
+                  Node.js
+                </button>
                 <button
                   className={"nes-btn is-error"}
                   style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "GRAPHQL" })}
                 >
                   Graphql
                 </button>
                 <button
                   className={"nes-btn is-primary"}
                   style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "EXPRESS" })}
                 >
                   Express
                 </button>
-                <button className={"nes-btn"} style={{ marginLeft: "20px" }}>
+                <button
+                  className={"nes-btn"}
+                  style={{ marginLeft: "20px" }}
+                  onClick={() => dispatch({ type: "AWS" })}
+                >
                   AWS
                 </button>
               </div>
 
-              <button className={"nes-btn"}>Prisma</button>
+              <button
+                className={"nes-btn"}
+                onClick={() => dispatch({ type: "PRISMA" })}
+              >
+                Prisma
+              </button>
               <button
                 className={"nes-btn is-primary"}
                 style={{ marginLeft: "20px" }}
+                onClick={() => dispatch({ type: "TYPEORM" })}
               >
                 TypeOrm
               </button>
-              <button className={"nes-btn"} style={{ marginLeft: "20px" }}>
+              <button
+                className={"nes-btn"}
+                style={{ marginLeft: "20px" }}
+                onClick={() => dispatch({ type: "SERVERLESS" })}
+              >
                 Serveless
               </button>
             </section>
@@ -176,7 +231,7 @@ const TechPresenter: React.FC = () => {
               className={"nes-balloon from-right"}
               style={{ marginRight: "80px", width: "100%", height: "100%" }}
             >
-              <div> Pick Me!!</div>
+              <div>{text}</div>
             </div>
             <i className={"nes-squirtle"} />
           </RightContent>
