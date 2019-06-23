@@ -1,7 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
-  padding: 100px 100px 0px 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
 `;
 const Background = styled.div`
   position: absolute;
@@ -15,7 +20,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const Articles = styled.div``;
+const Articles = styled.div`
+  margin-right: 100px;
+`;
 const Scrolldowns = styled.div`
   position: absolute;
   right: 0;
@@ -78,12 +85,12 @@ const RightContent = styled.div`
 `;
 const Profile: React.FC = () => {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Background />
       <Container>
-        <h1>JERRYNIM</h1>
         <Wrapper>
           <Articles>
+            <h1>JERRYNIM</h1>
             <section
               className={"nes-container with-title"}
               style={{ marginBottom: "30px" }}
@@ -94,10 +101,9 @@ const Profile: React.FC = () => {
                 <br />
                 최신기술을 좋아하며 기술을 배우고 발전하는 것을 좋아합니다.
                 <br />
-                웹 개발을 공부한지 1년정도 되었으며 사용자에게 최적의 서비스를
-                주는
+                웹 개발을 공부한지 1년정도 되었으며 저와 사용자 모두
                 <br />
-                개발을 하고 싶습니다.
+                만족하는 서비스를 만들고 싶습니다.
               </div>
             </section>
             <section
@@ -119,7 +125,7 @@ const Profile: React.FC = () => {
               <LinkWrapper>
                 <i className={"nes-icon youtube"} />
                 <OutLink href="https://www.youtube.com/channel/UCWrBP7s_rK1ldBhe-LkYjug?view_as=subscriber">
-                  https://www.youtube.com/channel/
+                  https://www.youtube.com
                 </OutLink>
               </LinkWrapper>
               <LinkWrapper>
@@ -129,12 +135,7 @@ const Profile: React.FC = () => {
             </section>
           </Articles>
           <RightContent>
-            <div
-              className={"nes-balloon from-right"}
-              style={{ marginRight: "80px" }}
-            >
-              Pick Me!!
-            </div>
+            <div className={"nes-balloon from-right"}>Pick Me!!</div>
             <i className={"nes-octocat animate"} />
           </RightContent>
         </Wrapper>

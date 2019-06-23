@@ -1,7 +1,10 @@
 import React, { Dispatch } from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
-  padding: 30px 30px 0px 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Background = styled.div`
   position: absolute;
@@ -13,9 +16,11 @@ const Background = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
-const Articles = styled.div``;
+const Articles = styled.div`
+  margin-right: 100px;
+`;
 const Scrolldowns = styled.div`
   position: absolute;
   right: 0;
@@ -61,12 +66,11 @@ const Scroller = styled.div`
 `;
 
 const RightContent = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
-  width: 400px;
-  margin-right: 30px;
+  text-align: -webkit-right;
 `;
 
 interface IProps {
@@ -76,12 +80,13 @@ interface IProps {
 
 const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Background />
       <Container>
-        <h1>TECH</h1>
         <Wrapper>
           <Articles>
+            <h1>TECH</h1>
+
             <section
               className={"nes-container with-title"}
               style={{ marginBottom: "30px", width: "fit-content" }}
@@ -131,32 +136,18 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
                   Next.js
                 </button>
               </div>
-              <div style={{ marginBottom: "20px" }}>
-                <button
-                  className="nes-btn"
-                  onClick={() => dispatch({ type: "APOLLO" })}
-                >
-                  Apollo
-                </button>
+              <div>
                 <button
                   className="nes-btn is-success"
                   style={{ marginLeft: "20px" }}
-                  onClick={() => dispatch({ type: "EXPO" })}
+                  onClick={() => dispatch({ type: "REDUX" })}
                 >
                   Redux
                 </button>
                 <button
-                  className="nes-btn is-success"
-                  style={{ marginLeft: "20px" }}
-                  onClick={() => dispatch({ type: "STYLED-COMPONENTS" })}
-                >
-                  styled-components
-                </button>
-              </div>
-              <div>
-                <button
                   className="nes-btn is-error"
                   onClick={() => dispatch({ type: "HTML5" })}
+                  style={{ marginLeft: "20px" }}
                 >
                   Html5
                 </button>
@@ -195,13 +186,6 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
                 >
                   Express
                 </button>
-                <button
-                  className={"nes-btn"}
-                  style={{ marginLeft: "20px" }}
-                  onClick={() => dispatch({ type: "AWS" })}
-                >
-                  AWS
-                </button>
               </div>
 
               <button
@@ -210,13 +194,7 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
               >
                 Prisma
               </button>
-              <button
-                className={"nes-btn is-primary"}
-                style={{ marginLeft: "20px" }}
-                onClick={() => dispatch({ type: "TYPEORM" })}
-              >
-                TypeOrm
-              </button>
+
               <button
                 className={"nes-btn"}
                 style={{ marginLeft: "20px" }}
@@ -227,10 +205,7 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
             </section>
           </Articles>
           <RightContent>
-            <div
-              className={"nes-balloon from-right"}
-              style={{ marginRight: "80px", width: "100%", height: "100%" }}
-            >
+            <div className={"nes-balloon from-right"}>
               <div
                 style={{
                   wordBreak: "break-word"

@@ -1,6 +1,7 @@
 import React, { Dispatch } from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
+  height: 100%;
   padding: 30px 30px 0px 30px;
 `;
 const Background = styled.div`
@@ -13,11 +14,11 @@ const Background = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 const Articles = styled.div`
-  height: 600px;
   overflow: scroll;
+  height: 600px;
   width: 580px;
   ::-webkit-scrollbar {
     width: 15px;
@@ -99,114 +100,113 @@ interface IProps {
 }
 const ProjectPresenter: React.FC<IProps> = ({ project, dispatch }) => {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Background />
       <Container>
-        <h1>Project</h1>
         <Wrapper>
-          <Articles>
-            <section
-              className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
-            >
-              <h2 className={"title"}>2019.06</h2>
-              <div>
-                <Tag onClick={() => dispatch({ type: "PORTFOLIO" })}>
-                  # Portfoilo
+          <div>
+            <h1>Project</h1>
+            <Articles>
+              <section
+                className={"nes-container with-title"}
+                style={{ marginBottom: "30px", width: "fit-content" }}
+              >
+                <h2 className={"title"}>2019.06</h2>
+                <div>
+                  <Tag onClick={() => dispatch({ type: "PORTFOLIO" })}>
+                    # Portfoilo
+                  </Tag>
+                  <br />
+                  <i className={"nes-icon github"} />
+                  <OutLink href="https://github.com/jerrynim/jerrynim-portfolio">
+                    https://github.com/jerrynim
+                  </OutLink>
+                </div>
+              </section>
+              <section
+                className={"nes-container with-title"}
+                style={{ marginBottom: "30px", width: "fit-content" }}
+              >
+                <h2 className={"title"}>2019.05</h2>
+                <Tag onClick={() => dispatch({ type: "INSTAGRAM" })}>
+                  # Instagram Clone Coding
                 </Tag>
                 <br />
                 <i className={"nes-icon github"} />
-                <OutLink href="https://github.com/jerrynim/jerrynim-portfolio">
+                <OutLink href="https://github.com/jerrynim/PrismagremClient">
                   https://github.com/jerrynim
                 </OutLink>
-              </div>
-            </section>
-            <section
-              className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
-            >
-              <h2 className={"title"}>2019.05</h2>
-              <Tag onClick={() => dispatch({ type: "INSTAGRAM" })}>
-                # Instagram Clone Coding
-              </Tag>
-              <br />
-              <i className={"nes-icon github"} />
-              <OutLink href="https://github.com/jerrynim/PrismagremClient">
-                https://github.com/jerrynim
-              </OutLink>
-            </section>
-            <section
-              className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
-            >
-              <h2 className={"title"}>2019.04</h2>
-              <Tag onClick={() => dispatch({ type: "ZUMO" })}>
-                # ZUMO Clone Coding
-              </Tag>
-              <br />
-              <i className={"nes-icon github"} />
-              <OutLink href="https://github.com/jerrynim/zumoC">
-                https://github.com/jerrynim
-              </OutLink>
-            </section>
-            <section
-              className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
-            >
-              <h2 className={"title"}>2019.03</h2>
-              <Tag onClick={() => dispatch({ type: "UBER" })}>
-                # Uber Clone Coding
-              </Tag>
-              <br />
-              <i className={"nes-icon github"} />
-              <OutLink href="https://github.com/jerrynim/nuber-client">
-                https://github.com/jerrynim
-              </OutLink>
-            </section>
-            <section
-              className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
-            >
-              <h2 className={"title"}>2019.02</h2>
-              <Tag onClick={() => dispatch({ type: "BITCOIN" })}>
-                # Bitcoin Clone Coding
-              </Tag>
-              <br />
-              <i className={"nes-icon github"} />
-              <OutLink href="https://github.com/jerrynim/bitcoin-explorer">
-                https://github.com/jerrynim
-              </OutLink>
-            </section>
-            <section
-              className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
-            >
-              <h2 className={"title"}>~2018</h2>
-              <Tag onClick={() => dispatch({ type: "NAVER" })}>
-                # Naver 인기검색어 Extension
-              </Tag>{" "}
-              <br />
-              <Tag onClick={() => dispatch({ type: "WORDPRESS" })}>
-                # WordPress SNS Ecommerce
-              </Tag>
-              <br />
-              <i className={"nes-icon github"} />
-              <OutLink href="https://github.com/jerrynim/NaverSearchWordExtension">
-                https://github.com/jerrynim
-              </OutLink>
-              <i className={"nes-icon github"} />
-              <OutLink href="https://github.com/jerrynim/PickAndSell">
-                https://github.com/jerrynim
-              </OutLink>
-            </section>
-          </Articles>
+              </section>
+              <section
+                className={"nes-container with-title"}
+                style={{ marginBottom: "30px", width: "fit-content" }}
+              >
+                <h2 className={"title"}>2019.04</h2>
+                <Tag onClick={() => dispatch({ type: "ZUMO" })}>
+                  # ZUMO Clone Coding
+                </Tag>
+                <br />
+                <i className={"nes-icon github"} />
+                <OutLink href="https://github.com/jerrynim/zumoC">
+                  https://github.com/jerrynim
+                </OutLink>
+              </section>
+              <section
+                className={"nes-container with-title"}
+                style={{ marginBottom: "30px", width: "fit-content" }}
+              >
+                <h2 className={"title"}>2019.03</h2>
+                <Tag onClick={() => dispatch({ type: "UBER" })}>
+                  # Uber Clone Coding
+                </Tag>
+                <br />
+                <i className={"nes-icon github"} />
+                <OutLink href="https://github.com/jerrynim/nuber-client">
+                  https://github.com/jerrynim
+                </OutLink>
+              </section>
+              <section
+                className={"nes-container with-title"}
+                style={{ marginBottom: "30px", width: "fit-content" }}
+              >
+                <h2 className={"title"}>2019.02</h2>
+                <Tag onClick={() => dispatch({ type: "BITCOIN" })}>
+                  # Bitcoin Clone Coding
+                </Tag>
+                <br />
+                <i className={"nes-icon github"} />
+                <OutLink href="https://github.com/jerrynim/bitcoin-explorer">
+                  https://github.com/jerrynim
+                </OutLink>
+              </section>
+              <section
+                className={"nes-container with-title"}
+                style={{ marginBottom: "30px", width: "fit-content" }}
+              >
+                <h2 className={"title"}>~2018</h2>
+                <Tag onClick={() => dispatch({ type: "NAVER" })}>
+                  # Naver 인기검색어 Extension
+                </Tag>{" "}
+                <br />
+                <Tag onClick={() => dispatch({ type: "WORDPRESS" })}>
+                  # WordPress SNS Ecommerce
+                </Tag>
+                <br />
+                <i className={"nes-icon github"} />
+                <OutLink href="https://github.com/jerrynim/NaverSearchWordExtension">
+                  https://github.com/jerrynim
+                </OutLink>
+                <i className={"nes-icon github"} />
+                <OutLink href="https://github.com/jerrynim/PickAndSell">
+                  https://github.com/jerrynim
+                </OutLink>
+              </section>
+            </Articles>
+          </div>
           <RightContent>
             <div
               className={"nes-balloon from-right"}
               style={{
-                marginRight: "80px",
-                width: "100%",
-                height: "100%",
                 backgroundColor: "black"
               }}
             >

@@ -1,7 +1,10 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
-  padding: 30px 30px 0px 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Background = styled.div`
   position: absolute;
@@ -65,7 +68,7 @@ const RightContent = styled.div`
 
 const ExperiencePresenter: React.FC = () => {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Background />
       <Container>
         <Wrapper>
@@ -75,8 +78,7 @@ const ExperiencePresenter: React.FC = () => {
               className={"nes-container with-title"}
               style={{
                 marginBottom: "30px",
-                width: "fit-content",
-                maxWidth: "600px"
+                width: "600px"
               }}
             >
               <h2 className={"title"}>Tools</h2>
@@ -98,13 +100,21 @@ const ExperiencePresenter: React.FC = () => {
               <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
                 <span className={"is-primary"}>VSC</span>
               </div>
+              <div className={"nes-badge"} style={{ marginBottom: "20px" }}>
+                <span className={"is-warning"}>Heroku</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-dark"}>AWS</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-success"}>Netlify</span>
+              </div>
             </section>
             <section
               className={"nes-container with-title"}
               style={{
                 marginBottom: "30px",
-                width: "fit-content",
-                maxWidth: "600px"
+                width: "600px"
               }}
             >
               <h2 className={"title"}>Modules</h2>
@@ -131,8 +141,7 @@ const ExperiencePresenter: React.FC = () => {
               className={"nes-container with-title"}
               style={{
                 marginBottom: "30px",
-                width: "fit-content",
-                maxWidth: "600px"
+                width: "600px"
               }}
             >
               <h2 className={"title"}>Knowledge</h2>
@@ -156,6 +165,9 @@ const ExperiencePresenter: React.FC = () => {
             >
               <ul className={"nes-list is-disc"}>
                 <li>삼육대학교 2020년 02월 졸업예정</li>
+                <li>2018 한이음 멘토링 수료</li>
+                <li>2018 데이터 모델링 경진대회</li>
+                <li>교내 프로젝트 경진대회 우수상</li>
               </ul>
             </section>
           </RightContent>
