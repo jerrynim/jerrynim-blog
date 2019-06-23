@@ -2,7 +2,9 @@ import React, { Dispatch } from "react";
 import styled, { keyframes } from "styled-components";
 const Container = styled.div`
   height: 100%;
-  padding: 30px 30px 0px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Background = styled.div`
   position: absolute;

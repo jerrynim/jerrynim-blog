@@ -91,7 +91,7 @@ const ExperiencePresenter: React.FC = () => {
               <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
                 <span className={"is-dark"}>Git</span>
               </div>
-              <div className={"nes-badge"}>
+              <div className={"nes-badge"} style={{ marginBottom: "20px" }}>
                 <span className={"is-primary"}>PhotoShop</span>
               </div>
               <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
@@ -100,7 +100,7 @@ const ExperiencePresenter: React.FC = () => {
               <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
                 <span className={"is-primary"}>VSC</span>
               </div>
-              <div className={"nes-badge"} style={{ marginBottom: "20px" }}>
+              <div className={"nes-badge"}>
                 <span className={"is-warning"}>Heroku</span>
               </div>
               <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
