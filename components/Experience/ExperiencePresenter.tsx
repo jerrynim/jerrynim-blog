@@ -13,7 +13,6 @@ const Background = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 const Articles = styled.div``;
 const Scrolldowns = styled.div`
@@ -61,12 +60,7 @@ const Scroller = styled.div`
 `;
 
 const RightContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 400px;
-  margin-right: 30px;
+  margin-left: 100px;
 `;
 
 const ExperiencePresenter: React.FC = () => {
@@ -74,35 +68,96 @@ const ExperiencePresenter: React.FC = () => {
     <div>
       <Background />
       <Container>
-        <h1>Experience</h1>
         <Wrapper>
           <Articles>
+            <h1>Experience</h1>
             <section
               className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
+              style={{
+                marginBottom: "30px",
+                width: "fit-content",
+                maxWidth: "600px"
+              }}
             >
-              <h2 className={"title"}>AndSoOn</h2>
+              <h2 className={"title"}>Tools</h2>
+              <div className={"nes-badge"} style={{ marginBottom: "20px" }}>
+                <span className={"is-error"}>Pigma</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-warning"}>Notion</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-dark"}>Git</span>
+              </div>
+              <div className={"nes-badge"}>
+                <span className={"is-primary"}>PhotoShop</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-warning"}>Slack</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-primary"}>VSC</span>
+              </div>
             </section>
             <section
               className={"nes-container with-title"}
-              style={{ marginBottom: "30px", width: "fit-content" }}
+              style={{
+                marginBottom: "30px",
+                width: "fit-content",
+                maxWidth: "600px"
+              }}
             >
-              <h2 className={"title"}>Tools</h2>
+              <h2 className={"title"}>Modules</h2>
+              <div className={"nes-badge"} style={{ marginBottom: "20px" }}>
+                <span className={"is-error"}>Passport</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-warning"}>Gulp</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-dark"}>Jest</span>
+              </div>
+              <div className={"nes-badge"}>
+                <span className={"is-primary"}>NodeMailer</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-error"}>Twillio</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-warning"}>Bcrypt</span>
+              </div>
+            </section>
+            <section
+              className={"nes-container with-title"}
+              style={{
+                marginBottom: "30px",
+                width: "fit-content",
+                maxWidth: "600px"
+              }}
+            >
+              <h2 className={"title"}>Knowledge</h2>
+              <div className={"nes-badge"} style={{ marginBottom: "20px" }}>
+                <span className={"is-error"}>BlockChain</span>
+              </div>
+              <div className={"nes-badge"} style={{ marginLeft: "20px" }}>
+                <span className={"is-primary"}>SQL</span>
+              </div>
             </section>
           </Articles>
           <RightContent>
-            <div
-              className={"nes-balloon from-right"}
+            <h1>ETC</h1>
+            <section
+              className={"nes-container with-title"}
               style={{
-                marginRight: "80px",
-                width: "100%",
-                height: "100%",
-                backgroundColor: "black"
+                marginBottom: "30px",
+                width: "fit-content",
+                padding: "10px 10px 10px 0px"
               }}
             >
-              <div style={{ color: "papayawhip" }}>adsfasd</div>
-            </div>
-            <i className={"nes-charmander"} />
+              <ul className={"nes-list is-disc"}>
+                <li>삼육대학교 2020년 02월 졸업예정</li>
+              </ul>
+            </section>
           </RightContent>
         </Wrapper>
         <Scrolldowns>

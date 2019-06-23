@@ -94,6 +94,10 @@ const Profile: React.FC = () => {
                 <br />
                 최신기술을 좋아하며 기술을 배우고 발전하는 것을 좋아합니다.
                 <br />
+                웹 개발을 공부한지 1년정도 되었으며 사용자에게 최적의 서비스를
+                주는
+                <br />
+                개발을 하고 싶습니다.
               </div>
             </section>
             <section
@@ -101,12 +105,7 @@ const Profile: React.FC = () => {
               style={{ marginBottom: "30px" }}
             >
               <h2 className={"title"}>Position</h2>
-              <div>
-                Fronted Developer
-                <br />
-                Node.js Develpopr
-                <br />
-              </div>
+              <div>Fronted Developer</div>
             </section>
             <section className={"nes-container with-title"}>
               <h2 className={"title"}>Links</h2>

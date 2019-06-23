@@ -139,11 +139,11 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
                   Apollo
                 </button>
                 <button
-                  className="nes-btn is-primary"
+                  className="nes-btn is-success"
                   style={{ marginLeft: "20px" }}
                   onClick={() => dispatch({ type: "EXPO" })}
                 >
-                  Expo
+                  Redux
                 </button>
                 <button
                   className="nes-btn is-success"
@@ -231,7 +231,13 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
               className={"nes-balloon from-right"}
               style={{ marginRight: "80px", width: "100%", height: "100%" }}
             >
-              <div>{text}</div>
+              <div
+                style={{
+                  wordBreak: "break-word"
+                }}
+              >
+                {text}
+              </div>
             </div>
             <i className={"nes-squirtle"} />
           </RightContent>

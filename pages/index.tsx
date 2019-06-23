@@ -5,6 +5,7 @@ import Profile from "../components/Profile";
 import Helmet from "rl-react-helmet";
 import Tech from "../components/Tech";
 import Experience from "../components/Experience";
+import Project from "../components/Project";
 const Section = styled.div`
   width: 100%;
   height: 100%;
@@ -46,6 +47,11 @@ const index: React.FunctionComponent = () => {
                 <div className="section">
                   <Section>
                     <Experience />
+                  </Section>
+                </div>
+                <div className="section">
+                  <Section>
+                    <Project />
                   </Section>
                 </div>
               </ReactFullpage.Wrapper>
