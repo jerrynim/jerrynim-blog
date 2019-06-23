@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import ExperiencePresenter from "./SendMailPresenter";
 import { useDispatch, useSelector } from "react-redux";
-import { sendTotMail } from "../../utils/sendEmail";
 
 interface Mail {
   nickname: string;
@@ -19,7 +18,6 @@ const SendMailContainer = () => {
   };
   const SendMail = () => {
     const { nickname, message } = mail;
-    sendTotMail(nickname, message);
     dispatch({ type: "SENDMAIL" });
   };
   return (
