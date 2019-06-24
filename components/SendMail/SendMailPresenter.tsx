@@ -29,6 +29,18 @@ const Bottom = styled.div`
   top: 0;
   justify-content: center;
 `;
+
+const Info = styled.div`
+  @font-face {
+    font-family: "Handon3gyeopsal600g";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-size: 18px;
+  font-family: "Handon3gyeopsal600g";
+`;
 interface Mail {
   nickname: string;
   message: string;
@@ -54,10 +66,12 @@ const SendMailPresenter: React.FC<IProps> = ({
         <Wrapper>
           <h2>SendMail</h2>
           <section className={"nes-container"} style={{ marginBottom: "20px" }}>
-            여기까지 봐주셔서 감사합니다. 부족한 점이 있거나 궁금하신게
-            있으시다면 메일을 보내주시기 바랍니다. <br />
-            받은메세지를 토대로 더욱 발전 하도록 하겠습니다. <br />
-            감사합니다.
+            <Info>
+              여기까지 봐주셔서 감사합니다. 부족한 점이 있거나 궁금하신게
+              있으시다면 메일을 보내주시기 바랍니다. <br />
+              받은메세지를 토대로 더욱 발전 하도록 하겠습니다. <br />
+              감사합니다.
+            </Info>
           </section>
           <section className={"nes-container with-title"}>
             <h3 className={"title"}>SendMail</h3>

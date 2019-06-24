@@ -96,6 +96,19 @@ const Tag = styled.span`
   }
 `;
 
+const Text = styled.div`
+  color: papayawhip;
+  word-break: break-word;
+  @font-face {
+    font-family: "Handon3gyeopsal600g";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "Handon3gyeopsal600g";
+  font-size: 20px;
+`;
 interface IProps {
   project: string;
   dispatch: Dispatch<any>;
@@ -212,9 +225,7 @@ const ProjectPresenter: React.FC<IProps> = ({ project, dispatch }) => {
                 backgroundColor: "black"
               }}
             >
-              <div style={{ color: "papayawhip", wordBreak: "break-word" }}>
-                {project}
-              </div>
+              <Text>{project}</Text>
             </div>
             <i className={"nes-charmander"} />
           </RightContent>

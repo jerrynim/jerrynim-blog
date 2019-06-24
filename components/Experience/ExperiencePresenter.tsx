@@ -65,7 +65,17 @@ const Scroller = styled.div`
 const RightContent = styled.div`
   margin-left: 100px;
 `;
-
+const Li = styled.li`
+  @font-face {
+    font-family: "Handon3gyeopsal600g";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "Handon3gyeopsal600g";
+  font-size: 18px;
+`;
 const ExperiencePresenter: React.FC = () => {
   return (
     <div style={{ height: "100%" }}>
@@ -164,10 +174,10 @@ const ExperiencePresenter: React.FC = () => {
               }}
             >
               <ul className={"nes-list is-disc"}>
-                <li>삼육대학교 2020년 02월 졸업예정</li>
-                <li>2018 한이음 멘토링 수료</li>
-                <li>2018 데이터 모델링 경진대회</li>
-                <li>교내 프로젝트 경진대회 우수상</li>
+                <Li>삼육대학교 2020년 02월 졸업예정</Li>
+                <Li>2018 한이음 멘토링 수료</Li>
+                <Li>2018 데이터 모델링 경진대회</Li>
+                <Li>교내 프로젝트 경진대회 우수상</Li>
               </ul>
             </section>
           </RightContent>

@@ -72,7 +72,18 @@ const RightContent = styled.div`
   justify-content: flex-end;
   text-align: -webkit-right;
 `;
-
+const Text = styled.div`
+  word-break: break-word;
+  @font-face {
+    font-family: "Handon3gyeopsal600g";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "Handon3gyeopsal600g";
+  font-size: 20px;
+`;
 interface IProps {
   text: string;
   dispatch: Dispatch<any>;
@@ -205,13 +216,7 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
           </Articles>
           <RightContent>
             <div className={"nes-balloon from-right"}>
-              <div
-                style={{
-                  wordBreak: "break-word"
-                }}
-              >
-                {text}
-              </div>
+              <Text>{text}</Text>
             </div>
             <i className={"nes-squirtle"} />
           </RightContent>

@@ -70,6 +70,17 @@ const Scroller = styled.div`
 const LinkWrapper = styled.div`
   margin-bottom: 10px;
 `;
+const Intro = styled.div`
+  @font-face {
+    font-family: "Handon3gyeopsal600g";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-size: 18px;
+  font-family: "Handon3gyeopsal600g";
+`;
 const OutLink = styled.a`
   margin-left: 10px;
   color: #212529;
@@ -96,7 +107,7 @@ const Profile: React.FC = () => {
               style={{ marginBottom: "30px" }}
             >
               <h2 className={"title"}>Introduce</h2>
-              <div>
+              <Intro>
                 안녕하세요.저는 Javascript 개발자 입니다.
                 <br />
                 최신기술을 좋아하며 기술을 배우고 발전하는 것을 좋아합니다.
@@ -104,7 +115,7 @@ const Profile: React.FC = () => {
                 웹 개발을 공부한지 1년정도 되었으며 저와 사용자 모두
                 <br />
                 만족하는 서비스를 만들고 싶습니다.
-              </div>
+              </Intro>
             </section>
             <section
               className={"nes-container with-title"}
