@@ -29,16 +29,23 @@ const Bottom = styled.div`
   top: 0;
   justify-content: center;
 `;
-
+interface Mail {
+  nickname: string;
+  message: string;
+}
 interface IProps {
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onMessageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   SendMail: () => void;
+  mail: Mail;
+  Thanks: string;
 }
 const SendMailPresenter: React.FC<IProps> = ({
   onInputChange,
   onMessageChange,
-  SendMail
+  SendMail,
+  mail: { nickname, message },
+  Thanks
 }) => {
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
@@ -56,18 +63,31 @@ const SendMailPresenter: React.FC<IProps> = ({
             <h3 className={"title"}>SendMail</h3>
             <label>Nickname</label>
             <input
+              value={nickname}
               type={"text"}
               className={"nes-input"}
               onChange={onInputChange}
             />
             <label style={{ marginTop: "20px" }}>Message</label>
             <input
+              value={message}
               className={"nes-input"}
               style={{ height: "250px" }}
               onChange={onMessageChange}
             />
-            <div style={{ textAlign: "right", marginTop: "20px" }}>
-              <button className={"nes-btn is-primary"} onClick={SendMail}>
+            <div
+              style={{
+                textAlign: "right",
+                marginTop: "20px",
+                fontWeight: 900
+              }}
+            >
+              {Thanks}
+              <button
+                className={"nes-btn is-primary"}
+                onClick={SendMail}
+                style={{ marginLeft: "20px" }}
+              >
                 Submit
               </button>
             </div>

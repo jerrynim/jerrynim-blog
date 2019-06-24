@@ -139,7 +139,6 @@ const TechPresenter: React.FC<IProps> = ({ text, dispatch }) => {
               <div>
                 <button
                   className="nes-btn is-success"
-                  style={{ marginLeft: "20px" }}
                   onClick={() => dispatch({ type: "REDUX" })}
                 >
                   Redux

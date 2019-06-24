@@ -84,7 +84,7 @@ const RightContent = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   width: 400px;
-  margin-right: 30px;
+  margin-left: 50px;
 `;
 const OutLink = styled.a`
   margin-left: 10px;
