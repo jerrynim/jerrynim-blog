@@ -116,7 +116,6 @@ interface IProps {
   dispatch: Dispatch<any>;
 }
 const ProjectPresenter: React.FC<IProps> = ({ project, dispatch }) => {
-
   return (
     <div style={{ height: "100%" }}>
       <Background />
@@ -149,6 +148,11 @@ const ProjectPresenter: React.FC<IProps> = ({ project, dispatch }) => {
                 <Tag onClick={() => dispatch({ type: "INSTAGRAM" })}>
                   # Instagram Clone Coding
                 </Tag>
+                <br />
+                <i className={"nes-icon instagram"} />
+                <OutLink href="https://jerrynim-instagram.netlify.com">
+                  https://jerrynim-instagram.netlify.com/
+                </OutLink>
                 <br />
                 <i className={"nes-icon github"} />
                 <OutLink href="https://github.com/jerrynim/PrismagremClient">
