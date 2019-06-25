@@ -83,6 +83,7 @@ const Text = styled.div`
   }
   font-family: "Handon3gyeopsal600g";
   font-size: 20px;
+  text-align: left;
 `;
 interface IProps {
   text: string;

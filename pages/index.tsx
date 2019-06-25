@@ -11,10 +11,12 @@ const Section = styled.div`
   width: 100%;
   height: 100%;
 `;
+
 const index: React.FunctionComponent = () => {
   //header link가 불러오기까지 기다린다.(css가 적용되기전에 200ms 정도 보여지는 문제)
   const [loading, setLoading] = useState("default");
   useEffect(() => {}, []);
+
   return (
     <>
       <Helmet
@@ -32,6 +34,7 @@ const index: React.FunctionComponent = () => {
       </Helmet>
       {loading === "loaded" && (
         <ReactFullpage
+          scrollOverflow={true}
           render={() => {
             return (
               <ReactFullpage.Wrapper>

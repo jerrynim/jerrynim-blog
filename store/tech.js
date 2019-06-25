@@ -21,8 +21,7 @@ const tech = (state = initialState, action) => {
       Class형식으로 사용할때부터 지금의 Hooks와 함께 함수형 프로그래밍까지 사용해보았고
       웹 개발을 편하게 해줘서 좋아하는 라이브러리 입니다.`;
     case "REACTNATIVE":
-      return `React Native는 React에 익숙하여 사용하게 되었습니다. 사용하면서 웹과 앱의 차이점을 보고 React-native-navigation,Animated등
-      문서를 읽으면서 공부하고 주말의 뭐하지 라는 앱을 클론코딩하면서 익혀보았습니다.
+      return `React Native는 React에 익숙하여 사용하게 되었습니다. 사용하면서 웹과 앱의 차이점을 보고 React-native-navigation, Animated등 문서를 읽으면서 공부하고 주말의 뭐하지 라는 앱을 클론코딩하면서 익혀보았습니다.
       `;
     case "NEXTJS":
       return `Nextjs는 서버 사이드 렌더링을 위해 사용하였습니다. 

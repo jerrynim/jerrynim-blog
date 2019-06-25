@@ -99,6 +99,8 @@ const Tag = styled.span`
 const Text = styled.div`
   color: papayawhip;
   word-break: break-word;
+  text-align: left;
+
   @font-face {
     font-family: "Handon3gyeopsal600g";
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
@@ -114,6 +116,7 @@ interface IProps {
   dispatch: Dispatch<any>;
 }
 const ProjectPresenter: React.FC<IProps> = ({ project, dispatch }) => {
+
   return (
     <div style={{ height: "100%" }}>
       <Background />
