@@ -1,8 +1,7 @@
-#Jerrynim-Portfolio
+#Jerrynim-Blog
 
-포트폴리오 페이지 입니다.
-Next.js, Redux, typescript, nes-css 를 이용하여 만들었습니다.
+Next.js, Apollo, Prisma, jest, typescript, styled-components 사용
 
-Notion : https://www.notion.so/jerrynim/Portfolio-9bcbd84131cd487cb42fb0e2fa31896e
+Pigma : https://www.figma.com/file/ehSagpiTA04PaDEEUVPogREI/Portfolio-ver2?node-id=0%3A1
 
-Page : https://jerrynim-portfolio.netlify.com/
+Notion : https://www.notion.so/jerrynim/jerrynim-Blog-9777df9160904df898f3bcfbdc1a64a1
