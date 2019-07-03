@@ -1,20 +1,17 @@
 import App, { Container } from "next/app";
 import React from "react";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import rootReducer from "../store";
-
-const store = createStore(rootReducer, composeWithDevTools());
-
+import { ThemeProvider } from "styled-components";
+import theme from "../style/theme";
+import GlobalStyles from "../style/GlobalStyle";
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <Provider store={store}>
+        <GlobalStyles />
+        <ThemeProvider theme={theme}>
           <Component {...pageProps} />
-        </Provider>
+        </ThemeProvider>
       </Container>
     );
   }
