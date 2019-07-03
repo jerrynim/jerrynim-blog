@@ -1,32 +1,38 @@
-import { createServer } from "http";
-import { parse } from "url";
+import express from "express";
 import next from "next";
 
-const port = parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url!, true);
-    const { pathname, query } = parsedUrl;
+app
+  .prepare()
+  .then(() => {
+    const server = express();
 
-    if (pathname === "/Counter") {
-      app.render(req, res, "/Counter", query);
-    } else if (pathname === "/Articles") {
-      app.render(req, res, "/Articles", query);
-    } else if (pathname === "/") {
-      app.render(req, res, "/", query);
-    } else {
-      handle(req, res, parsedUrl);
-    }
-  }).listen(port);
+    //커스텀 라우터 전후 비교 시 아래 부분을 주석 처리 후 확인해 보세요
+    server.get("/AboutMe", (req, res) => {
+      const page = "/AboutMe";
+      app.render(req, res, page);
+    });
+    server.get("/Articles/:title", (req, res) => {
+      const page = "/Articles";
+      const params = { title: req.params.title };
+      app.render(req, res, page, params);
+    });
 
-  // tslint:disable-next-line:no-console
-  console.log(
-    `> Server listening at http://localhost:${port} as ${
-      dev ? "development" : process.env.NODE_ENV
-    }`
-  );
-});
+    server.get("*", (req, res) => {
+      return handle(req, res);
+    });
+
+    server.route("/Articles");
+
+    server.listen(3000, (err) => {
+      if (err) throw err;
+      console.log("> Ready on Server Port: 3000");
+    });
+  })
+  .catch((ex) => {
+    console.error(ex.stack);
+    process.exit(1);
+  });

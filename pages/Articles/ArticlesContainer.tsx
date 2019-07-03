@@ -1,7 +1,9 @@
 import React from "react";
 import ArticlePresenter from "./ArticlesPresenter";
+import Link from "next/link";
 
-const ArticleContainer: React.FC = () => {
+const ArticleContainer: React.FC = (props) => {
+  console.log(props);
   const Posts = [
     {
       image:

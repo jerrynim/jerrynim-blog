@@ -9,10 +9,11 @@
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "production": "NODE_ENV=production",
-    "start": "node pages/index.js"
+    "start": "ts-node server/index.ts"
   },
   "repository": "https://github.com/zhangist/nextjs-typescript-boilerplate",
   "dependencies": {
+    "@types/express": "^4.17.0",
     "@types/react-lottie": "^1.2.2",
     "@types/react-outside-click-handler": "^1.2.0",
     "@types/react-sidebar": "^3.0.0",
