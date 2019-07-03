@@ -8,6 +8,8 @@ const Container = styled.div`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  background-color: white;
 `;
 const Title = styled.div`
   font-size: 24px;
@@ -48,12 +50,14 @@ interface IProps {
   Side: boolean;
   MenuOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   toggleSidebar: Dispatch<SetStateAction<boolean>>;
+  pathname: string;
 }
 
 const HeaderPresenter: React.FC<IProps> = ({
   Side,
   MenuOnClick,
-  toggleSidebar
+  toggleSidebar,
+  pathname
 }) => {
   return (
     <>
@@ -68,7 +72,7 @@ const HeaderPresenter: React.FC<IProps> = ({
             <MenuIcon src="../../static/menuIcon.png" alt="" />
           </MenuButton>
           <Title>Jerrynim Blog</Title>
-          <Route href="/AboutMe">/Articles</Route>
+          <Route href={`${pathname}`}>{pathname}</Route>
         </Left>
         <Right>
           <ShareIcon src="../../static/shareIcon.png" alt="" />

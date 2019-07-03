@@ -1,7 +1,7 @@
 import styled from "../../style/typed-components";
 
 const Container = styled.div<{ Side: boolean }>`
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 300px;
   transform: ${(props) => (props.Side ? "" : "translateX(-300px)")};

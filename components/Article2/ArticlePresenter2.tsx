@@ -4,7 +4,7 @@ import styled from "../../style/typed-components";
 const Container = styled.div`
   width: 100%;
   height: 600px;
-  background-color: white;
+  background-color: ${(props) => props.theme.blueGray};
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -53,6 +53,7 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
   return (
     <div>
       <Container>
+        <Image src={Post.image} alt="" />
         <Texts>
           <Title>{Post.title}</Title>
           <SubTitle>{Post.subTitle}</SubTitle>
@@ -62,7 +63,6 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
             ))}
           </Tags>
         </Texts>
-        <Image src={Post.image} alt="" />
       </Container>
     </div>
   );
