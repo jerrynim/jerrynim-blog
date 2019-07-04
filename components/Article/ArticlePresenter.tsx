@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "../../style/typed-components";
+import Link from "next/link";
 
 const Container = styled.div`
   width: 100%;
@@ -54,6 +55,12 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
     <div>
       <Container>
         <Texts>
+          <Link
+            as={`/Articles/${Post.title}`}
+            href={`/Articles?title=${Post.title}`}
+          >
+            <a>asd</a>
+          </Link>
           <Title>{Post.title}</Title>
           <SubTitle>{Post.subTitle}</SubTitle>
           <Tags>

@@ -15,8 +15,12 @@ app
       const page = "/AboutMe";
       app.render(req, res, page);
     });
-    server.get("/Articles/:title", (req, res) => {
+    server.get("/Articles", (req, res) => {
       const page = "/Articles";
+      app.render(req, res, page);
+    });
+    server.get("/Articles/:title", (req, res) => {
+      const page = "/FullArticle";
       const params = { title: req.params.title };
       app.render(req, res, page, params);
     });
@@ -24,8 +28,6 @@ app
     server.get("*", (req, res) => {
       return handle(req, res);
     });
-
-    server.route("/Articles");
 
     server.listen(3000, (err) => {
       if (err) throw err;

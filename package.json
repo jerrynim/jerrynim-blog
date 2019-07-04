@@ -9,7 +9,7 @@
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "production": "NODE_ENV=production",
-    "start": "ts-node server/index.ts"
+    "start": "NODE_ENV=production node dist/index.js"
   },
   "repository": "https://github.com/zhangist/nextjs-typescript-boilerplate",
   "dependencies": {
