@@ -12,7 +12,7 @@ const FullArticleContainer: React.FC = (props) => {
     title: "GraphQL 과 Apollo 사용하기",
     subTitle: "Open Scourcing GraphQL middleware",
     tags: ["graphql", "Apollo", "Middleware"],
-    Post: "<h1>Title</h1> <SubTitle>안녕하세요</SubTitle>"
+    Post: `<h1>Title</h1> <h2 style="color:red;">안녕하세요</h2>`
   };
   return <FullArticlePresenter data={data} />;
 };
