@@ -18,7 +18,6 @@ interface IProps {
 }
 
 const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
-  console.log(data);
   const html = `${data.Post}`;
 
   return (
