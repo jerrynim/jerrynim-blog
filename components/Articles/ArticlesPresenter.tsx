@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../components/Header";
-import Article from "../../components/Article";
-import Article2 from "../../components/Article2";
+import Header from "../Header";
+import Article from "../Article";
+import Article2 from "../Article2";
 interface IProps {
   Posts: {
     image: string;
