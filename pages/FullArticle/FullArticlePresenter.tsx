@@ -8,7 +8,13 @@ const Container = styled.div`
   }
 `;
 interface IProps {
-  data: any;
+  data: {
+    image: string;
+    title: string;
+    subTitle: string;
+    tags: string[];
+    Post: string;
+  };
 }
 
 const FullArticlePresenter: React.FC<IProps> = ({ data }) => {

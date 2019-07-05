@@ -5,7 +5,6 @@ import { withRouter } from "next/router";
 const FullArticleContainer: React.FC = (props) => {
   // @ts-ignore: Unreachable code error
   const { title } = props.router.query;
-  console.log(title);
 
   const data = {
     image:
