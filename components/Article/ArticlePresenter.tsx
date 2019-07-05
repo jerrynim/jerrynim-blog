@@ -57,11 +57,11 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
         <Texts>
           <Link
             as={`/Articles/${Post.title}`}
-            href={`/Articles?title=${Post.title}`}
+            href={`/FullArticle?title=${Post.title}`}
           >
-            <a>asd</a>
+            <Title>{Post.title}</Title>
           </Link>
-          <Title>{Post.title}</Title>
+
           <SubTitle>{Post.subTitle}</SubTitle>
           <Tags>
             {Post.tags.map((tag, index) => (

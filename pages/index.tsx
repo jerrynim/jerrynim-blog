@@ -4,7 +4,7 @@ const BoardLink = (props: any) => (
   <li>
     <Link
       as={`/Articles/${props.title}`}
-      href={`/Articles?title=${props.title}`}
+      href={`/FullArticle?title=${props.title}`}
     >
       <a>{props.title}</a>
     </Link>
