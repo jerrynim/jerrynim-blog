@@ -20,5 +20,6 @@
     "sourceMap": true,
     "resolveJsonModule": true
   },
-  "exclude": ["dist", ".next", "out", "next.config.js", "static"]
+  "include": ["server/**/*.ts"],
+  "exclude": ["dist", ".next", "out", "next.config.js", "static", "tests"]
 }

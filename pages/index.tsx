@@ -1,23 +1,11 @@
-import Link from "next/link";
+import * as React from "react";
 
-const BoardLink = (props: any) => (
-  <li>
-    <Link
-      as={`/Articles/${props.title}`}
-      href={`/FullArticle?title=${props.title}`}
-    >
-      <a>{props.title}</a>
-    </Link>
-  </li>
-);
+export default class extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+  }
 
-export default () => (
-  <div>
-    <h2>게시판 리스트</h2>
-    <ul>
-      <BoardLink title="as1" />
-      <BoardLink title="as2" />
-      <BoardLink title="as3" />
-    </ul>
-  </div>
-);
+  render() {
+    return <div>Hello Next.js</div>;
+  }
+}
