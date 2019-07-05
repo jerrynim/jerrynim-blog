@@ -10,8 +10,15 @@ module.exports = {
       tsConfig: "jest.tsconfig.json"
     }
   },
-  coveragePathIgnorePatterns: ["/node_modules/", "enzyme.js"],
-  setupFilesAfterEnv: ["<rootDir>/enzyme.js"],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    ".next",
+    "dist",
+    "server",
+    "static",
+    "style"
+  ],
+  setupFilesAfterEnv: ["<rootDir>/__tests__/setupTests.ts"],
   coverageReporters: ["json", "lcov", "text", "text-summary"],
   moduleNameMapper: {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":

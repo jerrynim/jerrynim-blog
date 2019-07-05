@@ -1,4 +1,5 @@
 import * as React from "react";
+import Header from "../components/Header";
 
 export default class extends React.Component<any, any> {
   constructor(props) {
@@ -6,6 +7,11 @@ export default class extends React.Component<any, any> {
   }
 
   render() {
-    return <div>Hello Next.js</div>;
+    return (
+      <div>
+        <Header />
+        <p>Hello Next.js</p>
+      </div>
+    );
   }
 }

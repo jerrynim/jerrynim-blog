@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "../../style/typed-components";
 
 const Container = styled.div<{ Side: boolean }>`

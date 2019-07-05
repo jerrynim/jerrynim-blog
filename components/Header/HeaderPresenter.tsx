@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Sidebar from "../Sidebar";
-import { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 const Container = styled.div`
   height: 56px;
@@ -60,7 +60,7 @@ const HeaderPresenter: React.FC<IProps> = ({
   pathname
 }) => {
   return (
-    <>
+    <div>
       <Sidebar
         Side={Side}
         toggleSidebar={toggleSidebar}
@@ -78,7 +78,7 @@ const HeaderPresenter: React.FC<IProps> = ({
           <ShareIcon src="../../static/shareIcon.png" alt="" />
         </Right>
       </Container>
-    </>
+    </div>
   );
 };
 export default HeaderPresenter;

@@ -1,6 +1,6 @@
 import SidebarPresenter from "./SidebarPresenter";
 import OutsideClickHandler from "react-outside-click-handler";
-import { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 interface IProps {
   Side: boolean;
   MenuOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
