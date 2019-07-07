@@ -10,7 +10,8 @@
     "moduleResolution": "node",
     "lib": ["es2017", "dom"],
     "typeRoots": ["node_modules/@types"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "out", ".next"]
 }

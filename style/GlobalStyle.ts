@@ -20,6 +20,33 @@ const GlobalStyles = createGlobalStyle`
         color: inherit;
     text-decoration: none;
     }
+    
+    .title{
+        margin-bottom:18px;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 33px;
+        color: #333333;
+
+    }
+    .text{
+        margin-bottom:18px;
+        font-size: 17px;
+        line-height: 16px;
+        color: #757575;
+
+    }
+
+    .imgbox{
+        text-align:center;
+    }
+    .img{
+        width:430px;
+        height:320px;
+        display: block;
+  margin-left: auto;
+  margin-right: auto;
+    }
 `;
 
 export default GlobalStyles;

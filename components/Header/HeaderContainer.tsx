@@ -13,17 +13,14 @@ const HeaderContainer: React.FC<Props> = (props) => {
     event.preventDefault();
     toggleSidebar(!Side);
   };
-  console.log(props);
   return (
     <div>
-      {props.router && (
-        <HeaderPresenter
-          Side={Side}
-          MenuOnClick={MenuOnClick}
-          toggleSidebar={toggleSidebar}
-          pathname={props.router.pathname}
-        />
-      )}
+      <HeaderPresenter
+        Side={Side}
+        MenuOnClick={MenuOnClick}
+        toggleSidebar={toggleSidebar}
+        pathname={""}
+      />
     </div>
   );
 };
