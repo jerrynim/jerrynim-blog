@@ -86,7 +86,15 @@ interface IProps {
     title: string;
     subTitle: string;
     tags: string[];
-    Post: string;
+    Post: {
+      Content: string;
+      Comments: {
+        id: string;
+        nickname: string;
+        text: string;
+        createdAt: string;
+      }[];
+    };
   };
 }
 
@@ -106,7 +114,6 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
   };
 
   const handler = useCallback((event) => {
-    console.log(window.pageYOffset);
     if (window.pageYOffset <= elementsYPositon[0]) {
       setFocus(0);
     } else {
@@ -138,7 +145,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
       <Header />
       <Container>
         <Navigator number={focus}>
-          {parse(data.Post, {
+          {parse(data.Post.Content, {
             replace: ({ attribs, children }) => {
               if (attribs && attribs.class === "title" && children) {
                 return (
@@ -159,7 +166,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
             <Overlay />
           </PostHeader>
           <Post>
-            {parse(data.Post, {
+            {parse(data.Post.Content, {
               replace: ({ attribs, children }) => {
                 if (attribs && attribs.class === "title" && children) {
                   const ref2: LegacyRef<HTMLHeadingElement> = React.createRef();

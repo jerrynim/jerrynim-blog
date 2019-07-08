@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "../../style/typed-components";
+import Link from "next/link";
 
 const Container = styled.div`
   width: 100%;
@@ -55,7 +56,12 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
       <Container>
         <Image src={Post.image} alt="" />
         <Texts>
-          <Title>{Post.title}</Title>
+          <Link
+            as={`/Articles/${Post.title}`}
+            href={`/FullArticle?title=${Post.title}`}
+          >
+            <Title>{Post.title}</Title>
+          </Link>
           <SubTitle>{Post.subTitle}</SubTitle>
           <Tags>
             {Post.tags.map((tag, index) => (
