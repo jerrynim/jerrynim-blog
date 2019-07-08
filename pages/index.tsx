@@ -13,7 +13,6 @@ export default class extends React.Component<any, any> {
         <Header />
         <p>Hello Next.js</p>
         <Footer />
-        <Comments />
       </div>
     );
   }

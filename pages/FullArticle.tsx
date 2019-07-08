@@ -1,6 +1,9 @@
 import React from "react";
 import FullArticle from "../components/FullArticle";
-const App: React.FC = () => {
-  return <FullArticle />;
+import { withRouter } from "next/router";
+const App: React.FC = (props) => {
+  // @ts-ignore: Unreachable code error
+  const { title } = props.router.query;
+  return <FullArticle title={title} />;
 };
-export default App;
+export default withRouter(App);

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import FullArticlePresenter from "./FullArticlePresenter";
-import { withRouter } from "next/router";
 
-const FullArticleContainer: React.FC = (props) => {
-  // @ts-ignore: Unreachable code error
-  const { title } = props.router.query;
+interface IProps {
+  title: any;
+}
+
+const FullArticleContainer: React.FC<IProps> = ({ title }) => {
+  console.log(title);
   const [data, setData] = useState({
     image:
       "https://jerrynim-instagram.s3.ap-northeast-2.amazonaws.com/39fccae0-8053-11e9-b954-89b6e830b3a7-illu6.jpg",
@@ -41,4 +43,4 @@ const FullArticleContainer: React.FC = (props) => {
   });
   return <FullArticlePresenter data={data} />;
 };
-export default withRouter(FullArticleContainer);
+export default FullArticleContainer;
