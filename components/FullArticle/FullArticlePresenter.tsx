@@ -9,6 +9,7 @@ import styled from "styled-components";
 import Header from "../Header";
 import parse, { domToReact } from "html-react-parser";
 import _ from "lodash";
+import Comments from "../Comments";
 const Container = styled.div`
   padding-top: 56px;
   width: 100%;
@@ -181,6 +182,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
               }
             })}
           </Post>
+          <Comments data={data.Post.Comments} />
         </Background>
       </Container>
     </>
