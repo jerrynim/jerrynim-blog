@@ -10,24 +10,15 @@ app
   .then(() => {
     const server = express();
 
-    server.get("/AboutMe", (req, res) => {
+    server.get("/aboutme", (req, res) => {
       const page = "/AboutMe";
       app.render(req, res, page);
     });
-    server.get("/Articles", (req, res) => {
+    server.get("/articles", (req, res) => {
       const page = "/Articles";
       app.render(req, res, page);
     });
-    server.get("/Articles/:title", (req, res) => {
-      const page = "/FullArticle";
-      const params = { title: req.params.title };
-      app.render(req, res, page, params);
-    });
-    server.get("/FullArticle", (req, res) => {
-      const page = "/FullArticle";
-      app.render(req, res, page);
-    });
-    server.get("/FullArticle/:title", (req, res) => {
+    server.get("/articles/:title", (req, res) => {
       const page = "/FullArticle";
       const params = { title: req.params.title };
       app.render(req, res, page, params);
