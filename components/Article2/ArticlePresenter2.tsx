@@ -56,10 +56,7 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
       <Container>
         <Image src={Post.image} alt="" />
         <Texts>
-          <Link
-            as={`/Articles/${Post.title}`}
-            href={`/FullArticle?title=${Post.title}`}
-          >
+          <Link href={`/articles/${Post.title}`}>
             <Title>{Post.title}</Title>
           </Link>
           <SubTitle>{Post.subTitle}</SubTitle>
