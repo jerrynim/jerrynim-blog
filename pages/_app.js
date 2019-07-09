@@ -2,7 +2,7 @@ import App, { Container } from "next/app";
 import React from "react";
 import Head from "next/head";
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "../style/typed-components";
 import theme from "../style/theme";
 import GlobalStyles from "../style/GlobalStyle";
 export default class MyApp extends App {

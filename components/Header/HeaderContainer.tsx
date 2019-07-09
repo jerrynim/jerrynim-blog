@@ -6,7 +6,7 @@ interface Props {
   router: SingletonRouter;
 }
 
-const HeaderContainer: React.FC<Props> = (props) => {
+const HeaderContainer: React.FC<Props> = () => {
   const [Side, toggleSidebar] = useState(false);
 
   const MenuOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {

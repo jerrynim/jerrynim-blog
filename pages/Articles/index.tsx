@@ -1,4 +1,4 @@
-import Articles from "../components/Articles";
+import Articles from "../../components/Articles";
 
 import React from "react";
 

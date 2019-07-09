@@ -1,16 +1,21 @@
-import * as React from "react";
+import React, { useState } from "react";
 
-import Link from "next/link";
-export default class extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-  }
+export default () => {
+  const [data, setData] = useState("");
 
-  render() {
-    return (
-      <div>
-        <p>Hello Next.js</p>
-      </div>
+  const getData = async () => {
+    const data = await fetch("http://localhost:3000/api/hello").then((r) =>
+      r.text()
     );
-  }
-}
+    console.log(data);
+    setData(data);
+  };
+  return (
+    <div>
+      <p>Hello Next.js</p>
+      <button onClick={getData}>asdf</button>
+      <br />
+      {data}
+    </div>
+  );
+};

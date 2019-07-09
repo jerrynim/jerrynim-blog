@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  LegacyRef,
-  useEffect,
-  useCallback
-} from "react";
+import React, { useState, LegacyRef, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import Header from "../Header";
 import parse, { domToReact } from "html-react-parser";
@@ -101,20 +95,20 @@ interface IProps {
 
 const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
   console.log("rendered");
-  let refs = [];
-  let elementsYPositon = [];
+  let refs: any = [];
+  let elementsYPositon: Array<number> = [];
 
   const [focus, setFocus] = useState(0);
 
-  const scrollToTitle = (title) => {
-    const target = refs.find((ref) => ref.current.id === title);
+  const scrollToTitle = (title: string) => {
+    const target = refs.find((ref: any) => ref!.current.id === title);
     target.current.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
   };
 
-  const handler = useCallback((event) => {
+  const handler = useCallback(() => {
     if (window.pageYOffset <= elementsYPositon[0]) {
       setFocus(0);
     } else {
@@ -130,7 +124,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
   }, []);
 
   useEffect(() => {
-    refs.map((ref) => {
+    refs.map((ref: any) => {
       if (ref.current) {
         elementsYPositon.push(ref.current.offsetTop);
       }
