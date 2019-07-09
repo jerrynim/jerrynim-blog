@@ -29,7 +29,6 @@ const TextArea = styled(TextareaAutosize)`
   resize: none;
 `;
 const NickNameBox = styled.div`
-  margin-top: 10px;
   display: flex;
   align-items: center;
 `;
@@ -79,6 +78,20 @@ const Time = styled.div`
   font-size: 13px;
 `;
 
+const SubmitArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+`;
+const SubmitButton = styled.button`
+  background-color: #2f80ed;
+  color: white;
+  border-radius: 40px;
+  width: 55px;
+  font-size: 16px;
+  height: 24px;
+`;
 interface IProps {
   data: {
     id: string;
@@ -97,14 +110,17 @@ const CommentsPresenter: React.FC<IProps> = ({ data: Comments }) => {
       </CommentsCount>
       <Bar />
       <TextArea />
-      <NickNameBox>
-        <NickName>NickName</NickName>
-        <NickNameInput />
-      </NickNameBox>
+      <SubmitArea>
+        <NickNameBox>
+          <NickName>NickName</NickName>
+          <NickNameInput />
+        </NickNameBox>
+        <SubmitButton>확인</SubmitButton>
+      </SubmitArea>
       <Bar />
       <CommentList>
-        {Comments.map((comment) => (
-          <Comment>
+        {Comments.map((comment, index) => (
+          <Comment key={index}>
             <Author>{comment.nickname}</Author>
             <TextBox>
               <Text>{comment.text}</Text>

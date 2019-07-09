@@ -1,9 +1,10 @@
-import React, { useState, LegacyRef, useEffect, useCallback } from "react";
+import React, { LegacyRef } from "react";
 import styled from "styled-components";
 import Header from "../Header";
-import parse, { domToReact } from "html-react-parser";
 import _ from "lodash";
 import Comments from "../Comments";
+import Navigator from "../Navigator";
+import parse, { domToReact } from "html-react-parser";
 const Container = styled.div`
   padding-top: 56px;
   width: 100%;
@@ -61,20 +62,6 @@ const Post = styled.div`
   margin: 18px 40px;
 `;
 
-const Navigator = styled.div<{ number: number }>`
-  position: fixed;
-  top: 200px;
-  right: 200px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #757575;
-
-  h1 {
-    :nth-child(${(props) => props.number + 1}) {
-      color: ${(props) => props.theme.blue};
-    }
-  }
-`;
 interface IProps {
   data: {
     image: string;
@@ -94,11 +81,8 @@ interface IProps {
 }
 
 const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
-  console.log("rendered");
   let refs: any = [];
-  let elementsYPositon: Array<number> = [];
-
-  const [focus, setFocus] = useState(0);
+  let refsYPositon: Array<number> = [];
 
   const scrollToTitle = (title: string) => {
     const target = refs.find((ref: any) => ref!.current.id === title);
@@ -107,53 +91,16 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
       block: "start"
     });
   };
-
-  const handler = useCallback(() => {
-    if (window.pageYOffset <= elementsYPositon[0]) {
-      setFocus(0);
-    } else {
-      for (let i = 0; i < elementsYPositon.length; i++) {
-        if (
-          elementsYPositon[i - 1] <= window.pageYOffset &&
-          window.pageYOffset <= elementsYPositon[i]
-        ) {
-          setFocus(i);
-        }
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    refs.map((ref: any) => {
-      if (ref.current) {
-        elementsYPositon.push(ref.current.offsetTop);
-      }
-    });
-    window.addEventListener("scroll", _.throttle(handler, 500));
-    return () => {
-      window.removeEventListener("scroll", handler);
-    };
-  }, []);
-
   return (
     <>
       <Header />
       <Container>
-        <Navigator number={focus}>
-          {parse(data.Post.Content, {
-            replace: ({ attribs, children }) => {
-              if (attribs && attribs.class === "title" && children) {
-                return (
-                  <h1 onClick={() => scrollToTitle(children[0].data)}>
-                    {domToReact(children)}
-                  </h1>
-                );
-              } else {
-                return <></>;
-              }
-            }
-          })}
-        </Navigator>
+        <Navigator
+          refs={refs}
+          refsYPositon={refsYPositon}
+          scrollToTitle={scrollToTitle}
+          content={data.Post.Content}
+        />
         <Background>
           <PostHeader image={data.image}>
             <PostTitle>{data.title}</PostTitle>

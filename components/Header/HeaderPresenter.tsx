@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import Sidebar from "../Sidebar";
 import React, { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
 
 const Container = styled.div`
+  z-index: 6;
   height: 56px;
   width: 100%;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
@@ -15,10 +17,7 @@ const Title = styled.div`
   font-size: 24px;
   color: ${(props) => props.theme.softGray};
 `;
-const Route = styled.a`
-  margin-left: 20px;
-  font-size: 24px;
-`;
+
 const Left = styled.div`
   height: 100%;
   display: flex;
@@ -50,14 +49,12 @@ interface IProps {
   Side: boolean;
   MenuOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   toggleSidebar: Dispatch<SetStateAction<boolean>>;
-  pathname: string;
 }
 
 const HeaderPresenter: React.FC<IProps> = ({
   Side,
   MenuOnClick,
-  toggleSidebar,
-  pathname
+  toggleSidebar
 }) => {
   return (
     <div>
@@ -71,8 +68,9 @@ const HeaderPresenter: React.FC<IProps> = ({
           <MenuButton onClick={MenuOnClick}>
             <MenuIcon src="../../static/menuIcon.png" alt="" />
           </MenuButton>
-          <Title>Jerrynim Blog</Title>
-          <Route href={`${pathname}`}>{pathname}</Route>
+          <Link href="/">
+            <Title>Jerrynim Blog</Title>
+          </Link>
         </Left>
         <Right>
           <ShareIcon src="../../static/shareIcon.png" alt="" />

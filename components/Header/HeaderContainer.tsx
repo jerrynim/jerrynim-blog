@@ -8,7 +8,6 @@ interface Props {
 
 const HeaderContainer: React.FC<Props> = () => {
   const [Side, toggleSidebar] = useState(false);
-
   const MenuOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     toggleSidebar(!Side);
@@ -19,7 +18,6 @@ const HeaderContainer: React.FC<Props> = () => {
         Side={Side}
         MenuOnClick={MenuOnClick}
         toggleSidebar={toggleSidebar}
-        pathname={""}
       />
     </div>
   );

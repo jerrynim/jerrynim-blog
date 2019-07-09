@@ -1,20 +1,16 @@
 {
-  "name": "nextjs-typescript-boilerplate",
-  "version": "2.0.0",
-  "description": "The boilerplate of nextjs with typescript.",
+  "name": "jerrynim-blog",
+  "version": "1.0.0",
+  "description": "jerrynim-blog",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build && tsc --project tsconfig.json",
     "export": "next export",
     "deploy": "npm run build && npm run export",
-    "production": "NODE_ENV=production",
-    "start": "NODE_ENV=production node dist/index.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "start": "NODE_ENV=production && next start"
   },
-  "repository": "https://github.com/zhangist/nextjs-typescript-boilerplate",
+  "repository": "https://github.com/jerrynim/jerrynim-blog",
   "dependencies": {
     "express": "^4.17.1",
     "html-react-parser": "^0.8.1",

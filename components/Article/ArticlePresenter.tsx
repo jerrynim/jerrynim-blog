@@ -55,7 +55,11 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
     <div>
       <Container>
         <Texts>
-          <Link prefetch={true} href={`/articles/${Post.title}`}>
+          <Link
+            prefetch={true}
+            as={`/articles/${Post.title}`}
+            href={`/articles/${Post.title}`}
+          >
             <Title>{Post.title}</Title>
           </Link>
 

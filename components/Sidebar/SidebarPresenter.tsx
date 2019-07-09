@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "../../style/typed-components";
+import Link from "next/link";
 
 const Container = styled.div<{ Side: boolean }>`
+  z-index: 7;
   position: fixed;
   height: 100%;
   width: 300px;
@@ -13,14 +15,18 @@ const Container = styled.div<{ Side: boolean }>`
 const Title = styled.div`
   font-size: 24px;
   color: ${(props) => props.theme.softGray};
+  cursor: pointer;
 `;
 
-const Left = styled.div`
+const Left = styled.div<{ Side: boolean }>`
   height: 56px;
   display: flex;
   align-items: center;
   color: ${(props) => props.theme.softGray};
   width: fit-content;
+  opacity: ${(props) => (props.Side ? "1" : "0")};
+  transition: 1.5s;
+  transition-delay: 0.5s;
 `;
 
 const MenuIcon = styled.img`
@@ -79,11 +85,13 @@ const CategoryIcon = styled.img`
   width: 32px;
   height: 32px;
   margin-right: 20px;
+  cursor: pointer;
 `;
 
 const CategoryText = styled.div`
   font-size: 24px;
   color: ${(props) => props.theme.black};
+  cursor: pointer;
 `;
 
 interface IProps {
@@ -94,11 +102,13 @@ interface IProps {
 const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
   return (
     <Container Side={Side}>
-      <Left>
+      <Left Side={Side}>
         <MenuButton onClick={MenuOnClick}>
           <MenuIcon src="../../static/menuIcon.png" alt="" />
         </MenuButton>
-        <Title>Jerrynim Blog</Title>
+        <Link href="/">
+          <Title>Jerrynim Blog</Title>
+        </Link>
       </Left>
       <Profile>
         <ProfilePhoto />
@@ -108,20 +118,36 @@ const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
       <GrayBar />
       <Categories>
         <Category>
-          <CategoryIcon src="../../static/homeIconGray.png" alt="" />
-          <CategoryText>Home</CategoryText>
+          <Link href="/">
+            <CategoryIcon src="../../static/homeIconGray.png" alt="" />
+          </Link>
+          <Link href="/">
+            <CategoryText>Home</CategoryText>
+          </Link>
         </Category>
         <Category>
-          <CategoryIcon src="../../static/ListIcon.png" alt="" />
-          <CategoryText>Articles</CategoryText>
+          <Link href="/Articles">
+            <CategoryIcon src="../../static/ListIcon.png" alt="" />
+          </Link>
+          <Link href="/Articles">
+            <CategoryText>Articles</CategoryText>
+          </Link>
         </Category>
         <Category>
-          <CategoryIcon src="../../static/Project.png" alt="" />
-          <CategoryText>Project</CategoryText>
+          <Link href="/Project">
+            <CategoryIcon src="../../static/Project.png" alt="" />
+          </Link>
+          <Link href="/Project">
+            <CategoryText>Project</CategoryText>
+          </Link>
         </Category>
         <Category>
-          <CategoryIcon src="../../static/PersonIcon.png" alt="" />
-          <CategoryText>About Me</CategoryText>
+          <Link href="/Aboutme">
+            <CategoryIcon src="../../static/PersonIcon.png" alt="" />
+          </Link>
+          <Link href="/Aboutme">
+            <CategoryText>About Me</CategoryText>
+          </Link>
         </Category>
       </Categories>
     </Container>
