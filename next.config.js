@@ -5,10 +5,16 @@ module.exports = {
   ) {
     return {
       "/": { page: "/" },
-      "/aboutme": { page: "/aboutme" },
-      "/articles": { page: "/articles" },
+      "/aboutme": { page: "/AboutMe" },
+      "/articles": { page: "/Articles" },
+
       "/articles/title": {
-        page: "/articles/[article]",
+        page: "/Articles/[article]",
+        query: { title: "title" }
+      },
+      "/post": { page: "/post" },
+      "/post/pid": {
+        page: "/post/[pid]",
         query: { title: "title" }
       }
     };
