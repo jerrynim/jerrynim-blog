@@ -12,7 +12,7 @@ module.exports = {
         query: { title: "title" }
       },
       "/posts": { page: "/posts" },
-      "/post/post": {
+      "/posts/post": {
         page: "/posts/[post]",
         query: { title: "title" }
       }
