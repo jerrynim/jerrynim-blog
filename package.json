@@ -10,6 +10,7 @@
     "deploy": "npm run build && npm run export",
     "start": "NODE_ENV=production && next start"
   },
+  "license": "MIT",
   "repository": "https://github.com/jerrynim/jerrynim-blog",
   "dependencies": {
     "express": "^4.17.1",
