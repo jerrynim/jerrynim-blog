@@ -6,7 +6,7 @@ module.exports = {
     return {
       "/": { page: "/" },
       "/aboutme": { page: "/AboutMe" },
-      "/articles": { page: "/Articles" },
+      "/articles": { page: "/articles" },
       "/articles/title": {
         page: "/Articles/[article]",
         query: { title: "title" }
