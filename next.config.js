@@ -14,11 +14,7 @@ module.exports = {
       "/post": { page: "/post" },
       "/post/pid": {
         page: "/post/[pid]",
-        query: { title: "title" }
-      },
-      "/posts/post": {
-        page: "/posts/[posts]",
-        query: { title: "post" }
+        query: { title: "pid" }
       }
     };
   }
