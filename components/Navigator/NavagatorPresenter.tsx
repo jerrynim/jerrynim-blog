@@ -11,6 +11,10 @@ const Container = styled.div<{ number: number }>`
   color: #757575;
 
   h1 {
+    cursor: pointer;
+    :hover {
+      color: ${(props) => props.theme.blue};
+    }
     :nth-child(${(props) => props.number}) {
       color: ${(props) => props.theme.blue};
     }

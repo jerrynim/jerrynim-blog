@@ -7,7 +7,8 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-
+        @font-face { font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; }  
+              font-family:'BBTreeGL';
     }
     button{
         padding: 0;
@@ -39,6 +40,7 @@ const GlobalStyles = createGlobalStyle`
 
     .imgbox{
         text-align:center;
+        margin-bottom:14px;
     }
     .img{
         width:430px;
