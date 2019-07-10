@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import FullArticle from "../../components/FullArticle";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useRouter } from "next/router";
+
 const App: React.FC = () => {
+  const router = useRouter();
+  const { title } = router.query;
+  console.log(title);
   const [data] = useState({
     image:
       "https://jerrynim-instagram.s3.ap-northeast-2.amazonaws.com/39fccae0-8053-11e9-b954-89b6e830b3a7-illu6.jpg",

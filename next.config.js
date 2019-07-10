@@ -7,7 +7,6 @@ module.exports = {
       "/": { page: "/" },
       "/aboutme": { page: "/AboutMe" },
       "/articles": { page: "/Articles" },
-
       "/articles/title": {
         page: "/Articles/[article]",
         query: { title: "title" }
