@@ -12,8 +12,8 @@ module.exports = {
         query: { title: "title" }
       },
       "/post": { page: "/post" },
-      "/post/pid": {
-        page: "/post/[pid]",
+      "/post/post": {
+        page: "/posts/[post]",
         query: { title: "title" }
       }
     };
