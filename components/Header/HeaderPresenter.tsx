@@ -4,7 +4,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 
 const Container = styled.div`
-  opacity: 0.6;
+  opacity: 0.8;
   z-index: 6;
   height: 56px;
   width: 100%;

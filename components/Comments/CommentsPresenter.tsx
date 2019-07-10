@@ -3,7 +3,7 @@ import styled from "styled-components";
 import TextareaAutosize from "react-autosize-textarea";
 const Container = styled.div`
   width: 100%;
-  padding: 20px 60px 20px 40px;
+  padding: 20px 60px 10px 40px;
   background-color: white;
 `;
 
@@ -49,6 +49,9 @@ const Comment = styled.li`
   padding: 25px 0px;
   display: flex;
   border-bottom: 2px solid #eaeaea;
+  :last-child {
+    border: 0;
+  }
 `;
 const Author = styled.div`
   color: #757575;

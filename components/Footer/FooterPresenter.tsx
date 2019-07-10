@@ -24,18 +24,26 @@ const FooterPresenter: React.FC = () => {
     <Container>
       <Text>Jerrynim ©</Text>
       <Icons>
-        <IoLogoYoutube size={42} color={"white"} />
-        <GoMarkGithub size={42} color={"white"} />
-        <img
-          src="../../static/wantedWhite.png"
-          width={"42px"}
-          height={"42px"}
-        />
-        <img
-          src="../../static/rocketPunchWhite.png"
-          width={"42px"}
-          height={"42px"}
-        />
+        <a href="https://github.com/jerrynim">
+          <GoMarkGithub size={42} color={"white"} />
+        </a>
+        <a href="https://www.youtube.com/channel/UCWrBP7s_rK1ldBhe-LkYjug?">
+          <IoLogoYoutube size={42} color={"white"} />
+        </a>
+        <a href="https://www.wanted.co.kr/">
+          <img
+            src="../../static/wantedWhite.png"
+            width={"42px"}
+            height={"42px"}
+          />
+        </a>
+        <a href="https://www.rocketpunch.com/@tgeddy3/info">
+          <img
+            src="../../static/rocketPunchWhite.png"
+            width={"42px"}
+            height={"42px"}
+          />
+        </a>
       </Icons>
       <Text>Thanks</Text>
     </Container>

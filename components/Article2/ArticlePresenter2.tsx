@@ -20,6 +20,7 @@ const Texts = styled.div`
 
 const Title = styled.div`
   font-size: 52px;
+  cursor: pointer;
 `;
 const SubTitle = styled.div`
   font-size: 22px;
@@ -40,6 +41,7 @@ const Tag = styled.div`
 const Image = styled.img`
   width: 600px;
   height: 390px;
+  cursor: pointer;
 `;
 interface IProps {
   Post: {
@@ -54,9 +56,12 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
   return (
     <div>
       <Container>
-        <Image src={Post.image} alt="" />
+        <Link prefetch={true} href={`/articles/${Post.title}`}>
+          <Image src={Post.image} alt="" />
+        </Link>
+
         <Texts>
-          <Link href={`/articles/${Post.title}`}>
+          <Link prefetch={true} href={`/articles/${Post.title}`}>
             <Title>{Post.title}</Title>
           </Link>
           <SubTitle>{Post.subTitle}</SubTitle>
