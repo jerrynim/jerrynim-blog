@@ -6,12 +6,12 @@ module.exports = {
     return {
       "/": { page: "/" },
       "/aboutme": { page: "/AboutMe" },
-      "/articles": { page: "/articles" },
-      "/articles/title": {
+      "/Articles": { page: "/Articles" },
+      "/Articles/title": {
         page: "/Articles/[article]",
         query: { title: "title" }
       },
-      "/post": { page: "/post" },
+      "/posts": { page: "/posts" },
       "/post/post": {
         page: "/posts/[post]",
         query: { title: "title" }
