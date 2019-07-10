@@ -6,7 +6,7 @@ const Container = styled.div<{ Side: boolean }>`
   z-index: 7;
   position: fixed;
   height: 100%;
-  width: 300px;
+  width: 280px;
   transform: ${(props) => (props.Side ? "" : "translateX(-300px)")};
   transition: 0.4s ease-in;
   background-color: white;
@@ -30,29 +30,24 @@ const Left = styled.div<{ Side: boolean }>`
 `;
 
 const MenuIcon = styled.img`
-  width: 42px;
-  height: 42px;
+  width: 25px;
+  height: 20px;
 `;
 
 const MenuButton = styled.button`
   margin: 0px 10px 0px 20px;
 `;
 const Profile = styled.div`
-  height: 230px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 `;
-const ProfilePhoto = styled.div`
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-`;
+
 const Name = styled.div`
-  font-size: 24px;
-  margin: 21px 0px;
+  font-size: 22px;
+  margin: 12px 0px;
 `;
 const Bio = styled.div`
   font-size: 18px;
@@ -70,26 +65,26 @@ const GrayBar = styled.div`
 const Categories = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 45px 20px 0px;
+  margin: 20px 20px 0px;
 `;
 const Category = styled.li`
   display: flex;
   align-items: center;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
   :last-child {
     margin-bottom: 0px;
   }
 `;
 
 const CategoryIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   margin-right: 20px;
   cursor: pointer;
 `;
 
 const CategoryText = styled.div`
-  font-size: 24px;
+  font-size: 18px;
   color: ${(props) => props.theme.black};
   cursor: pointer;
 `;
@@ -111,7 +106,6 @@ const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
         </Link>
       </Left>
       <Profile>
-        <ProfilePhoto />
         <Name>Jerrynim</Name>
         <Bio>안녕하세요. 최신기술을 좋아하는 Javascript 개발자 입니다.</Bio>
       </Profile>

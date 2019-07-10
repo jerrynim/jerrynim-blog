@@ -4,6 +4,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 
 const Container = styled.div`
+  opacity: 0.6;
   z-index: 6;
   height: 56px;
   width: 100%;
@@ -26,8 +27,8 @@ const Left = styled.div`
   width: fit-content;
 `;
 const MenuIcon = styled.img`
-  width: 42px;
-  height: 42px;
+  width: 25px;
+  height: 20px;
 `;
 
 const Right = styled.div`
