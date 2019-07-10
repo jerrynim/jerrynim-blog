@@ -7,8 +7,8 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        @font-face { font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; }  
-              font-family:'BBTreeGL';
+        @font-face { font-family: 'KOMACON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KOMACON.woff') format('woff'); font-weight: normal; font-style: normal; }
+                      font-family:'KOMACON';
     }
     button{
         padding: 0;
