@@ -12,7 +12,7 @@ export default () => {
   };
   return (
     <div>
-      <p>Hello Next.js</p>
+      <p>Hello Next.jss</p>
       <button onClick={getData}>asdf</button>
       <br />
       {data}
