@@ -8,7 +8,7 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.blueGray};
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
 `;
 
@@ -42,6 +42,7 @@ const Image = styled.img`
   width: 600px;
   height: 390px;
   cursor: pointer;
+  margin-right: 50px;
 `;
 interface IProps {
   Post: {

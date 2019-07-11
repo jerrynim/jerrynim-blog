@@ -17,6 +17,9 @@ const GlobalStyles = createGlobalStyle`
         border: 0;
         background-color:white;
     }
+    h1,h2,h3,h4,h5,h6{
+        @font-face { font-family: 'Handon3gyeopsal300g'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal300g.woff') format('woff'); font-weight: normal; font-style: normal; }        font-family: "Handon3gyeopsal300g";
+    }
     a{
         color: inherit;
     text-decoration: none;
@@ -33,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
     .text{
         margin-bottom:18px;
         font-size: 17px;
-        line-height: 16px;
+        line-height: 22px;
         color: #757575;
 
     }

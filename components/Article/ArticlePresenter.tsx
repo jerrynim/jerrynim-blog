@@ -8,11 +8,12 @@ const Container = styled.div`
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
 `;
 
 const Texts = styled.div`
+  margin-right: 50px;
   display: flex;
   flex-direction: column;
   max-width: 480px;

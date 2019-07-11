@@ -8,7 +8,7 @@
     "build": "next build",
     "export": "next export",
     "deploy": "npm run build && npm run export",
-    "start": "NODE_ENV=production && next start"
+    "start": "next start -p $PORT"
   },
   "license": "MIT",
   "repository": "https://github.com/jerrynim/jerrynim-blog",
@@ -17,6 +17,7 @@
     "html-react-parser": "^0.8.1",
     "lodash": "^4.17.11",
     "next": "^9.0.0",
+    "now": "^15.7.0",
     "react": "^16.8.6",
     "react-autosize-textarea": "^7.0.0",
     "react-dom": "^16.8.6",

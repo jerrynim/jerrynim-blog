@@ -13,7 +13,7 @@ const Container = styled.div<{ Side: boolean }>`
   box-shadow: 2px 2px 10px grey;
 `;
 const Title = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   color: ${(props) => props.theme.softGray};
   cursor: pointer;
 `;
@@ -136,10 +136,10 @@ const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
           </Link>
         </Category>
         <Category>
-          <Link href="/Aboutme">
+          <Link href="/AboutMe">
             <CategoryIcon src="../../static/PersonIcon.png" alt="" />
           </Link>
-          <Link href="/Aboutme">
+          <Link href="/AboutMe">
             <CategoryText>About Me</CategoryText>
           </Link>
         </Category>

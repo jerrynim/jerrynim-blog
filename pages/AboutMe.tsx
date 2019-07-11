@@ -1,8 +1,13 @@
-const index: React.FC = () => {
+import Header from "../components/Header";
+import AboutMe from "../components/AboutMe";
+import Footer from "../components/Footer";
+
+export default () => {
   return (
-    <div>
-      <h1>hasdfd</h1>
-    </div>
+    <>
+      <Header />
+      <AboutMe />
+      <Footer />
+    </>
   );
 };
-export default index;

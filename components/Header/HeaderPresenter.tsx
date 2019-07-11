@@ -3,7 +3,7 @@ import Sidebar from "../Sidebar";
 import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 
-const Container = styled.div`
+const Container = styled.h1`
   opacity: 0.8;
   z-index: 6;
   height: 56px;
@@ -15,7 +15,7 @@ const Container = styled.div`
   background-color: white;
 `;
 const Title = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   color: ${(props) => props.theme.softGray};
 `;
 

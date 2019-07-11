@@ -1,12 +1,11 @@
 import React, { LegacyRef } from "react";
 import styled from "styled-components";
-import Header from "../Header";
 import _ from "lodash";
 import Comments from "../Comments";
 import Navigator from "../Navigator";
 import parse, { domToReact } from "html-react-parser";
 const Container = styled.div`
-  padding-top: 56px;
+  padding-top: 96px;
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.theme.blueGray};
@@ -93,7 +92,6 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
   };
   return (
     <>
-      <Header />
       <Container>
         <Navigator
           refs={refs}
