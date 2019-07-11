@@ -187,7 +187,9 @@ const AboutMePresenter: React.FC = () => {
           </GrayBox>
           <Bar />
           <h2 className="title">Project 🅿️</h2>
-          <Link href="/Project">Project =></Link>
+          <Link href="/Project">
+            <a>Project =></a>
+          </Link>
         </Post>
       </Background>
     </Container>

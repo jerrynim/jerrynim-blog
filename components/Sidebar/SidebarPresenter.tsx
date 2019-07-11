@@ -12,7 +12,7 @@ const Container = styled.div<{ Side: boolean }>`
   background-color: white;
   box-shadow: 2px 2px 10px grey;
 `;
-const Title = styled.div`
+const Title = styled.a`
   font-size: 20px;
   color: ${(props) => props.theme.softGray};
   cursor: pointer;
@@ -113,34 +113,50 @@ const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
       <Categories>
         <Category>
           <Link href="/">
-            <CategoryIcon src="../../static/homeIconGray.png" alt="" />
+            <a>
+              <CategoryIcon src="../../static/homeIconGray.png" alt="" />
+            </a>
           </Link>
           <Link href="/">
-            <CategoryText>Home</CategoryText>
+            <a>
+              <CategoryText>Home</CategoryText>
+            </a>
           </Link>
         </Category>
         <Category>
           <Link href="/Articles">
-            <CategoryIcon src="../../static/ListIcon.png" alt="" />
+            <a>
+              <CategoryIcon src="../../static/ListIcon.png" alt="" />
+            </a>
           </Link>
           <Link href="/Articles">
-            <CategoryText>Articles</CategoryText>
+            <a>
+              <CategoryText>Articles</CategoryText>
+            </a>
           </Link>
         </Category>
         <Category>
           <Link href="/Project">
-            <CategoryIcon src="../../static/Project.png" alt="" />
+            <a>
+              <CategoryIcon src="../../static/Project.png" alt="" />
+            </a>
           </Link>
           <Link href="/Project">
-            <CategoryText>Project</CategoryText>
+            <a>
+              <CategoryText>Project</CategoryText>
+            </a>
           </Link>
         </Category>
         <Category>
           <Link href="/AboutMe">
-            <CategoryIcon src="../../static/PersonIcon.png" alt="" />
+            <a>
+              <CategoryIcon src="../../static/PersonIcon.png" alt="" />
+            </a>
           </Link>
           <Link href="/AboutMe">
-            <CategoryText>About Me</CategoryText>
+            <a>
+              <CategoryText>About Me</CategoryText>
+            </a>
           </Link>
         </Category>
       </Categories>

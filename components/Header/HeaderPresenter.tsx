@@ -14,7 +14,7 @@ const Container = styled.h1`
   position: fixed;
   background-color: white;
 `;
-const Title = styled.div`
+const Title = styled.a`
   font-size: 20px;
   color: ${(props) => props.theme.softGray};
 `;

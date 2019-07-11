@@ -18,7 +18,7 @@ const Texts = styled.div`
   max-width: 480px;
 `;
 
-const Title = styled.div`
+const Title = styled.a`
   font-size: 52px;
   cursor: pointer;
 `;
@@ -58,7 +58,9 @@ const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
     <div>
       <Container>
         <Link prefetch={true} href={`/articles/${Post.title}`}>
-          <Image src={Post.image} alt="" />
+          <a>
+            <Image src={Post.image} alt="" />
+          </a>
         </Link>
 
         <Texts>
