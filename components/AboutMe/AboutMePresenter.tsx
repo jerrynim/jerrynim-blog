@@ -2,6 +2,8 @@ import React from "react";
 import styled from "../../style/typed-components";
 import _ from "lodash";
 import Link from "next/link";
+import { IoMdMail } from "react-icons/io";
+
 const Container = styled.div`
   padding-top: 96px;
   width: 100%;
@@ -71,6 +73,22 @@ const TechImage = styled.img`
   width: 56px;
   height: 56px;
 `;
+
+const ProjectLink = styled.p`
+  color: #68aedf;
+  :hover {
+    text-decoration: underline;
+  }
+  margin-bottom: 18px;
+`;
+
+const Mail = styled.div`
+  display: flex;
+  align-items: center;
+  p {
+    margin-left: 10px;
+  }
+`;
 const AboutMePresenter: React.FC = () => {
   return (
     <Container>
@@ -79,7 +97,24 @@ const AboutMePresenter: React.FC = () => {
           <h1 className="title">Intoduce 🙌</h1>
           <p className="text">
             안녕하세요 Javascript 개발자 Jerrynim 입니다.
+            <br /> 제가 개발하면서 배우거나 고생하거나 한것을 다른사람과
+            공유하고 싶어서
             <br />
+            블로그를 만들었고 앞으로 많을 글을 쓰려고 합니다.
+            <br />
+            질문이나 고쳐야할 것이 있다면 메일을 보내주세요.
+            <Mail>
+              <IoMdMail size={25} color={"#757575"} />
+              <p>tjerry3@naver.com</p>
+            </Mail>
+            <br /> Hi!, I'm Jerrynim and likes Javascript!! I want to share My
+            Exprerience Or Learned Or New Things with others, So, I made my own
+            Blog and i will write lots of articles If you have any Question or
+            there are something to fixing mail on Me!
+            <Mail>
+              <IoMdMail size={25} color={"#757575"} />
+              <p>tjerry3@naver.com</p>
+            </Mail>
           </p>
           <Bar />
           <h1 className="title">Tech🚀</h1>
@@ -186,9 +221,11 @@ const AboutMePresenter: React.FC = () => {
             </TechBox>
           </GrayBox>
           <Bar />
-          <h2 className="title">Project 🅿️</h2>
+          <h2 className="title">Projects 🎢</h2>
           <Link href="/Project">
-            <a>Project =></a>
+            <a>
+              <ProjectLink>Project =></ProjectLink>
+            </a>
           </Link>
         </Post>
       </Background>
