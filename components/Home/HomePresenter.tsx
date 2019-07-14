@@ -45,8 +45,13 @@ const Image = styled.img`
   cursor: pointer;
 `;
 const PostList = styled.ul`
-
-`
+  display: flex;
+`;
+const Post = styled.li``;
+const ListImage = styled.img`
+  width: 100px;
+  height: 200px;
+`;
 interface IProps {
   data: {
     image: string;
@@ -58,7 +63,7 @@ interface IProps {
 
 const HomePresenter: React.FC<IProps> = ({ data }) => {
   return (
-      <>
+    <>
       <Container>
         <Texts>
           <Link prefetch={true} href={`/articles/${data[0].title}`}>
@@ -78,9 +83,14 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
           </a>
         </Link>
       </Container>
-          <PostList>{data.map(post =>())}</PostList>
-      
-      </>
+      <PostList>
+        {data.map((post) => (
+          <Post>
+            <ListImage src={post.image} />
+          </Post>
+        ))}
+      </PostList>
+    </>
   );
 };
 export default HomePresenter;
