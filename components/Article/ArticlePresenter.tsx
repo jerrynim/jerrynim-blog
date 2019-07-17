@@ -45,33 +45,28 @@ const Image = styled.img`
   cursor: pointer;
 `;
 interface IProps {
-  Post: {
-    image: string;
-    title: string;
-    subTitle: string;
-    tags: string[];
-  };
+  data: any;
 }
 
-const ArticlePresenter: React.FC<IProps> = ({ Post }) => {
+const ArticlePresenter: React.FC<IProps> = ({ data }) => {
   return (
     <div>
       <Container>
         <Texts>
-          <Link prefetch={true} href={`/articles/${Post.title}`}>
-            <Title>{Post.title}</Title>
+          <Link prefetch={true} href={`/articles/${data.title}`}>
+            <Title>{data.title}</Title>
           </Link>
 
-          <SubTitle>{Post.subTitle}</SubTitle>
+          <SubTitle>{data.subTitle}</SubTitle>
           <Tags>
-            {Post.tags.map((tag, index) => (
+            {data.tags.map((tag: string[], index: number) => (
               <Tag key={index}>{tag}</Tag>
             ))}
           </Tags>
         </Texts>
-        <Link prefetch={true} href={`/articles/${Post.title}`}>
+        <Link prefetch={true} href={`/articles/${data.title}`}>
           <a>
-            <Image src={Post.image} alt="" />
+            <Image src={data.thumbnail} alt="" />
           </a>
         </Link>
       </Container>

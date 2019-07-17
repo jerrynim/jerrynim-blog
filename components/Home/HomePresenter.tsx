@@ -84,8 +84,8 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
         </Link>
       </Container>
       <PostList>
-        {data.map((post) => (
-          <Post>
+        {data.map((post, index) => (
+          <Post key={index}>
             <ListImage src={post.image} />
           </Post>
         ))}

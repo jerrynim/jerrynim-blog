@@ -2,15 +2,10 @@ import React from "react";
 import ArticlePresenter from "./ArticlePresenter";
 
 interface IProps {
-  Post: {
-    image: string;
-    title: string;
-    subTitle: string;
-    tags: string[];
-  };
+  data: any;
 }
 
-const ArticleContainer: React.FC<IProps> = ({ Post }) => {
-  return <ArticlePresenter Post={Post} />;
+const ArticleContainer: React.FC<IProps> = ({ data }) => {
+  return <ArticlePresenter data={data} />;
 };
 export default ArticleContainer;
