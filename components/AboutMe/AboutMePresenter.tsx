@@ -102,7 +102,7 @@ const AboutMePresenter: React.FC = () => {
             <br />
             블로그를 만들었고 앞으로 많을 글을 쓰려고 합니다.
             <br />
-            질문이나 고쳐야할 것이 있다면 메일을 보내주세요.
+            질문이나 고쳐야할 것이 있다면 메일을 보내주시면 감사하겠습니다.
             <Mail>
               <IoMdMail size={25} color={"#757575"} />
               <p>tjerry3@naver.com</p>
@@ -222,7 +222,7 @@ const AboutMePresenter: React.FC = () => {
           </GrayBox>
           <Bar />
           <h2 className="title">Projects 🎢</h2>
-          <Link href="/Project">
+          <Link as={"/Project"} href="/Project">
             <a>
               <ProjectLink>Project =></ProjectLink>
             </a>

@@ -10,7 +10,7 @@ const Container = styled.div<{ Side: boolean }>`
   transform: ${(props) => (props.Side ? "" : "translateX(-300px)")};
   transition: 0.4s ease-in;
   background-color: white;
-  box-shadow: 2px 2px 10px grey;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
 `;
 const Title = styled.a`
   font-size: 20px;
@@ -101,7 +101,7 @@ const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
         <MenuButton onClick={MenuOnClick}>
           <MenuIcon src="../../static/menuIcon.png" alt="" />
         </MenuButton>
-        <Link href="/">
+        <Link as={"/"} href="/">
           <Title>Jerrynim Blog</Title>
         </Link>
       </Left>
@@ -112,48 +112,48 @@ const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => {
       <GrayBar />
       <Categories>
         <Category>
-          <Link href="/">
+          <Link as={"/"} href="/">
             <a>
               <CategoryIcon src="../../static/homeIconGray.png" alt="" />
             </a>
           </Link>
-          <Link href="/">
+          <Link as={"/"} href="/">
             <a>
               <CategoryText>Home</CategoryText>
             </a>
           </Link>
         </Category>
         <Category>
-          <Link href="/Articles">
+          <Link as={"/Articles"} href="/Articles">
             <a>
               <CategoryIcon src="../../static/ListIcon.png" alt="" />
             </a>
           </Link>
-          <Link href="/Articles">
+          <Link as={"/Articles"} href="/Articles">
             <a>
               <CategoryText>Articles</CategoryText>
             </a>
           </Link>
         </Category>
         <Category>
-          <Link href="/Project">
+          <Link as={"/Project"} href="/Project">
             <a>
               <CategoryIcon src="../../static/Project.png" alt="" />
             </a>
           </Link>
-          <Link href="/Project">
+          <Link as={"/Project"} href="/Project">
             <a>
               <CategoryText>Project</CategoryText>
             </a>
           </Link>
         </Category>
         <Category>
-          <Link href="/AboutMe">
+          <Link as={"/AboutMe"} href="/AboutMe">
             <a>
               <CategoryIcon src="../../static/PersonIcon.png" alt="" />
             </a>
           </Link>
-          <Link href="/AboutMe">
+          <Link as={"/AboutMe"} href="/AboutMe">
             <a>
               <CategoryText>About Me</CategoryText>
             </a>

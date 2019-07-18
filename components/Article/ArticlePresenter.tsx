@@ -53,7 +53,11 @@ const ArticlePresenter: React.FC<IProps> = ({ data }) => {
     <div>
       <Container>
         <Texts>
-          <Link prefetch={true} href={`/articles/${data.title}`}>
+          <Link
+            prefetch={false}
+            as={`/articles/${data.title}`}
+            href={`/articles/${data.title}`}
+          >
             <Title>{data.title}</Title>
           </Link>
 
@@ -64,7 +68,11 @@ const ArticlePresenter: React.FC<IProps> = ({ data }) => {
             ))}
           </Tags>
         </Texts>
-        <Link prefetch={true} href={`/articles/${data.title}`}>
+        <Link
+          prefetch={false}
+          as={`/articles/${data.title}`}
+          href={`/articles/${data.title}`}
+        >
           <a>
             <Image src={data.thumbnail} alt="" />
           </a>

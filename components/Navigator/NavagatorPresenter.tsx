@@ -3,9 +3,6 @@ import styled from "styled-components";
 import parse, { domToReact } from "html-react-parser";
 
 const Container = styled.div<{ number: number }>`
-  position: fixed;
-  top: 200px;
-  right: 200px;
   font-size: 14px;
   line-height: 20px;
   color: #757575;

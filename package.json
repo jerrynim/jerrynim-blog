@@ -15,7 +15,6 @@
   "dependencies": {
     "@types/react-lottie": "^1.2.2",
     "apollo-boost": "^0.4.3",
-    "express": "^4.17.1",
     "graphql": "^14.4.2",
     "html-react-parser": "^0.8.1",
     "lodash": "^4.17.11",

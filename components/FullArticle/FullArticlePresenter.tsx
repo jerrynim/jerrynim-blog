@@ -46,13 +46,14 @@ const PostTitle = styled.h1`
   left: 40px;
   bottom: 79px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0.9;
 `;
 const PostSubTitle = styled.h2`
   z-index: 5;
   left: 40px;
   bottom: 39px;
   position: absolute;
-
+  opacity: 0.9;
   color: white;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
@@ -61,6 +62,12 @@ const Post = styled.div`
   margin: 18px 40px;
 `;
 
+const NavigatorPosition = styled.div`
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 500px;
+  position: fixed;
+`;
 interface IProps {
   data: {
     image: string;
@@ -93,12 +100,14 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
   return (
     <>
       <Container>
-        <Navigator
-          refs={refs}
-          refsYPositon={refsYPositon}
-          scrollToTitle={scrollToTitle}
-          content={data.Post.Content}
-        />
+        <NavigatorPosition>
+          <Navigator
+            refs={refs}
+            refsYPositon={refsYPositon}
+            scrollToTitle={scrollToTitle}
+            content={data.Post.Content}
+          />
+        </NavigatorPosition>
         <Background>
           <PostHeader image={data.image}>
             <PostTitle>{data.title}</PostTitle>

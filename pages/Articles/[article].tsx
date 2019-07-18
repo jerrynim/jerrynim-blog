@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 const App: React.FC = () => {
   const router = useRouter();
   const { article } = router.query;
+  console.log(router);
   console.log(article);
   const data = {
     image:

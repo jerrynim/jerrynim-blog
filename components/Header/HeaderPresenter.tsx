@@ -8,7 +8,7 @@ const Container = styled.h1`
   z-index: 6;
   height: 56px;
   width: 100%;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -17,6 +17,7 @@ const Container = styled.h1`
 const Title = styled.a`
   font-size: 20px;
   color: ${(props) => props.theme.softGray};
+  cursor: pointer;
 `;
 
 const Left = styled.div`
@@ -69,7 +70,7 @@ const HeaderPresenter: React.FC<IProps> = ({
           <MenuButton onClick={MenuOnClick}>
             <MenuIcon src="../../static/menuIcon.png" alt="" />
           </MenuButton>
-          <Link href="/">
+          <Link as={"/"} href="/">
             <Title>Jerrynim Blog</Title>
           </Link>
         </Left>

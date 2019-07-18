@@ -203,7 +203,7 @@ const ProjectPresenter: React.FC = () => {
               </Des>
               <Period>Period : 2019.07</Period>
               <Links>
-                <Link href="hhttps://jerrynim-portfolio.netlify.com">
+                <Link href="https://jerrynim-portfolio.netlify.com/">
                   <IoIosDesktop size={30} color={"#68aedf"} />
                 </Link>
                 <Link href="https://github.com/jerrynim/jerrynim-portfolio">
@@ -231,7 +231,7 @@ const ProjectPresenter: React.FC = () => {
               </Des>
               <Period>Period : 2019.03 ~ 2019.04</Period>
               <Links>
-                <Link href="hhttps://github.com/jerrynim/zumoC">
+                <Link href="https://github.com/jerrynim/zumoC">
                   <IoLogoGithub size={30} color={"gray"} />
                 </Link>
                 <Link href="https://www.youtube.com/watch?v=exxa2tNblwc">

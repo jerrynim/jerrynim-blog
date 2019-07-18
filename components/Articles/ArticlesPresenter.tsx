@@ -59,17 +59,20 @@ const ArticlePresenter: React.FC<IProps> = ({ data }) => {
       {getPosts.map((post: any) => (
         <Container key={post.id}>
           <Texts>
-            <Link prefetch={true} href={`/articles/${post.title}`}>
+            <Link
+              as={`/articles/${post.title}`}
+              href={`/articles/${post.title}`}
+            >
               <Title>{post.title}</Title>
             </Link>
             <SubTitle>{post.subTitle}</SubTitle>
             <Tags>
               {post.tags.map((tag: any) => (
-                <Tag>{tag.term}</Tag>
+                <Tag key={tag.id}>{tag.term}</Tag>
               ))}
             </Tags>
           </Texts>
-          <Link prefetch={true} href={`/articles/${data.title}`}>
+          <Link as={`/articles/${data.title}`} href={`/articles/${data.title}`}>
             <a>
               <Image src={post.thumbnail} alt="" />
             </a>
