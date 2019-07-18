@@ -69,24 +69,11 @@ const NavigatorPosition = styled.div`
   position: fixed;
 `;
 interface IProps {
-  data: {
-    image: string;
-    title: string;
-    subTitle: string;
-    tags: string[];
-    Post: {
-      Content: string;
-      Comments: {
-        id: string;
-        nickname: string;
-        text: string;
-        createdAt: string;
-      }[];
-    };
-  };
+  data: any;
 }
 
 const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
+  const { getPost: post } = data;
   let refs: any = [];
   let refsYPositon: Array<number> = [];
 
@@ -105,17 +92,17 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
             refs={refs}
             refsYPositon={refsYPositon}
             scrollToTitle={scrollToTitle}
-            content={data.Post.Content}
+            content={post.content}
           />
         </NavigatorPosition>
         <Background>
-          <PostHeader image={data.image}>
-            <PostTitle>{data.title}</PostTitle>
-            <PostSubTitle>{data.subTitle}</PostSubTitle>
+          <PostHeader image={post.thumbnail}>
+            <PostTitle>{post.title}</PostTitle>
+            <PostSubTitle>{post.subTitle}</PostSubTitle>
             <Overlay />
           </PostHeader>
           <Post>
-            {parse(data.Post.Content, {
+            {parse(post.content, {
               replace: ({ attribs, children }) => {
                 if (attribs && attribs.class === "title" && children) {
                   const ref2: LegacyRef<HTMLHeadingElement> = React.createRef();
@@ -130,7 +117,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
               }
             })}
           </Post>
-          <Comments data={data.Post.Comments} />
+          <Comments data={post.comments} />
         </Background>
       </Container>
     </>

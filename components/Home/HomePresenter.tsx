@@ -153,6 +153,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
       <Container>
         <Texts>
           <Link
+            prefetch={false}
             as={`/articles/${posts[0].title}`}
             href={`/articles/${posts[0].title}`}
           >
@@ -178,7 +179,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
       <RecentPost>
         <RecentTexts>
           <RecentText>Recent Posts</RecentText>
-          <Link as={`/articles`} href={`/articles`}>
+          <Link prefetch={false} as={`/articles`} href={`/articles`}>
             <SeeAll>See all</SeeAll>
           </Link>
         </RecentTexts>
@@ -187,8 +188,24 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
             if (index > 0 && index < 5) {
               return (
                 <Post key={post.id}>
-                  <PostImg src={post.thumbnail} />
-                  <PostTitle>{post.title}</PostTitle>
+                  <Link
+                    prefetch={false}
+                    as={`/articles/${post.title}`}
+                    href={`/articles/${post.title}`}
+                  >
+                    <a>
+                      <PostImg src={post.thumbnail} />
+                    </a>
+                  </Link>
+                  <Link
+                    prefetch={false}
+                    as={`/articles/${post.title}`}
+                    href={`/articles/${post.title}`}
+                  >
+                    <a>
+                      <PostTitle>{post.title}</PostTitle>
+                    </a>
+                  </Link>
                   <PostSTitle>{post.subTitle}</PostSTitle>
                   <TagBox>
                     {post.tags.map((tag: any) => (
