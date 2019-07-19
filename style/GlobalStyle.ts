@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 17px;
         line-height: 22px;
         color: #757575;
-
+        white-space: pre;
     }
 
     .imgbox{

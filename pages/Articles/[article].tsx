@@ -5,17 +5,19 @@ import { useRouter } from "next/router";
 import { useQuery } from "react-apollo-hooks";
 import { GET_POST } from "../../queries";
 import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
 const App: React.FC = () => {
   const router = useRouter();
   const { article } = router.query;
   console.log(article);
-  const { data, loading } = useQuery(GET_POST, {
-    variables: { title: "title1" }
+  const { data, loading, error } = useQuery(GET_POST, {
+    variables: { title: article }
   });
-  console.log(data);
+
   return (
     <>
+      {error && <Error />}
       {loading && <Loader />}
       {!loading && data && data.getPost && (
         <>

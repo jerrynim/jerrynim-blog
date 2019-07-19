@@ -23,7 +23,14 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html>
-        <Head>{this.props.styleTags}</Head>
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"
+          />
+          {this.props.styleTags}
+        </Head>
+
         <body>
           <Main />
           <NextScript />

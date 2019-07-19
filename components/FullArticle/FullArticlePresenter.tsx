@@ -4,6 +4,8 @@ import _ from "lodash";
 import Comments from "../Comments";
 import Navigator from "../Navigator";
 import parse, { domToReact } from "html-react-parser";
+import Highlight from "react-highlight.js";
+
 const Container = styled.div`
   padding-top: 96px;
   width: 100%;
@@ -68,6 +70,11 @@ const NavigatorPosition = styled.div`
   margin-left: 500px;
   position: fixed;
 `;
+
+const Highlighted = styled(Highlight)`
+  margin: 0px 20px 18px 20px;
+`;
+
 interface IProps {
   data: any;
 }
@@ -112,6 +119,12 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
                     <h1 ref={ref2} className={"title"} id={title}>
                       {domToReact(children)}
                     </h1>
+                  );
+                } else if (attribs && attribs.class === "code" && children) {
+                  return (
+                    <Highlighted language={"typescript"}>
+                      {domToReact(children)}
+                    </Highlighted>
                   );
                 }
               }
