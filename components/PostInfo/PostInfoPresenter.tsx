@@ -3,12 +3,13 @@ import { UseInput } from "../../Hooks/useInput";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 300px;
+  width: 250px;
   background-color: white;
   display: flex;
   flex-direction: column;
   padding: 15px 10px;
   height: fit-content;
+  margin-right: 30px;
 `;
 
 const Category = styled.div`
@@ -36,15 +37,16 @@ interface IProps {
   subTitle: UseInput;
   tags: UseInput;
   password: UseInput;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const PostInfoPresenter: React.FC<IProps> = ({
   title,
   subTitle,
   tags,
-  password
+  password,
+  onChange
 }) => {
-  console.log(title, subTitle, tags, password);
   return (
     <Container>
       <Category>
@@ -57,6 +59,10 @@ const PostInfoPresenter: React.FC<IProps> = ({
       </Category>
       <Category>
         <CategoryText>Tags</CategoryText>
+        <input type="file" onChange={onChange} />
+      </Category>
+      <Category>
+        <CategoryText>Thumbnail</CategoryText>
         <CategoryInput {...tags} />
       </Category>
       <Category>

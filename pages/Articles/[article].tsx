@@ -10,7 +10,6 @@ import Error from "../../components/Error";
 const App: React.FC = () => {
   const router = useRouter();
   const { article } = router.query;
-  console.log(article);
   const { data, loading, error } = useQuery(GET_POST, {
     variables: { title: article }
   });

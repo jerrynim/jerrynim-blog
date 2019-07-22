@@ -8,6 +8,7 @@ interface IProps {
   tags: UseInput;
   password: UseInput;
   content: UseInput;
+  file: string;
 }
 
 const PostPreviewContainer: React.FC<IProps> = ({
@@ -15,7 +16,8 @@ const PostPreviewContainer: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  content
+  content,
+  file
 }) => {
   return (
     <PostPreviewPresenter
@@ -24,6 +26,7 @@ const PostPreviewContainer: React.FC<IProps> = ({
       tags={tags}
       password={password}
       content={content}
+      file={file}
     />
   );
 };
