@@ -103,19 +103,24 @@ const AboutMePresenter: React.FC = () => {
             블로그를 만들었고 앞으로 많을 글을 쓰려고 합니다.
             <br />
             질문이나 고쳐야할 것이 있다면 메일을 보내주시면 감사하겠습니다.
-            <Mail>
-              <IoMdMail size={25} color={"#757575"} />
-              <p>tjerry3@naver.com</p>
-            </Mail>
-            <br /> Hi!, I'm Jerrynim and likes Javascript!! I want to share My
+          </p>
+          <Mail>
+            <IoMdMail size={25} color={"#757575"} />
+            <p>tjerry3@naver.com</p>
+          </Mail>
+
+          <br />
+          <p className="text">
+            Hi!, I'm Jerrynim and likes Javascript!! I want to share My
             Exprerience Or Learned Or New Things with others, So, I made my own
             Blog and i will write lots of articles If you have any Question or
             there are something to fixing mail on Me!
-            <Mail>
-              <IoMdMail size={25} color={"#757575"} />
-              <p>tjerry3@naver.com</p>
-            </Mail>
           </p>
+          <Mail>
+            <IoMdMail size={25} color={"#757575"} />
+            <p>tjerry3@naver.com</p>
+          </Mail>
+
           <Bar />
           <h1 className="title">Tech🚀</h1>
           <h2 className="title">Language🐴</h2>

@@ -17,9 +17,8 @@ const PostInfoContainer: React.FC<IProps> = ({
   password,
   setFile
 }) => {
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChange: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
     const file = e.target.files![0];
-    console.log(file);
     const formData = new FormData();
     formData.append("file", file);
     const config = {
@@ -27,18 +26,17 @@ const PostInfoContainer: React.FC<IProps> = ({
         "Content-Type": "application/json"
       }
     };
-    axios
+    await axios
       .post(
-        "https://cqnmbkqlb2.execute-api.ap-northeast-2.amazonaws.com/dev/s3upload",
+        "https://aqz4u9mioa.execute-api.us-east-1.amazonaws.com/dev",
         formData,
         config
       )
       .then((response) => {
-        console.log(response);
         setFile(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error:" + error);
       });
   };
 
