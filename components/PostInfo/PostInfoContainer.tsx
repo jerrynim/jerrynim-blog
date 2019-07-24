@@ -28,7 +28,7 @@ const PostInfoContainer: React.FC<IProps> = ({
     };
     await axios
       .post(
-        "https://aqz4u9mioa.execute-api.us-east-1.amazonaws.com/dev",
+        "https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev",
         formData,
         config
       )

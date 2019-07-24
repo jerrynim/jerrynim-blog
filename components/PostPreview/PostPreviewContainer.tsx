@@ -6,8 +6,7 @@ interface IProps {
   title: UseInput;
   subTitle: UseInput;
   tags: UseInput;
-  password: UseInput;
-  content: UseInput;
+  content: string;
   file: string;
 }
 
@@ -15,7 +14,6 @@ const PostPreviewContainer: React.FC<IProps> = ({
   title,
   subTitle,
   tags,
-  password,
   content,
   file
 }) => {
@@ -24,7 +22,6 @@ const PostPreviewContainer: React.FC<IProps> = ({
       title={title}
       subTitle={subTitle}
       tags={tags}
-      password={password}
       content={content}
       file={file}
     />

@@ -20,7 +20,9 @@ interface IProps {
   subTitle: UseInput;
   tags: UseInput;
   password: UseInput;
-  content: UseInput;
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
+
   file: string;
   setFile: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -32,7 +34,8 @@ const AddCommentAddPost: React.FC<IProps> = ({
   password,
   content,
   file,
-  setFile
+  setFile,
+  setContent
 }) => {
   return (
     <Container>
@@ -47,11 +50,10 @@ const AddCommentAddPost: React.FC<IProps> = ({
         title={title}
         subTitle={subTitle}
         tags={tags}
-        password={password}
         content={content}
         file={file}
       />
-      <PostInput content={content} />
+      <PostInput content={content} setContent={setContent} />
     </Container>
   );
 };

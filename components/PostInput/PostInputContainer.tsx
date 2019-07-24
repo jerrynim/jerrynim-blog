@@ -1,12 +1,79 @@
 import React from "react";
 import PostInputPresenter from "./PostInputPresenter";
-import { UseInput } from "../../Hooks/useInput";
+import axios from "axios";
 
 interface IProps {
-  content: UseInput;
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const PostInputContainer: React.FC<IProps> = ({ content }) => {
-  return <PostInputPresenter content={content} />;
+const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
+  const addHeader: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setContent(
+      content +
+        `<h1 class="title"></h1>
+        `
+    );
+  };
+
+  const addText: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setContent(
+      content +
+        `<p class="text"></p>
+        `
+    );
+  };
+
+  const addBold: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setContent(
+      content +
+        `<b class="bold"></b>
+        `
+    );
+  };
+  const addLine: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setContent(
+      content +
+        `<div class="line"></div>
+        `
+    );
+  };
+
+  const addImage: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
+    const file = e.target.files![0];
+    const formData = new FormData();
+    formData.append("file", file);
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    await axios
+      .post(
+        "https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev",
+        formData,
+        config
+      )
+      .then((response) => {
+        setContent(
+          content +
+            `<div class="imgBox">
+              <img src="${response}" class="img"/>
+              </div>
+              `
+        );
+      })
+      .catch((error) => {
+        console.log("error:" + error);
+      });
+  };
+
+  return (
+    <PostInputPresenter
+      content={content}
+      addHeader={addHeader}
+      setContent={setContent}
+    />
+  );
 };
 export default PostInputContainer;

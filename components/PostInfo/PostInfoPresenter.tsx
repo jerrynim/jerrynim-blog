@@ -30,6 +30,7 @@ const CategoryInput = styled.input`
   box-shadow: inset 0 1px 3px 0 hsla(0, 0%, 0%, 0.25);
   border: 0;
   border-radius: 10px;
+  outline: none;
 `;
 
 interface IProps {
