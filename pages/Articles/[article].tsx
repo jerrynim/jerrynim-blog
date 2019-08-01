@@ -11,9 +11,10 @@ const App: React.FC = () => {
   const router = useRouter();
   const { article } = router.query;
   const { data, loading, error } = useQuery(GET_POST, {
+    ssr: true,
     variables: { title: article }
   });
-
+  console.log(data);
   return (
     <>
       {error && <Error />}

@@ -34,3 +34,22 @@ export const GET_POST = gql`
     }
   }
 `;
+
+export const CREATE_POST = gql`
+  query createPost(
+    $title: String!
+    $subTitle: String!
+    $thumbnail: String!
+    $content: String!
+    $tags: String!
+    $password: String!
+  ) {
+    createPost(
+      title: $title
+      subTitle: $subTitle
+      content: $content
+      tags: $tags
+      passwor: $password
+    )
+  }
+`;

@@ -32,16 +32,43 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
 `;
+
+const InputWrapper = styled.div`
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
+const Input = styled.input`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  opacity: 0;
+  outline: none;
+`;
+
 interface IProps {
   content: string;
   setContent: React.Dispatch<React.SetStateAction<string>>;
   addHeader: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  addText: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  addBold: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  addLine: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  addCode: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  addImage: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const PostInputPresenter: React.FC<IProps> = ({
   content,
   setContent,
-  addHeader
+  addHeader,
+  addText,
+  addBold,
+  addLine,
+  addImage,
+  addCode
 }) => {
   return (
     <Container>
@@ -50,19 +77,22 @@ const PostInputPresenter: React.FC<IProps> = ({
         <Button onClick={addHeader}>
           <FaHeading size={24} />
         </Button>
-        <Button>
+        <Button onClick={addText}>
           <TiDocumentText size={24} />
         </Button>
-        <Button>
+        <InputWrapper>
           <IoIosImage size={24} />
-        </Button>
-        <Button>
+
+          <Input type={"file"} onChange={addImage} />
+        </InputWrapper>
+
+        <Button onClick={addLine}>
           <MdDragHandle size={24} />
         </Button>
-        <Button>
+        <Button onClick={addBold}>
           <MdFormatBold size={24} />
         </Button>
-        <Button>
+        <Button onClick={addCode}>
           <MdCode size={24} />
         </Button>
       </Buttons>

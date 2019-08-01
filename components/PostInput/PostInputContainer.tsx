@@ -39,6 +39,14 @@ const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
     );
   };
 
+  const addCode: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setContent(
+      content +
+        `<div class="code"></div>
+        `
+    );
+  };
+
   const addImage: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
     const file = e.target.files![0];
     const formData = new FormData();
@@ -58,7 +66,7 @@ const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
         setContent(
           content +
             `<div class="imgBox">
-              <img src="${response}" class="img"/>
+              <img src="${response.data}" class="img"/>
               </div>
               `
         );
@@ -71,8 +79,13 @@ const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
   return (
     <PostInputPresenter
       content={content}
-      addHeader={addHeader}
       setContent={setContent}
+      addHeader={addHeader}
+      addText={addText}
+      addBold={addBold}
+      addLine={addLine}
+      addImage={addImage}
+      addCode={addCode}
     />
   );
 };
