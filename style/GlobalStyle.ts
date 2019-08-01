@@ -31,13 +31,14 @@ const GlobalStyles = createGlobalStyle`
         font-size: 28px;
         line-height: 33px;
         color: #333333;
-
+        word-break: break-word;
     }
     .text{
         margin-bottom:18px;
         font-size: 17px;
         line-height: 22px;
         color: #757575;
+        word-break: break-word;
     }
 
     .imgbox{
@@ -50,6 +51,16 @@ const GlobalStyles = createGlobalStyle`
         display: block;
   margin-left: auto;
   margin-right: auto;
+    }
+
+    .line {
+        height: 2px;
+    background-color: #777777;
+    border-radius: 4px;
+    margin :18px 0px;
+    }
+    .bold {
+        color:#2F80ED;
     }
 `;
 

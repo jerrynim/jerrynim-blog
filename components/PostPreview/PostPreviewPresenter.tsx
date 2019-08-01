@@ -87,6 +87,7 @@ const PostPreviewPresenter: React.FC<IProps> = ({
         {parse(content, {
           replace: ({ attribs, children }) => {
             if (attribs && attribs.class === "code" && children) {
+              console.log(children + "dd");
               return (
                 <Highlighted language={"typescript"}>
                   {domToReact(children)}

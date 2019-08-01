@@ -20,7 +20,7 @@ const Category = styled.div`
 `;
 
 const CategoryText = styled.h2`
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 10px;
 `;
 
@@ -33,12 +33,21 @@ const CategoryInput = styled.input`
   outline: none;
 `;
 
+const UploadButton = styled.button`
+  background-color: ${(props) => props.theme.blue};
+  margin: auto;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+`;
+
 interface IProps {
   title: UseInput;
   subTitle: UseInput;
   tags: UseInput;
   password: UseInput;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  addPostMutation: any;
 }
 
 const PostInfoPresenter: React.FC<IProps> = ({
@@ -46,7 +55,8 @@ const PostInfoPresenter: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  onChange
+  onChange,
+  addPostMutation
 }) => {
   return (
     <Container>
@@ -70,6 +80,7 @@ const PostInfoPresenter: React.FC<IProps> = ({
         <CategoryText>Password</CategoryText>
         <CategoryInput type="password" {...password} />
       </Category>
+      <UploadButton onClick={() => addPostMutation()}>Upload</UploadButton>
     </Container>
   );
 };

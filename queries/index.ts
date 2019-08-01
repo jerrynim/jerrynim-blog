@@ -47,9 +47,10 @@ export const CREATE_POST = gql`
     createPost(
       title: $title
       subTitle: $subTitle
+      thumbnail: $thumbnail
       content: $content
       tags: $tags
-      passwor: $password
+      password: $password
     )
   }
 `;

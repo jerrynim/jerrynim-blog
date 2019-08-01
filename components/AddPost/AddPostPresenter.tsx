@@ -25,6 +25,7 @@ interface IProps {
 
   file: string;
   setFile: React.Dispatch<React.SetStateAction<string>>;
+  addPostMutation: any;
 }
 
 const AddCommentAddPost: React.FC<IProps> = ({
@@ -35,7 +36,8 @@ const AddCommentAddPost: React.FC<IProps> = ({
   content,
   file,
   setFile,
-  setContent
+  setContent,
+  addPostMutation
 }) => {
   return (
     <Container>
@@ -45,6 +47,7 @@ const AddCommentAddPost: React.FC<IProps> = ({
         tags={tags}
         password={password}
         setFile={setFile}
+        addPostMutation={addPostMutation}
       />
       <PostPreview
         title={title}

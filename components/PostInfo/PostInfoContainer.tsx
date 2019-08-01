@@ -8,6 +8,7 @@ interface IProps {
   tags: UseInput;
   password: UseInput;
   setFile: React.Dispatch<React.SetStateAction<string>>;
+  addPostMutation: any;
 }
 
 const PostInfoContainer: React.FC<IProps> = ({
@@ -15,7 +16,8 @@ const PostInfoContainer: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  setFile
+  setFile,
+  addPostMutation
 }) => {
   const onChange: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
     const file = e.target.files![0];
@@ -47,6 +49,7 @@ const PostInfoContainer: React.FC<IProps> = ({
       tags={tags}
       password={password}
       onChange={onChange}
+      addPostMutation={addPostMutation}
     />
   );
 };

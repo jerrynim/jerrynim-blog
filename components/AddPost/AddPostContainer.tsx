@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AddPostPresenter from "./AddPostPresenter";
 import useInput from "../../Hooks/useInput";
+import { useMutation } from "react-apollo-hooks";
+import { CREATE_POST } from "../../queries/index";
 
 const AddPostContainer: React.FC = () => {
   const title = useInput("이것은 제목이시오다");
@@ -11,6 +13,18 @@ const AddPostContainer: React.FC = () => {
   const [file, setFile] = useState(
     "https://jerrynim-instagram.s3.ap-northeast-2.amazonaws.com/08b21440-8053-11e9-b954-89b6e830b3a7-illu1.png"
   );
+
+  const addPostMutation = useMutation(CREATE_POST, {
+    variables: {
+      title,
+      subTitle,
+      thumbnail: file,
+      content,
+      tags,
+      password
+    }
+  });
+
   return (
     <AddPostPresenter
       title={title}
@@ -21,6 +35,7 @@ const AddPostContainer: React.FC = () => {
       setContent={setContent}
       file={file}
       setFile={setFile}
+      addPostMutation={addPostMutation}
     />
   );
 };
