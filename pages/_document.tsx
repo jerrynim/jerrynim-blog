@@ -1,22 +1,20 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext
+} from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps(args: DocumentContext) {
+    const { renderPage } = args;
     const sheet = new ServerStyleSheet();
     const page = renderPage((App) => (props) =>
       sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
-
     // Returns an object like: { html, head, errorHtml, chunks, styles }
-    const transform = (App) => {
-      // Next.js gives us a `transformPage` function
-      // to be able to hook into the rendering of a page
-      // Step 1: Here we will generate the styles
-      return sheet.collectStyles(<App />);
-    };
-
     return { ...page, styleTags };
   }
 
@@ -28,7 +26,6 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"
           />
-          {this.props.styleTags}
         </Head>
 
         <body>

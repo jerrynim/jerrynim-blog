@@ -5,12 +5,16 @@ import Head from "next/head";
 import { ThemeProvider } from "../style/typed-components";
 import theme from "../style/theme";
 import GlobalStyles from "../style/GlobalStyle";
-import withApollo from "../lib/withApollo";
 import { ApolloProvider } from "react-apollo-hooks";
+import withApolloClient from "../lib/with-apollo-client";
 
-class MyApp extends App {
+interface IProps {
+  apolloClient: any;
+}
+class MyApp extends App<IProps> {
   render() {
-    const { Component, pageProps, apollo } = this.props;
+    console.log(this.props);
+    const { Component, pageProps, apolloClient } = this.props;
     return (
       <Container>
         <Head>
@@ -18,7 +22,7 @@ class MyApp extends App {
         </Head>
         <GlobalStyles />
         <ThemeProvider theme={theme}>
-          <ApolloProvider client={apollo}>
+          <ApolloProvider client={apolloClient}>
             <Component {...pageProps} />
           </ApolloProvider>
         </ThemeProvider>
@@ -27,4 +31,4 @@ class MyApp extends App {
   }
 }
 
-export default withApollo(MyApp);
+export default withApolloClient(MyApp);
