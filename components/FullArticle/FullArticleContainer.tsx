@@ -1,11 +1,14 @@
 import React from "react";
 import FullArticlePresenter from "./FullArticlePresenter";
+import { Post } from "../../types/type";
 
 interface IProps {
-  data: any;
+  post: {
+    getPost: Post;
+  };
 }
 
-const FullArticleContainer: React.FC<IProps> = ({ data }) => {
-  return <FullArticlePresenter data={data} />;
+const FullArticleContainer: React.FC<IProps> = ({ post }) => {
+  return <FullArticlePresenter post={post.getPost} />;
 };
 export default FullArticleContainer;

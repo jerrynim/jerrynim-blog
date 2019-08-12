@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TextareaAutosize from "react-autosize-textarea";
+import { Comment } from "../../types/type";
 const Container = styled.div`
   width: 100%;
   padding: 20px 60px 10px 40px;
@@ -45,7 +46,7 @@ const CommentList = styled.ul`
   display: flex;
   flex-direction: column;
 `;
-const Comment = styled.li`
+const CommentView = styled.li`
   padding: 25px 0px;
   display: flex;
   border-bottom: 2px solid #eaeaea;
@@ -57,6 +58,7 @@ const Author = styled.div`
   color: #757575;
   font-size: 18px;
   text-align: center;
+
   display: flex;
   align-items: center;
   word-break: break-all;
@@ -96,12 +98,7 @@ const SubmitButton = styled.button`
   height: 24px;
 `;
 interface IProps {
-  data: {
-    id: string;
-    nickname: string;
-    text: string;
-    createdAt: string;
-  }[];
+  data: Comment[];
 }
 
 const CommentsPresenter: React.FC<IProps> = ({ data: Comments }) => {
@@ -123,13 +120,13 @@ const CommentsPresenter: React.FC<IProps> = ({ data: Comments }) => {
       <Bar />
       <CommentList>
         {Comments.map((comment, index) => (
-          <Comment key={index}>
+          <CommentView key={index}>
             <Author>{comment.nickname}</Author>
             <TextBox>
               <Text>{comment.text}</Text>
               <Time>{comment.createdAt}</Time>
             </TextBox>
-          </Comment>
+          </CommentView>
         ))}
       </CommentList>
     </Container>

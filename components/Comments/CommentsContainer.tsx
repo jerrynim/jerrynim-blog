@@ -1,16 +1,12 @@
 import React from "react";
 import CommentsPresenter from "./CommentsPresenter";
+import { Comment } from "../../types/type";
 
 interface IProps {
-  data: {
-    id: string;
-    nickname: string;
-    text: string;
-    createdAt: string;
-  }[];
+  comments: Comment[];
 }
 
-const CommentsContainer: React.FC<IProps> = ({ data }) => {
-  return <CommentsPresenter data={data} />;
+const CommentsContainer: React.FC<IProps> = ({ comments }) => {
+  return <CommentsPresenter data={comments} />;
 };
 export default CommentsContainer;

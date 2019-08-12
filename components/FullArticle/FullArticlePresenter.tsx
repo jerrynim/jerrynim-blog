@@ -5,6 +5,7 @@ import Comments from "../Comments";
 import Navigator from "../Navigator";
 import parse, { domToReact } from "html-react-parser";
 import Highlight from "react-highlight.js";
+import { Post } from "../../types/type";
 
 const Container = styled.div`
   padding-top: 96px;
@@ -60,7 +61,7 @@ const PostSubTitle = styled.h2`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const Post = styled.div`
+const PostView = styled.div`
   margin: 18px 40px;
 `;
 
@@ -76,11 +77,10 @@ const Highlighted = styled(Highlight)`
 `;
 
 interface IProps {
-  data: any;
+  post: Post;
 }
 
-const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
-  const { getPost: post } = data;
+const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
   let refs: any = [];
   let refsYPositon: Array<number> = [];
 
@@ -108,7 +108,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
             <PostSubTitle>{post.subTitle}</PostSubTitle>
             <Overlay />
           </PostHeader>
-          <Post>
+          <PostView>
             {parse(post.content, {
               replace: ({ attribs, children }) => {
                 if (attribs && attribs.class === "title" && children) {
@@ -129,8 +129,8 @@ const FullArticlePresenter: React.FC<IProps> = ({ data }) => {
                 }
               }
             })}
-          </Post>
-          <Comments data={post.comments} />
+          </PostView>
+          <Comments comments={post.comments} />
         </Background>
       </Container>
     </>

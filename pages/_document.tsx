@@ -7,15 +7,25 @@ import Document, {
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(args: DocumentContext) {
-    const { renderPage } = args;
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    const { renderPage, req, res } = ctx;
+    //for styled-components
     const sheet = new ServerStyleSheet();
     const page = renderPage((App) => (props) =>
       sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
-    // Returns an object like: { html, head, errorHtml, chunks, styles }
-    return { ...page, styleTags };
+    return {
+      ...initialProps,
+      ...page,
+      styles: (
+        <>
+          {initialProps.styles}
+          {styleTags}
+        </>
+      )
+    };
   }
 
   render() {

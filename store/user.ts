@@ -1,16 +1,15 @@
-import produce from 'immer';
-import { createStandardAction } from 'typesafe-actions';
-import { ActionType } from 'typesafe-actions';
-import { getType } from 'typesafe-actions';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import produce from "immer";
+import { createStandardAction } from "typesafe-actions";
+import { ActionType } from "typesafe-actions";
+import { getType } from "typesafe-actions";
 
-const LOAD_USER = 'user/LOAD_USER';
-const TRRIGER_CREATE_USER = 'user/TRRIGER_CREATE_USER';
-const CREATE_USER = 'user/CREATE_USER';
-const RESET_USER = 'user/RESET_USER';
+const LOAD_USER = "user/LOAD_USER";
+const TRRIGER_CREATE_USER = "user/TRRIGER_CREATE_USER";
+const CREATE_USER = "user/CREATE_USER";
+const RESET_USER = "user/RESET_USER";
 
 const loadUser = createStandardAction(LOAD_USER)<string>();
-const triggerCreateUser = createStandardAction(LOAD_USER)();
+const triggerCreateUser = createStandardAction(TRRIGER_CREATE_USER)();
 const createUser = createStandardAction(CREATE_USER)<{
   id: string;
   name: string;
@@ -36,7 +35,7 @@ export interface User {
 const initialState: User[] = [];
 
 const user = (state = initialState, action: any) =>
-  produce(state, draft => {
+  produce(state, (draft) => {
     switch (action.type) {
       case getType(loadUser):
         return draft;

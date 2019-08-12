@@ -1,5 +1,5 @@
 import HeaderPresenter from "./HeaderPresenter";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, SingletonRouter } from "next/router";
 
 interface Props {
@@ -12,6 +12,7 @@ const HeaderContainer: React.FC<Props> = () => {
     event.preventDefault();
     toggleSidebar(!Side);
   };
+  useEffect(() => {}, []);
   return (
     <div>
       <HeaderPresenter

@@ -47,7 +47,6 @@ interface IProps {
   tags: UseInput;
   password: UseInput;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  addPostMutation: any;
 }
 
 const PostInfoPresenter: React.FC<IProps> = ({
@@ -55,8 +54,7 @@ const PostInfoPresenter: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  onChange,
-  addPostMutation
+  onChange
 }) => {
   return (
     <Container>
@@ -80,7 +78,7 @@ const PostInfoPresenter: React.FC<IProps> = ({
         <CategoryText>Password</CategoryText>
         <CategoryInput type="password" {...password} />
       </Category>
-      <UploadButton onClick={() => addPostMutation()}>Upload</UploadButton>
+      <UploadButton onClick={() => {}}>Upload</UploadButton>
     </Container>
   );
 };

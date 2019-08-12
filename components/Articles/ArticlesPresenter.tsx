@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { Post } from "../../types/type";
 
 const Container = styled.div`
   width: 100%;
@@ -49,14 +50,13 @@ const Image = styled.img`
 `;
 
 interface IProps {
-  data: any;
+  posts: Post[];
 }
 
-const ArticlePresenter: React.FC<IProps> = ({ data }) => {
-  const { getPosts } = data;
+const ArticlePresenter: React.FC<IProps> = ({ posts }) => {
   return (
     <div>
-      {getPosts.map((post: any) => (
+      {posts.map((post: any) => (
         <Container key={post.id}>
           <Texts>
             <Link
@@ -72,7 +72,7 @@ const ArticlePresenter: React.FC<IProps> = ({ data }) => {
               ))}
             </Tags>
           </Texts>
-          <Link as={`/articles/${data.title}`} href={`/articles/${data.title}`}>
+          <Link as={`/articles/${post.title}`} href={`/articles/${post.title}`}>
             <a>
               <Image src={post.thumbnail} alt="" />
             </a>

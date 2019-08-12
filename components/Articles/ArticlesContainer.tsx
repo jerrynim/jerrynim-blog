@@ -1,11 +1,13 @@
 import React from "react";
-import ArticlePresenter from "./ArticlesPresenter";
+import { Tag, Post } from "../../types/type";
+import ArticlesPresenter from "./ArticlesPresenter";
 
 interface IProps {
-  data: any;
+  posts: Post[];
 }
 
-const ArticleContainer: React.FC<IProps> = ({ data }) => {
-  return <ArticlePresenter data={data} />;
+const ArticleContainer: React.FC<IProps> = ({ posts }) => {
+  return <ArticlesPresenter posts={posts} />;
 };
+
 export default ArticleContainer;
