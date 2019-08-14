@@ -4,7 +4,7 @@ import _ from "lodash";
 import Comments from "../Comments";
 import Navigator from "../Navigator";
 import parse, { domToReact } from "html-react-parser";
-import Highlight from "react-highlight.js";
+import Highlight from "react-highlight";
 import { Post } from "../../types/type";
 
 const Container = styled.div`

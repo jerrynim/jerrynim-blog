@@ -8,6 +8,7 @@ import theme from "../style/theme";
 class MyApp extends App {
   render() {
     const { Component, pageProps, apolloClient } = this.props;
+    console.log(apolloClient);
     return (
       <Container>
         <GlobalStyles />

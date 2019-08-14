@@ -59,10 +59,7 @@ const ArticlePresenter: React.FC<IProps> = ({ posts }) => {
       {posts.map((post: any) => (
         <Container key={post.id}>
           <Texts>
-            <Link
-              as={`/articles/${post.title}`}
-              href={`/articles/${post.title}`}
-            >
+            <Link href={`/articles/${post.title}`}>
               <Title>{post.title}</Title>
             </Link>
             <SubTitle>{post.subTitle}</SubTitle>
