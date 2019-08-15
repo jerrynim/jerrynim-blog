@@ -1,0 +1,21 @@
+{
+  "extends": ["airbnb-typescript"],
+  "rules": {
+    "quotes": ["error", "double"], //더블 쿼터 사용
+    "no-unused-vars": "off", //사용안한 변수 경고 중복
+    "@typescript-eslint/no-unused-vars": "warn", //사용안한 변수는 경고
+    "implicit-arrow-linebreak": "off", //arrow 함수 => 라인 브레이크 가능
+    "function-paren-newline": "off", //새줄에 ) 만 허용
+    "comma-dangle": "off", //매개변수 마지막에 , 없이사용할거임
+    "react/no-unescaped-entities": "off", //jsx내에서 '' 허용
+    "jsx-a11y/anchor-is-valid": "off" // next js에서는 a에 href없이 사용
+  },
+
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+      }
+    }
+  }
+}

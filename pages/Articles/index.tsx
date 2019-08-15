@@ -1,10 +1,10 @@
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
 import Articles from "../../components/Articles";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import React from "react";
 import { GET_POSTS } from "../../queries";
 import Loader from "../../components/Loader";
-import { useQuery } from "@apollo/react-hooks";
 import { Post } from "../../types/type";
 
 const App: React.FC = () => {

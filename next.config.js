@@ -12,6 +12,6 @@ module.exports = withCSS({
   },
 
   env: {
-    KEY: process.env.KEY
-  }
+    KEY: process.env.KEY,
+  },
 });

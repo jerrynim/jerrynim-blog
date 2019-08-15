@@ -1,6 +1,6 @@
-import AddPost from "../components/AddPost";
+import React from "react";
 import { NextPage } from "next";
-const AddComment: NextPage = () => {
-  return <AddPost />;
-};
+import AddPost from "../components/AddPost";
+
+const AddComment: NextPage = () => <AddPost />;
 export default AddComment;
