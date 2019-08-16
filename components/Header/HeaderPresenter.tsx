@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Sidebar from "../Sidebar";
 import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
+import Sidebar from "../Sidebar";
 
 const Container = styled.h1`
   opacity: 0.8;
@@ -16,7 +16,7 @@ const Container = styled.h1`
 `;
 const Title = styled.a`
   font-size: 20px;
-  color: ${(props) => props.theme.softGray};
+  color: ${props => props.theme.softGray};
   cursor: pointer;
 `;
 
@@ -24,7 +24,7 @@ const Left = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.softGray};
+  color: ${props => props.theme.softGray};
   width: fit-content;
 `;
 const MenuIcon = styled.img`
@@ -57,28 +57,27 @@ const HeaderPresenter: React.FC<IProps> = ({
   Side,
   MenuOnClick,
   toggleSidebar
-}) => {
-  return (
-    <div>
-      <Sidebar
-        Side={Side}
-        toggleSidebar={toggleSidebar}
-        MenuOnClick={MenuOnClick}
-      />
-      <Container>
-        <Left>
-          <MenuButton onClick={MenuOnClick}>
-            <MenuIcon src="../../static/menuIcon.png" alt="" />
-          </MenuButton>
-          <Link as={"/"} href="/">
-            <Title>Jerrynim Blog</Title>
-          </Link>
-        </Left>
-        <Right>
-          <ShareIcon src="../../static/shareIcon.png" alt="" />
-        </Right>
-      </Container>
-    </div>
-  );
-};
+}) => (
+  <div>
+    <Sidebar
+      Side={Side}
+      toggleSidebar={toggleSidebar}
+      MenuOnClick={MenuOnClick}
+    />
+    <Container>
+      <Left>
+        <MenuButton onClick={MenuOnClick}>
+          <MenuIcon src="../../static/menuIcon.png" alt="" />
+        </MenuButton>
+        <Link href="/">
+          <Title>Jerrynim Blog</Title>
+        </Link>
+      </Left>
+      <Right>
+        <ShareIcon src="../../static/shareIcon.png" alt="" />
+      </Right>
+    </Container>
+  </div>
+);
+
 export default HeaderPresenter;

@@ -36,26 +36,24 @@ const AddCommentAddPost: React.FC<IProps> = ({
   file,
   setFile,
   setContent
-}) => {
-  return (
-    <Container>
-      <PostInfo
-        title={title}
-        subTitle={subTitle}
-        tags={tags}
-        password={password}
-        setFile={setFile}
-      />
-      <PostPreview
-        title={title}
-        subTitle={subTitle}
-        tags={tags}
-        content={content}
-        file={file}
-      />
-      <PostInput content={content} setContent={setContent} />
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <PostInfo
+      title={title}
+      subTitle={subTitle}
+      tags={tags}
+      password={password}
+      setFile={setFile}
+    />
+    <PostPreview
+      title={title}
+      subTitle={subTitle}
+      tags={tags}
+      content={content}
+      file={file}
+    />
+    <PostInput content={content} setContent={setContent} />
+  </Container>
+);
 
 export default AddCommentAddPost;

@@ -8,7 +8,10 @@
     "function-paren-newline": "off", //새줄에 ) 만 허용
     "comma-dangle": "off", //매개변수 마지막에 , 없이사용할거임
     "react/no-unescaped-entities": "off", //jsx내에서 '' 허용
-    "jsx-a11y/anchor-is-valid": "off" // next js에서는 a에 href없이 사용
+    "jsx-a11y/anchor-is-valid": "off", // next js에서는 a에 href없이 사용
+    "react/prop-types": "off", //proptype 구문 사용 X
+    "spaced-comment": "off", // 주석만 있는 라인 가능
+    "object-curly-newline": "off" //{ 다음은 항상 enter off
   },
 
   "settings": {
@@ -17,5 +20,6 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
       }
     }
-  }
+  },
+  "env": { "browser": true } //for window
 }

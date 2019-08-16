@@ -1,17 +1,16 @@
 import React, { LegacyRef } from "react";
 import styled from "styled-components";
-import _ from "lodash";
+import Highlight from "react-highlight";
+import parse, { domToReact } from "html-react-parser";
 import Comments from "../Comments";
 import Navigator from "../Navigator";
-import parse, { domToReact } from "html-react-parser";
-import Highlight from "react-highlight";
 import { Post } from "../../types/type";
 
 const Container = styled.div`
   padding-top: 96px;
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.blueGray};
+  background-color: ${props => props.theme.blueGray};
   display: flex;
   justify-content: center;
   position: relative;
@@ -27,7 +26,7 @@ const PostHeader = styled.div<{ image: string }>`
   position: relative;
   height: 350px;
   width: 100%;
-  background-image: url(${(props) => props.image});
+  background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
 `;
@@ -72,7 +71,7 @@ const NavigatorPosition = styled.div`
   position: fixed;
 `;
 
-const Highlighted = styled(Highlight)`
+const Highlighted = styled(Highlight)<{ language: string }>`
   margin: 0px 20px 18px 20px;
 `;
 
@@ -81,8 +80,8 @@ interface IProps {
 }
 
 const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
-  let refs: any = [];
-  let refsYPositon: Array<number> = [];
+  const refs = [];
+  const refsYPositon: number[] = [];
 
   const scrollToTitle = (title: string) => {
     const target = refs.find((ref: any) => ref!.current.id === title);
@@ -116,17 +115,19 @@ const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
                   refs.push(ref2);
                   const title = children[0].data;
                   return (
-                    <h1 ref={ref2} className={"title"} id={title}>
+                    <h1 ref={ref2} className="title" id={title}>
                       {domToReact(children)}
                     </h1>
                   );
-                } else if (attribs && attribs.class === "code" && children) {
+                }
+                if (attribs && attribs.class === "code" && children) {
                   return (
-                    <Highlighted language={"typescript"}>
+                    <Highlighted language="typescript" className="">
                       {domToReact(children)}
                     </Highlighted>
                   );
                 }
+                return <div />;
               }
             })}
           </PostView>

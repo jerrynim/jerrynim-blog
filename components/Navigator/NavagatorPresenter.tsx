@@ -10,10 +10,10 @@ const Container = styled.div<{ number: number }>`
   h1 {
     cursor: pointer;
     :hover {
-      color: ${(props) => props.theme.blue};
+      color: ${props => props.theme.blue};
     }
-    :nth-child(${(props) => props.number}) {
-      color: ${(props) => props.theme.blue};
+    :nth-child(${props => props.number}) {
+      color: ${props => props.theme.blue};
     }
   }
 `;
@@ -39,9 +39,8 @@ const NavigatorPresenter: React.FC<IProps> = ({
                 {domToReact(children)}
               </h1>
             );
-          } else {
-            return <></>;
           }
+          return <></>;
         }
       })}
     </Container>

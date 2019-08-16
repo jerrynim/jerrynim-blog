@@ -5,7 +5,8 @@ interface IProps {
   data: any;
 }
 
-const HomeContainer: React.FC<IProps> = ({ data }) => {
-  return <HomePresenter data={data} />;
-};
+const HomeContainer: React.FC<IProps> = ({ data }) => (
+  <HomePresenter data={data} />
+);
+
 export default HomeContainer;

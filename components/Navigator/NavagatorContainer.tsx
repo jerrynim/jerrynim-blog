@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import NavigatorPresenter from "./NavagatorPresenter";
 import _ from "lodash";
+import NavigatorPresenter from "./NavagatorPresenter";
+
 interface IProps {
   refsYPositon: Array<number>;
   refs: any;
@@ -17,12 +18,10 @@ const NavigatorContainer: React.FC<IProps> = ({
   const [focus, setFocus] = useState(0);
 
   const handler = useCallback(() => {
-    for (let i = 0; i < refsYPositon.length; i++) {
+    for (let i = 0; i < refsYPositon.length; i += 1) {
       if (window.pageYOffset < refsYPositon[i]) {
         setFocus(i);
         break;
-      } else {
-        continue;
       }
     }
   }, []);
@@ -32,6 +31,7 @@ const NavigatorContainer: React.FC<IProps> = ({
       if (ref.current) {
         refsYPositon.push(ref.current.offsetTop);
       }
+      return true;
     });
     refsYPositon.push(9999);
 

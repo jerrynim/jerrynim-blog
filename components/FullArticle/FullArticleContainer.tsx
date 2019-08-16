@@ -8,7 +8,8 @@ interface IProps {
   };
 }
 
-const FullArticleContainer: React.FC<IProps> = ({ post }) => {
-  return <FullArticlePresenter post={post.getPost} />;
-};
+const FullArticleContainer: React.FC<IProps> = ({ post }) => (
+  <FullArticlePresenter post={post.getPost} />
+);
+
 export default FullArticleContainer;

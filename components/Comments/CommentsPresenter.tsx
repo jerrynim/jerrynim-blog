@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TextareaAutosize from "react-autosize-textarea";
 import { Comment } from "../../types/type";
+
 const Container = styled.div`
   width: 100%;
   padding: 20px 60px 10px 40px;
@@ -101,35 +102,34 @@ interface IProps {
   data: Comment[];
 }
 
-const CommentsPresenter: React.FC<IProps> = ({ data: Comments }) => {
-  return (
-    <Container>
-      <CommentsCount>
-        댓글
-        <Number>{Comments.length}</Number>
-      </CommentsCount>
-      <Bar />
-      <TextArea />
-      <SubmitArea>
-        <NickNameBox>
-          <NickName>NickName</NickName>
-          <NickNameInput />
-        </NickNameBox>
-        <SubmitButton>확인</SubmitButton>
-      </SubmitArea>
-      <Bar />
-      <CommentList>
-        {Comments.map((comment, index) => (
-          <CommentView key={index}>
-            <Author>{comment.nickname}</Author>
-            <TextBox>
-              <Text>{comment.text}</Text>
-              <Time>{comment.createdAt}</Time>
-            </TextBox>
-          </CommentView>
-        ))}
-      </CommentList>
-    </Container>
-  );
-};
+const CommentsPresenter: React.FC<IProps> = ({ data: Comments }) => (
+  <Container>
+    <CommentsCount>
+      댓글
+      <Number>{Comments.length}</Number>
+    </CommentsCount>
+    <Bar />
+    <TextArea />
+    <SubmitArea>
+      <NickNameBox>
+        <NickName>NickName</NickName>
+        <NickNameInput />
+      </NickNameBox>
+      <SubmitButton>확인</SubmitButton>
+    </SubmitArea>
+    <Bar />
+    <CommentList>
+      {Comments.map(comment => (
+        <CommentView key={comment.id}>
+          <Author>{comment.nickname}</Author>
+          <TextBox>
+            <Text>{comment.text}</Text>
+            <Time>{comment.createdAt}</Time>
+          </TextBox>
+        </CommentView>
+      ))}
+    </CommentList>
+  </Container>
+);
+
 export default CommentsPresenter;

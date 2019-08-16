@@ -1,7 +1,5 @@
 import produce from "immer";
-import { createStandardAction } from "typesafe-actions";
-import { ActionType } from "typesafe-actions";
-import { getType } from "typesafe-actions";
+import { ActionType, createStandardAction, getType } from "typesafe-actions";
 
 const LOAD_USER = "user/LOAD_USER";
 const TRRIGER_CREATE_USER = "user/TRRIGER_CREATE_USER";
@@ -35,23 +33,23 @@ export interface User {
 const initialState: User[] = [];
 
 const user = (state = initialState, action: any) =>
-  produce(state, (draft) => {
+  produce(state, draft => {
     switch (action.type) {
       case getType(loadUser):
         return draft;
 
       case getType(createUser):
         draft.push(action.data);
-        return;
+        return draft;
 
       case getType(resetUser):
         return initialState;
 
       case getType(triggerCreateUser):
-        return;
+        return draft;
 
       default:
-        return;
+        return draft;
     }
   });
 export default user;

@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "../../style/typed-components";
 import Link from "next/link";
+import styled from "../../style/typed-components";
 
 const Container = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ const Title = styled.a`
 `;
 const SubTitle = styled.div`
   font-size: 22px;
-  color: ${(props) => props.theme.softGray};
+  color: ${props => props.theme.softGray};
   margin: 12px 0px;
 `;
 const Tags = styled.div`
@@ -34,7 +34,7 @@ const Tags = styled.div`
 `;
 const Tag = styled.span`
   font-size: 18px;
-  color: ${(props) => props.theme.blue};
+  color: ${props => props.theme.blue};
   margin-right: 20px;
   :last-child {
     margin-right: 0px;
@@ -51,7 +51,7 @@ const RecentPost = styled.div`
   flex-direction: column;
   width: 100%;
   height: 600px;
-  background-color: ${(props) => props.theme.blueGray};
+  background-color: ${props => props.theme.blueGray};
 `;
 
 const RecentTexts = styled.div`
@@ -63,11 +63,11 @@ const RecentTexts = styled.div`
 const RecentText = styled.h1`
   font-size: 28px;
   font-weight: 600;
-  color: ${(props) => props.theme.black};
+  color: ${props => props.theme.black};
 `;
 
 const SeeAll = styled.a`
-  color: ${(props) => props.theme.blue};
+  color: ${props => props.theme.blue};
   :hover {
     text-decoration: underline;
   }
@@ -96,7 +96,7 @@ const PostImg = styled.img`
 `;
 const PostTitle = styled.div`
   margin: 10px 0px;
-  color: ${(props) => props.theme.black};
+  color: ${props => props.theme.black};
   /*for the elipsis*/
   display: -webkit-box;
   max-width: 220px;
@@ -114,7 +114,7 @@ const PostTitle = styled.div`
 const PostSTitle = styled.div`
   font-size: 18px;
   margin-bottom: 10px;
-  color: ${(props) => props.theme.softGray};
+  color: ${props => props.theme.softGray};
   /*for the elipsis*/
   display: -webkit-box;
   max-width: 220px;
@@ -179,7 +179,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
       <RecentPost>
         <RecentTexts>
           <RecentText>Recent Posts</RecentText>
-          <Link prefetch={false} as={`/articles`} href={`/articles`}>
+          <Link href="/articles">
             <SeeAll>See all</SeeAll>
           </Link>
         </RecentTexts>
@@ -188,11 +188,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
             if (index > 0 && index < 5) {
               return (
                 <Post key={post.id}>
-                  <Link
-                    prefetch={false}
-                    as={`/articles/${post.title}`}
-                    href={`/articles/${post.title}`}
-                  >
+                  <Link href={`/articles/${post.title}`}>
                     <a>
                       <PostImg src={post.thumbnail} />
                     </a>
@@ -215,6 +211,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
                 </Post>
               );
             }
+            return <div />;
           })}
         </Posts>
       </RecentPost>

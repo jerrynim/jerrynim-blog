@@ -16,15 +16,14 @@ const PostPreviewContainer: React.FC<IProps> = ({
   tags,
   content,
   file
-}) => {
-  return (
-    <PostPreviewPresenter
-      title={title}
-      subTitle={subTitle}
-      tags={tags}
-      content={content}
-      file={file}
-    />
-  );
-};
+}) => (
+  <PostPreviewPresenter
+    title={title}
+    subTitle={subTitle}
+    tags={tags}
+    content={content}
+    file={file}
+  />
+);
+
 export default PostPreviewContainer;

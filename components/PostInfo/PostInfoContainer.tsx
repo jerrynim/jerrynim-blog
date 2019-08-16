@@ -1,7 +1,8 @@
 import React from "react";
+import axios from "axios";
 import PostInfoPresenter from "./PostInfoPresenter";
 import { UseInput } from "../../Hooks/useInput";
-import axios from "axios";
+
 interface IProps {
   title: UseInput;
   subTitle: UseInput;
@@ -17,7 +18,7 @@ const PostInfoContainer: React.FC<IProps> = ({
   password,
   setFile
 }) => {
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
+  const onChange: React.ChangeEventHandler<HTMLInputElement> = async e => {
     const file = e.target.files![0];
     const formData = new FormData();
     formData.append("file", file);
@@ -32,11 +33,11 @@ const PostInfoContainer: React.FC<IProps> = ({
         formData,
         config
       )
-      .then((response) => {
+      .then(response => {
         setFile(response.data);
       })
-      .catch((error) => {
-        console.log("error:" + error);
+      .catch(error => {
+        console.log("error:", error);
       });
   };
 

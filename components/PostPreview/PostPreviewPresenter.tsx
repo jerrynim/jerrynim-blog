@@ -1,8 +1,8 @@
 import React from "react";
+import Highlight from "react-highlight";
+import parse, { domToReact } from "html-react-parser";
 import { UseInput } from "../../Hooks/useInput";
 import styled from "../../style/typed-components";
-import parse, { domToReact } from "html-react-parser";
-import Highlight from "react-highlight.js";
 
 const Container = styled.div`
   width: 758px;
@@ -19,7 +19,7 @@ const PostHeader = styled.div<{ image: string }>`
   height: 350px;
   width: 100%;
 
-  background-image: url(${(props) => props.image});
+  background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
 `;
@@ -53,7 +53,7 @@ const PostSubTitle = styled.h2`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const Highlighted = styled(Highlight)`
+const Highlighted = styled(Highlight)<{ language: string }>`
   margin: 0px 20px 18px 20px;
 `;
 
@@ -75,30 +75,29 @@ const PostPreviewPresenter: React.FC<IProps> = ({
   tags,
   content,
   file
-}) => {
-  return (
-    <Container>
-      <PostHeader image={file}>
-        <PostTitle>{title.value}</PostTitle>
-        <PostSubTitle>{subTitle.value}</PostSubTitle>
-        <Overlay />
-      </PostHeader>
-      <Post>
-        {parse(content, {
-          replace: ({ attribs, children }) => {
-            if (attribs && attribs.class === "code" && children) {
-              console.log(children + "dd");
-              return (
-                <Highlighted language={"typescript"}>
-                  {domToReact(children)}
-                </Highlighted>
-              );
-            }
+}) => (
+  <Container>
+    <PostHeader image={file}>
+      <PostTitle>{title.value}</PostTitle>
+      <PostSubTitle>{subTitle.value}</PostSubTitle>
+      <Overlay />
+    </PostHeader>
+    <Post>
+      {parse(content, {
+        replace: ({ attribs, children }) => {
+          if (attribs && attribs.class === "code" && children) {
+            return (
+              <Highlighted language="typescript" className="">
+                {domToReact(children)}
+              </Highlighted>
+            );
           }
-        })}
-      </Post>
-      {tags.value}
-    </Container>
-  );
-};
+          return <div />;
+        }
+      })}
+    </Post>
+    {tags.value}
+  </Container>
+);
+
 export default PostPreviewPresenter;

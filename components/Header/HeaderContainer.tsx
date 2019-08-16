@@ -1,6 +1,6 @@
-import HeaderPresenter from "./HeaderPresenter";
 import React, { useState, useEffect } from "react";
 import { withRouter, SingletonRouter } from "next/router";
+import HeaderPresenter from "./HeaderPresenter";
 
 interface Props {
   router: SingletonRouter;

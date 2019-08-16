@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
   margin: auto;
   :nth-child(even) {
-    background-color: ${(props) => props.theme.blueGray};
+    background-color: ${props => props.theme.blueGray};
   }
 `;
 
@@ -29,7 +29,7 @@ const Title = styled.a`
 `;
 const SubTitle = styled.div`
   font-size: 22px;
-  color: ${(props) => props.theme.softGray};
+  color: ${props => props.theme.softGray};
   margin: 12px 0px;
 `;
 const Tags = styled.div`
@@ -37,7 +37,7 @@ const Tags = styled.div`
 `;
 const Tag = styled.div`
   font-size: 18px;
-  color: ${(props) => props.theme.blue};
+  color: ${props => props.theme.blue};
   margin-right: 20px;
   :last-child {
     margin-right: 0px;
@@ -53,30 +53,29 @@ interface IProps {
   posts: Post[];
 }
 
-const ArticlePresenter: React.FC<IProps> = ({ posts }) => {
-  return (
-    <div>
-      {posts.map((post: any) => (
-        <Container key={post.id}>
-          <Texts>
-            <Link href={`/articles/${post.title}`}>
-              <Title>{post.title}</Title>
-            </Link>
-            <SubTitle>{post.subTitle}</SubTitle>
-            <Tags>
-              {post.tags.map((tag: any) => (
-                <Tag key={tag.id}>{tag.term}</Tag>
-              ))}
-            </Tags>
-          </Texts>
-          <Link as={`/articles/${post.title}`} href={`/articles/${post.title}`}>
-            <a>
-              <Image src={post.thumbnail} alt="" />
-            </a>
+const ArticlePresenter: React.FC<IProps> = ({ posts }) => (
+  <div>
+    {posts.map((post: any) => (
+      <Container key={post.id}>
+        <Texts>
+          <Link href={`/articles/${post.title}`}>
+            <Title>{post.title}</Title>
           </Link>
-        </Container>
-      ))}
-    </div>
-  );
-};
+          <SubTitle>{post.subTitle}</SubTitle>
+          <Tags>
+            {post.tags.map((tag: any) => (
+              <Tag key={tag.id}>{tag.term}</Tag>
+            ))}
+          </Tags>
+        </Texts>
+        <Link as={`/articles/${post.title}`} href={`/articles/${post.title}`}>
+          <a>
+            <Image src={post.thumbnail} alt="" />
+          </a>
+        </Link>
+      </Container>
+    ))}
+  </div>
+);
+
 export default ArticlePresenter;

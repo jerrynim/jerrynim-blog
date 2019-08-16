@@ -1,6 +1,6 @@
 import React from "react";
-import PostInputPresenter from "./PostInputPresenter";
 import axios from "axios";
+import PostInputPresenter from "./PostInputPresenter";
 
 interface IProps {
   content: string;
@@ -9,45 +9,40 @@ interface IProps {
 
 const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
   const addHeader: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setContent(
-      content +
-        `<h1 class="title"></h1>
-        `
-    );
+    setContent(`
+      ${content}
+        <h1 class="title"></h1>
+        `);
   };
 
   const addText: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setContent(
-      content +
-        `<p class="text"></p>
-        `
-    );
+    setContent(`
+      ${content}
+        <p class="text"></p>
+        `);
   };
 
   const addBold: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setContent(
-      content +
-        `<b class="bold"></b>
-        `
-    );
+    setContent(`
+      ${content}
+        <b class="bold"></b>
+        `);
   };
   const addLine: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setContent(
-      content +
-        `<div class="line"></div>
-        `
-    );
+    setContent(`
+      ${content}
+        <div class="line"></div>
+        `);
   };
 
   const addCode: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setContent(
-      content +
-        `<div class="code"></div>
-        `
-    );
+    setContent(`
+      ${content} 
+        <div class="code"></div>
+        `);
   };
 
-  const addImage: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
+  const addImage: React.ChangeEventHandler<HTMLInputElement> = async e => {
     const file = e.target.files![0];
     const formData = new FormData();
     formData.append("file", file);
@@ -62,17 +57,16 @@ const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
         formData,
         config
       )
-      .then((response) => {
-        setContent(
-          content +
-            `<div class="imgBox">
+      .then(response => {
+        setContent(`
+          ${content}
+            <div class="imgBox">
               <img src="${response.data}" class="img"/>
               </div>
-              `
-        );
+              `);
       })
-      .catch((error) => {
-        console.log("error:" + error);
+      .catch(error => {
+        console.log("error:", error);
       });
   };
 

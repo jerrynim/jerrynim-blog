@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "../../style/typed-components";
 import Link from "next/link";
+import styled from "../../style/typed-components";
+import { Tag } from "../../types/type";
 
 const Container = styled.div`
   width: 100%;
@@ -25,15 +26,15 @@ const Title = styled.a`
 `;
 const SubTitle = styled.div`
   font-size: 22px;
-  color: ${(props) => props.theme.softGray};
+  color: ${props => props.theme.softGray};
   margin: 12px 0px;
 `;
 const Tags = styled.div`
   display: flex;
 `;
-const Tag = styled.div`
+const TagView = styled.div`
   font-size: 18px;
-  color: ${(props) => props.theme.blue};
+  color: ${props => props.theme.blue};
   margin-right: 20px;
   :last-child {
     margin-right: 0px;
@@ -48,37 +49,36 @@ interface IProps {
   data: any;
 }
 
-const ArticlePresenter: React.FC<IProps> = ({ data }) => {
-  return (
-    <div>
-      <Container>
-        <Texts>
-          <Link
-            prefetch={false}
-            as={`/articles/${data.title}`}
-            href={`/articles/${data.title}`}
-          >
-            <Title>{data.title}</Title>
-          </Link>
-
-          <SubTitle>{data.subTitle}</SubTitle>
-          <Tags>
-            {data.tags.map((tag: string[], index: number) => (
-              <Tag key={index}>{tag}</Tag>
-            ))}
-          </Tags>
-        </Texts>
+const ArticlePresenter: React.FC<IProps> = ({ data }) => (
+  <div>
+    <Container>
+      <Texts>
         <Link
           prefetch={false}
           as={`/articles/${data.title}`}
           href={`/articles/${data.title}`}
         >
-          <a>
-            <Image src={data.thumbnail} alt="" />
-          </a>
+          <Title>{data.title}</Title>
         </Link>
-      </Container>
-    </div>
-  );
-};
+
+        <SubTitle>{data.subTitle}</SubTitle>
+        <Tags>
+          {data.tags.map((tag: Tag) => (
+            <TagView key={tag.id}>{tag}</TagView>
+          ))}
+        </Tags>
+      </Texts>
+      <Link
+        prefetch={false}
+        as={`/articles/${data.title}`}
+        href={`/articles/${data.title}`}
+      >
+        <a>
+          <Image src={data.thumbnail} alt="" />
+        </a>
+      </Link>
+    </Container>
+  </div>
+);
+
 export default ArticlePresenter;

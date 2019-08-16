@@ -1,9 +1,10 @@
 import React from "react";
-import styled from "../../style/typed-components";
 import { IoIosImage } from "react-icons/io";
 import { FaHeading } from "react-icons/fa";
 import { TiDocumentText } from "react-icons/ti";
 import { MdDragHandle, MdFormatBold, MdCode } from "react-icons/md";
+import styled from "../../style/typed-components";
+
 const Container = styled.div`
   width: 300px;
   background-color: white;
@@ -69,34 +70,33 @@ const PostInputPresenter: React.FC<IProps> = ({
   addLine,
   addImage,
   addCode
-}) => {
-  return (
-    <Container>
-      <TextArea value={content} onChange={(e) => setContent(e.target.value)} />
-      <Buttons>
-        <Button onClick={addHeader}>
-          <FaHeading size={24} />
-        </Button>
-        <Button onClick={addText}>
-          <TiDocumentText size={24} />
-        </Button>
-        <InputWrapper>
-          <IoIosImage size={24} />
+}) => (
+  <Container>
+    <TextArea value={content} onChange={e => setContent(e.target.value)} />
+    <Buttons>
+      <Button onClick={addHeader}>
+        <FaHeading size={24} />
+      </Button>
+      <Button onClick={addText}>
+        <TiDocumentText size={24} />
+      </Button>
+      <InputWrapper>
+        <IoIosImage size={24} />
 
-          <Input type={"file"} onChange={addImage} />
-        </InputWrapper>
+        <Input type="file" onChange={addImage} />
+      </InputWrapper>
 
-        <Button onClick={addLine}>
-          <MdDragHandle size={24} />
-        </Button>
-        <Button onClick={addBold}>
-          <MdFormatBold size={24} />
-        </Button>
-        <Button onClick={addCode}>
-          <MdCode size={24} />
-        </Button>
-      </Buttons>
-    </Container>
-  );
-};
+      <Button onClick={addLine}>
+        <MdDragHandle size={24} />
+      </Button>
+      <Button onClick={addBold}>
+        <MdFormatBold size={24} />
+      </Button>
+      <Button onClick={addCode}>
+        <MdCode size={24} />
+      </Button>
+    </Buttons>
+  </Container>
+);
+
 export default PostInputPresenter;
