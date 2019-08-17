@@ -25,6 +25,7 @@ interface IProps {
 
   file: string;
   setFile: React.Dispatch<React.SetStateAction<string>>;
+  upload: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const AddCommentAddPost: React.FC<IProps> = ({
@@ -35,7 +36,8 @@ const AddCommentAddPost: React.FC<IProps> = ({
   content,
   file,
   setFile,
-  setContent
+  setContent,
+  upload
 }) => (
   <Container>
     <PostInfo
@@ -44,14 +46,9 @@ const AddCommentAddPost: React.FC<IProps> = ({
       tags={tags}
       password={password}
       setFile={setFile}
+      upload={upload}
     />
-    <PostPreview
-      title={title}
-      subTitle={subTitle}
-      tags={tags}
-      content={content}
-      file={file}
-    />
+    <PostPreview title={title} subTitle={subTitle} tags={tags} content={content} file={file} />
     <PostInput content={content} setContent={setContent} />
   </Container>
 );

@@ -69,13 +69,7 @@ interface IProps {
   file: string;
 }
 
-const PostPreviewPresenter: React.FC<IProps> = ({
-  title,
-  subTitle,
-  tags,
-  content,
-  file
-}) => (
+const PostPreviewPresenter: React.FC<IProps> = ({ title, subTitle, tags, content, file }) => (
   <Container>
     <PostHeader image={file}>
       <PostTitle>{title.value}</PostTitle>
@@ -92,7 +86,7 @@ const PostPreviewPresenter: React.FC<IProps> = ({
               </Highlighted>
             );
           }
-          return <div />;
+          return { attribs, children };
         }
       })}
     </Post>
