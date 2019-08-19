@@ -36,7 +36,7 @@ export const GET_POST = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost(
+  query createPost(
     $title: String!
     $subTitle: String!
     $thumbnail: String!

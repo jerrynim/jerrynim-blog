@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { UseInput } from "../../Hooks/useInput";
+import styled from "styled-components";
 
 const Container = styled.div`
   width: 250px;
@@ -34,7 +34,7 @@ const CategoryInput = styled.input`
 `;
 
 const UploadButton = styled.button`
-  background-color: ${props => props.theme.blue};
+  background-color: ${(props) => props.theme.blue};
   margin: auto;
   font-size: 18px;
   padding: 10px 15px;
@@ -47,7 +47,6 @@ interface IProps {
   tags: UseInput;
   password: UseInput;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  upload: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const PostInfoPresenter: React.FC<IProps> = ({
@@ -55,32 +54,32 @@ const PostInfoPresenter: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  onChange,
-  upload
-}) => (
-  <Container>
-    <Category>
-      <CategoryText>Title</CategoryText>
-      <CategoryInput {...title} />
-    </Category>
-    <Category>
-      <CategoryText>SubTitle</CategoryText>
-      <CategoryInput {...subTitle} />
-    </Category>
-    <Category>
-      <CategoryText>Tags</CategoryText>
-      <input type="file" onChange={onChange} />
-    </Category>
-    <Category>
-      <CategoryText>Thumbnail</CategoryText>
-      <CategoryInput {...tags} />
-    </Category>
-    <Category>
-      <CategoryText>Password</CategoryText>
-      <CategoryInput type="password" {...password} />
-    </Category>
-    <UploadButton onClick={upload}>Upload</UploadButton>
-  </Container>
-);
-
+  onChange
+}) => {
+  return (
+    <Container>
+      <Category>
+        <CategoryText>Title</CategoryText>
+        <CategoryInput {...title} />
+      </Category>
+      <Category>
+        <CategoryText>SubTitle</CategoryText>
+        <CategoryInput {...subTitle} />
+      </Category>
+      <Category>
+        <CategoryText>Tags</CategoryText>
+        <input type="file" onChange={onChange} />
+      </Category>
+      <Category>
+        <CategoryText>Thumbnail</CategoryText>
+        <CategoryInput {...tags} />
+      </Category>
+      <Category>
+        <CategoryText>Password</CategoryText>
+        <CategoryInput type="password" {...password} />
+      </Category>
+      <UploadButton onClick={() => {}}>Upload</UploadButton>
+    </Container>
+  );
+};
 export default PostInfoPresenter;

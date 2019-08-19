@@ -8,20 +8,14 @@ import { GET_POSTS } from "../queries";
 import { Post } from "../types/type";
 
 const App: NextPage = () => {
-  const { data, loading, error } = useQuery<{
+  const { data, loading } = useQuery<{
     getPosts: Post[];
   }>(GET_POSTS);
-  console.log(data);
   return (
     <>
-      {error && <div>error</div>}
-      {!loading && data && data.getPosts && (
-        <>
-          <Header />
-          <Articles posts={data.getPosts} />
-          <Footer />
-        </>
-      )}
+      <Header />
+      {!loading && <Articles posts={data.getPosts} />}
+      <Footer />
     </>
   );
 };

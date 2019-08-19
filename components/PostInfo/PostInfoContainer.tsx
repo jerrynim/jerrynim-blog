@@ -9,7 +9,6 @@ interface IProps {
   tags: UseInput;
   password: UseInput;
   setFile: React.Dispatch<React.SetStateAction<string>>;
-  upload: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const PostInfoContainer: React.FC<IProps> = ({
@@ -17,8 +16,7 @@ const PostInfoContainer: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  setFile,
-  upload
+  setFile
 }) => {
   const onChange: React.ChangeEventHandler<HTMLInputElement> = async e => {
     const file = e.target.files![0];
@@ -30,7 +28,11 @@ const PostInfoContainer: React.FC<IProps> = ({
       }
     };
     await axios
-      .post("https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev", formData, config)
+      .post(
+        "https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev",
+        formData,
+        config
+      )
       .then(response => {
         setFile(response.data);
       })
@@ -46,7 +48,6 @@ const PostInfoContainer: React.FC<IProps> = ({
       tags={tags}
       password={password}
       onChange={onChange}
-      upload={upload}
     />
   );
 };
