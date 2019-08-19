@@ -8,8 +8,8 @@
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore. --fix"
   },
   "lint-staged": {
-    "**.*.{ts,tsx}": [
-      "./node_modules/.bin/eslint — fix",
+    "*.{ts,tsx}": [
+      "./node_modules/.bin/eslint",
       "git add"
     ]
   },
