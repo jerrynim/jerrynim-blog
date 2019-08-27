@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import styled from "../../style/typed-components";
 
@@ -37,128 +37,22 @@ const MenuIcon = styled.img`
 const MenuButton = styled.button`
   margin: 0px 10px 0px 20px;
 `;
-const Profile = styled.div`
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Name = styled.div`
-  font-size: 22px;
-  margin: 12px 0px;
-`;
-const Bio = styled.div`
-  font-size: 18px;
-  text-align: center;
-  color: ${props => props.theme.softGray};
-`;
-const GrayBar = styled.div`
-  width: 100%;
-  height: 2px;
-  margin: auto;
-  width: 90%;
-  background-color: ${props => props.theme.softGray};
-`;
-
-const Categories = styled.ul`
-  display: flex;
-  flex-direction: column;
-  margin: 20px 20px 0px;
-`;
-const Category = styled.li`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  :last-child {
-    margin-bottom: 0px;
-  }
-`;
-
-const CategoryIcon = styled.img`
-  width: 24px;
-  height: 24px;
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
-const CategoryText = styled.div`
-  font-size: 18px;
-  color: ${props => props.theme.black};
-  cursor: pointer;
-`;
 
 interface IProps {
-  Side: boolean;
-  MenuOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  SidebarStatus: boolean;
+  toggleSidebar: Dispatch<SetStateAction<boolean>>;
 }
 
-const SidebarPresenter: React.FC<IProps> = ({ Side, MenuOnClick }) => (
-  <Container Side={Side}>
-    <Left Side={Side}>
-      <MenuButton onClick={MenuOnClick}>
+const SidebarPresenter: React.FC<IProps> = ({ SidebarStatus, toggleSidebar }) => (
+  <Container Side={SidebarStatus}>
+    <Left Side={SidebarStatus}>
+      <MenuButton onClick={() => toggleSidebar(!SidebarStatus)}>
         <MenuIcon src="../../static/menuIcon.png" alt="" />
       </MenuButton>
       <Link href="/">
         <Title>Jerrynim Blog</Title>
       </Link>
     </Left>
-    <Profile>
-      <Name>Jerrynim</Name>
-      <Bio>안녕하세요. 최신기술을 좋아하는 Javascript 개발자 입니다.</Bio>
-    </Profile>
-    <GrayBar />
-    <Categories>
-      <Category>
-        <Link href="/">
-          <a>
-            <CategoryIcon src="../../static/homeIconGray.png" alt="" />
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <CategoryText>Home</CategoryText>
-          </a>
-        </Link>
-      </Category>
-      <Category>
-        <Link href="/Articles">
-          <a>
-            <CategoryIcon src="../../static/ListIcon.png" alt="" />
-          </a>
-        </Link>
-        <Link href="/Articles">
-          <a>
-            <CategoryText>Articles</CategoryText>
-          </a>
-        </Link>
-      </Category>
-      <Category>
-        <Link href="/Project">
-          <a>
-            <CategoryIcon src="../../static/Project.png" alt="" />
-          </a>
-        </Link>
-        <Link href="/Project">
-          <a>
-            <CategoryText>Project</CategoryText>
-          </a>
-        </Link>
-      </Category>
-      <Category>
-        <Link as="/AboutMe" href="/AboutMe">
-          <a>
-            <CategoryIcon src="../../static/PersonIcon.png" alt="" />
-          </a>
-        </Link>
-        <Link as="/AboutMe" href="/AboutMe">
-          <a>
-            <CategoryText>About Me</CategoryText>
-          </a>
-        </Link>
-      </Category>
-    </Categories>
   </Container>
 );
 

@@ -1,6 +1,6 @@
 export default {
-  black: "#333333",
+  black: "#141414",
   blueGray: "#F1F5FB",
-  softGray: "#777777",
+  lightGray: "#DDDDDD",
   blue: "#2F80ED"
 };

@@ -12,7 +12,7 @@ export type Post = {
 
 export type Comment = {
   id: string;
-  post: Post;
+  post?: Post;
   text: string;
   nickname: string;
   createdAt?: string;

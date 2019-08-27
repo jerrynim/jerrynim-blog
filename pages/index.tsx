@@ -6,18 +6,14 @@ import Footer from "../components/Footer";
 import Articles from "../components/Articles";
 import { GET_POSTS } from "../queries";
 import { Post } from "../types/type";
+import Posts from "../data/Posts";
 
-const App: NextPage = () => {
-  const { data, loading } = useQuery<{
-    getPosts: Post[];
-  }>(GET_POSTS);
-  return (
-    <>
-      <Header />
-      {!loading && <Articles posts={data.getPosts} />}
-      <Footer />
-    </>
-  );
-};
+const App: NextPage = () => (
+  <>
+    <Header />
+    <Articles posts={Posts} />
+    <Footer />
+  </>
+);
 
 export default App;

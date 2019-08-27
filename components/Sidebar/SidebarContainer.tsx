@@ -3,22 +3,17 @@ import OutsideClickHandler from "react-outside-click-handler";
 import SidebarPresenter from "./SidebarPresenter";
 
 interface IProps {
-  Side: boolean;
-  MenuOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  SidebarStatus: boolean;
   toggleSidebar: Dispatch<SetStateAction<boolean>>;
 }
 
-const SidebarContainer: React.FC<IProps> = ({
-  Side,
-  MenuOnClick,
-  toggleSidebar
-}) => (
+const SidebarContainer: React.FC<IProps> = ({ SidebarStatus, toggleSidebar }) => (
   <OutsideClickHandler
     onOutsideClick={() => {
-      if (Side === true) toggleSidebar(!Side);
+      if (SidebarStatus === true) toggleSidebar(!SidebarStatus);
     }}
   >
-    <SidebarPresenter Side={Side} MenuOnClick={MenuOnClick} />
+    <SidebarPresenter Side={SidebarStatus} toggleSidebar={toggleSidebar} />
   </OutsideClickHandler>
 );
 
