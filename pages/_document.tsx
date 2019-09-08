@@ -1,30 +1,16 @@
 import { ServerStyleSheet } from "styled-components";
-import Document, {
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from "next/document";
+import Document, { Head, Main, NextScript, DocumentContext } from "next/document";
 import React from "react";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    const { renderPage, req, res } = ctx; // for styled-components
+    const { renderPage } = ctx; // for styled-components
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />)
-    );
-    const styleTags = sheet.getStyleElement();
+    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
+    const styles = sheet.getStyleElement();
     return {
-      ...initialProps,
       ...page,
-      styles: (
-        <>
-          {initialProps.styles}
-          {styleTags}
-        </>
-      ),
+      styles
     };
   }
 

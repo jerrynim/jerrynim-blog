@@ -1,5 +1,5 @@
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import fetch from "isomorphic-unfetch";
+import { ApolloClient, InMemoryCache } from "apollo-boost";
+import { createUploadLink } from "apollo-upload-client";
 
 let apolloClient = null;
 
@@ -9,11 +9,8 @@ function create(initialState) {
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
-    link: new HttpLink({
-      uri: "http://localhost:4000/", // Server URL (must be absolute)
-      credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
-      // Use fetch() polyfill on the server
-      fetch: !isBrowser && fetch
+    link: createUploadLink({
+      uri: "http://localhost:4000"
     }),
     cache: new InMemoryCache().restore(initialState || {})
   });

@@ -6,7 +6,11 @@ import GlobalStyles from "../style/GlobalStyle";
 import { ThemeProvider } from "../style/typed-components";
 import theme from "../style/theme";
 
-class MyApp extends App {
+interface AppProps {
+  apolloClient: any;
+}
+
+class MyApp extends App<AppProps> {
   render() {
     const { Component, pageProps, apolloClient } = this.props;
     return (

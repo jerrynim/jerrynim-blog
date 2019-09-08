@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+import { useMutation } from "@apollo/react-hooks";
+import { FILE_UPLOAD } from "../../queries/upload";
 import PostInfoPresenter from "./PostInfoPresenter";
 import { UseInput } from "../../Hooks/useInput";
 
@@ -9,6 +10,7 @@ interface IProps {
   tags: UseInput;
   password: UseInput;
   setFile: React.Dispatch<React.SetStateAction<string>>;
+  addPostMutation: any;
 }
 
 const PostInfoContainer: React.FC<IProps> = ({
@@ -16,31 +18,16 @@ const PostInfoContainer: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  setFile
+  setFile,
+  addPostMutation
 }) => {
+  const [fileUploadMuation, { data, error }] = useMutation(FILE_UPLOAD);
+
   const onChange: React.ChangeEventHandler<HTMLInputElement> = async e => {
     const file = e.target.files![0];
-    const formData = new FormData();
-    formData.append("file", file);
-    const config = {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-    await axios
-      .post(
-        "https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev",
-        formData,
-        config
-      )
-      .then(response => {
-        setFile(response.data);
-      })
-      .catch(error => {
-        console.log("error:", error);
-      });
+    fileUploadMuation({ variables: { file } });
   };
-
+  console.log(data, error);
   return (
     <PostInfoPresenter
       title={title}
