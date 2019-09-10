@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import Link from "next/link";
-import Sidebar from "../Sidebar";
 
 const Container = styled.div`
   opacity: 0.8;
@@ -34,6 +33,7 @@ const Left = styled.div`
 
   & a {
     font-size: 24px;
+    margin-left: 30px;
     color: ${props => props.theme.black};
     margin-right: 35px;
     cursor: pointer;
@@ -54,20 +54,13 @@ const Right = styled.div`
 `;
 
 interface IProps {
-  SidebarStatus: boolean;
-  toggleSidebar: Dispatch<SetStateAction<boolean>>;
+  path: string;
 }
 
-const HeaderPresenter: React.FC<IProps> = ({ SidebarStatus, toggleSidebar }) => (
+const HeaderPresenter: React.FC<IProps> = ({ path }) => (
   <>
-    <Sidebar SidebarStatus={SidebarStatus} toggleSidebar={toggleSidebar} />
     <Container>
       <Left>
-        <button type="button" onClick={() => toggleSidebar(!SidebarStatus)}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
-          </svg>
-        </button>
         <Link href="/">
           <a>Jerrynim Blog</a>
         </Link>

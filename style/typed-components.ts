@@ -2,8 +2,8 @@ import * as styledComponents from "styled-components";
 
 interface IThemeInterface {
   black: string;
-  blueGray: string;
-  softGray: string;
+  blue_gray: string;
+  light_gray: string;
   blue: string;
 }
 

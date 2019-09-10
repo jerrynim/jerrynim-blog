@@ -6,10 +6,14 @@ import { Post } from "../../types/type";
 import CardList from "./CardList";
 
 const Container = styled.div`
-  width: 936px;
+  width: 928px;
   background-color: white;
   margin: auto;
   padding-top: 56px;
+
+  .wrapper {
+    padding: 20px 16px;
+  }
 `;
 
 const Title = styled.div`
@@ -17,9 +21,8 @@ const Title = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0px 16px;
-  padding: 20px 0px 8px;
-  border-bottom: 1px solid ${props => props.theme.lightGray};
+  padding-bottom: 8px;
+  border-bottom: 1px solid ${props => props.theme.light_gray};
   & h1 {
     font-size: 24px;
     color: ${props => props.theme.black};
@@ -40,17 +43,19 @@ interface IProps {
   posts: Post[];
 }
 
-const ArticlePresenter: React.FC<IProps> = ({ posts }) => (
+const ArticlesPresenter: React.FC<IProps> = ({ posts }) => (
   <Container>
-    <Title>
-      <h1>Articles</h1>
-      <div>
-        <FaTrello size={24} color="#141414" />
-        <FaList size={24} color="#141414" />
-      </div>
-    </Title>
-    <CardList posts={posts} />
+    <div className="wrapper">
+      <Title>
+        <h1>Articles</h1>
+        <div>
+          <FaTrello size={24} color="#141414" />
+          <FaList size={24} color="#141414" />
+        </div>
+      </Title>
+      <CardList posts={posts} />
+    </div>
   </Container>
 );
 
-export default ArticlePresenter;
+export default ArticlesPresenter;

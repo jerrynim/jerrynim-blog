@@ -1,16 +1,16 @@
 import { ApolloClient, InMemoryCache } from "apollo-boost";
 import { createUploadLink } from "apollo-upload-client";
+import fetch from "isomorphic-fetch";
 
 let apolloClient = null;
 
 function create(initialState) {
-  // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
   const isBrowser = typeof window !== "undefined";
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
     link: createUploadLink({
-      uri: "http://localhost:4000"
+      uri: fetch("http://localhost:4000/")
     }),
     cache: new InMemoryCache().restore(initialState || {})
   });

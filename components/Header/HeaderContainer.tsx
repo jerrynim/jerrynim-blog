@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter, SingletonRouter } from "next/router";
 import HeaderPresenter from "./HeaderPresenter";
 
-interface Props {
+interface IProps {
   router: SingletonRouter;
 }
 
-const HeaderContainer: React.FC<Props> = () => {
-  const [SidebarStatus, toggleSidebar] = useState(false);
-
-  return <HeaderPresenter SidebarStatus={SidebarStatus} toggleSidebar={toggleSidebar} />;
-};
+const HeaderContainer: React.FC<IProps> = ({ router }) => (
+  <HeaderPresenter path={router.pathname} />
+);
 export default withRouter(HeaderContainer);
