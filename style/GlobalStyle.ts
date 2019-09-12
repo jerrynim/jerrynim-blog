@@ -1,5 +1,6 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "./typed-components";
+import theme from "./theme";
 
 const GlobalStyles = createGlobalStyle`
     ${reset};
@@ -17,13 +18,14 @@ const GlobalStyles = createGlobalStyle`
         cursor:pointer;
         border: 0;
         background-color:white;
+        color: ${theme.black};
     }
     h1,h2,h3,h4,h5,h6{
+        color: ${theme.black};
         @font-face { font-family: 'Handon3gyeopsal300g'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal300g.woff') format('woff'); font-weight: normal; font-style: normal; }        font-family: "Handon3gyeopsal300g";
     }
-    a{
-        color: inherit;
-    text-decoration: none;
+    a,p,span,b,div{
+    color: ${theme.black};
     }
     
     .title{

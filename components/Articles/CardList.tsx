@@ -1,17 +1,20 @@
 import * as React from "react";
 import styled from "styled-components";
-import { theme } from "../../style/theme";
 import { Post } from "../../types/type";
+import theme from "../../style/theme";
 
 const Container = styled.div`
   display: flex;
-  padding: 20px 0px;
+
+  .right_card {
+    padding: 20px 0px 12px 16px;
+  }
 `;
 
 const Card = styled.div`
   background-color: white;
-  padding: 20px 16px 12px;
-  border-bottom: 1px solid ${theme.light_gray};
+  padding: 20px 16px 12px 0px;
+  border-bottom: 2px solid ${theme.light_gray};
   position: relative;
   .img_wrapper {
     position: relative;
@@ -42,20 +45,38 @@ const Card = styled.div`
   .bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
-  .tagBox {
+  .tag_box {
     display: flex;
-  }
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      padding: 4px 6px;
+      background-color: ${theme.blue_gray};
+      margin-right: 12px;
 
-  p {
+      :last-child {
+        margin: 0;
+      }
+    }
+  }
+  .date {
+    color: ${theme.blue};
   }
 `;
 
 const Left = styled.div`
   flex: 1;
-  border-right: 1px solid ${theme.light_gray};
+  padding-top: 20px;
+  margin-left: 16px;
+
+  border-right: 2px solid ${theme.light_gray};
 `;
 const Right = styled.div`
+  padding-top: 20px;
+  margin-right: 16px;
+
   flex: 1;
 `;
 
@@ -66,28 +87,52 @@ interface IProps {
 const CardList: React.FC<IProps> = ({ posts }) => (
   <Container>
     <Left>
-      <Card>
-        <div className="img_wrapper">
-          <img
-            src="https://cms-assets.tutsplus.com/uploads/users/127/posts/31162/image/final.png"
-            alt=""
-          />
-        </div>
-        <h1>Start your first blog contents</h1>
-        <h2>
-          GraphQL is a query language for your API, and a server-side runtime for executing queries
-          by using a type system you define for your data. GraphQL isn't tied to any specific
-          database or storage engine and is instead backed by your existing code and data.
-        </h2>
-        <div className="bottom">s</div>
-      </Card>
-      <Card />
-      <Card />
+      {posts.map((post, index) => {
+        if (index % 2 !== 0) {
+          return (
+            <Card key={post.id}>
+              <div className="img_wrapper">
+                <img src={post.thumbnail} alt="" />
+              </div>
+              <h1>{post.title}</h1>
+              <h2>{post.subTitle}</h2>
+              <div className="bottom">
+                <div className="tag_box">
+                  {post.tags.map(tag => (
+                    <p key={tag.id}>{tag.term}</p>
+                  ))}
+                </div>
+                <p className="date">{post.createdAt}</p>
+              </div>
+            </Card>
+          );
+        }
+        return <></>;
+      })}
     </Left>
     <Right>
-      <Card />
-      <Card />
-      <Card />
+      {posts.map((post, index) => {
+        if (index % 2 === 0) {
+          return (
+            <Card className="right_card" key={post.id}>
+              <div className="img_wrapper">
+                <img src={post.thumbnail} alt="" />
+              </div>
+              <h1>{post.title}</h1>
+              <h2>{post.subTitle}</h2>
+              <div className="bottom">
+                <div className="tag_box">
+                  {post.tags.map(tag => (
+                    <p key={tag.id}>{tag.term}</p>
+                  ))}
+                </div>
+                <p className="date">{post.createdAt}</p>
+              </div>
+            </Card>
+          );
+        }
+        return <></>;
+      })}
     </Right>
   </Container>
 );

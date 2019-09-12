@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "../../style/typed-components";
+import theme from "../../style/theme";
 
 const Container = styled.div`
   width: 100%;
@@ -26,7 +27,7 @@ const Title = styled.a`
 `;
 const SubTitle = styled.div`
   font-size: 22px;
-  color: ${props => props.theme.softGray};
+  color: ${theme.thin_gray};
   margin: 12px 0px;
 `;
 const Tags = styled.div`
@@ -51,7 +52,6 @@ const RecentPost = styled.div`
   flex-direction: column;
   width: 100%;
   height: 600px;
-  background-color: ${props => props.theme.blueGray};
 `;
 
 const RecentTexts = styled.div`
@@ -63,11 +63,9 @@ const RecentTexts = styled.div`
 const RecentText = styled.h1`
   font-size: 28px;
   font-weight: 600;
-  color: ${props => props.theme.black};
 `;
 
 const SeeAll = styled.a`
-  color: ${props => props.theme.blue};
   :hover {
     text-decoration: underline;
   }
@@ -114,7 +112,6 @@ const PostTitle = styled.div`
 const PostSTitle = styled.div`
   font-size: 18px;
   margin-bottom: 10px;
-  color: ${props => props.theme.softGray};
   /*for the elipsis*/
   display: -webkit-box;
   max-width: 220px;
@@ -167,10 +164,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
             ))}
           </Tags>
         </Texts>
-        <Link
-          as={`/articles/${posts[0].title}`}
-          href={`/articles/${posts[0].title}`}
-        >
+        <Link as={`/articles/${posts[0].title}`} href={`/articles/${posts[0].title}`}>
           <a>
             <Image src={posts[0].thumbnail} alt="" />
           </a>

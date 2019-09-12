@@ -8,7 +8,6 @@ const Container = styled.div`
   width: 100%;
   height: -webkit-fill-available;
   font-size: 33px;
-  color: ${props => props.theme.black};
 `;
 
 const Error: React.FC = () => (
