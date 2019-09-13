@@ -18,7 +18,7 @@ const Posts: Post[] = [
     updatedAt: ""
   },
   {
-    id: "asdfasdf",
+    id: "asdfasdf2",
     title: "메인타이틀",
     subTitle: "서브타이틀",
     thumbnail: "https://cms-assets.tutsplus.com/uploads/users/127/posts/31162/image/final.png",
@@ -33,7 +33,7 @@ const Posts: Post[] = [
     updatedAt: ""
   },
   {
-    id: "asdfasdf",
+    id: "asdfasdf3",
     title: "메인타이틀",
     subTitle: "서브타이틀",
     thumbnail:
@@ -49,7 +49,7 @@ const Posts: Post[] = [
     updatedAt: ""
   },
   {
-    id: "asdfasdf",
+    id: "asdfasdf4",
     title: "메인타이틀",
     subTitle: "서브타이틀",
     thumbnail:

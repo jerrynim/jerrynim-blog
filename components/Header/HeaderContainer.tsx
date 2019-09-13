@@ -1,12 +1,9 @@
 import React from "react";
-import { withRouter, SingletonRouter } from "next/router";
 import HeaderPresenter from "./HeaderPresenter";
 
 interface IProps {
-  router: SingletonRouter;
+  path: string;
 }
 
-const HeaderContainer: React.FC<IProps> = ({ router }) => (
-  <HeaderPresenter path={router.pathname} />
-);
-export default withRouter(HeaderContainer);
+const HeaderContainer: React.FC<IProps> = ({ path }) => <HeaderPresenter path={path} />;
+export default HeaderContainer;

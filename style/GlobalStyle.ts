@@ -8,9 +8,12 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        @font-face { font-family: 'KOMACON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KOMACON.woff') format('woff'); font-weight: normal; font-style: normal; }
-                      font-family:'KOMACON';
-                      background-color:#F1F5FB
+        @font-face { font-family: 'ON-IGothic'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+                      font-family:'ON-IGothic';
+                      background-color:#F1F5FB;
+                      ::-webkit-scrollbar {
+                          display: none;
+                          }
     }
     button{
         padding: 0;
@@ -23,8 +26,10 @@ const GlobalStyles = createGlobalStyle`
     h1,h2,h3,h4,h5,h6{
         color: ${theme.black};
         @font-face { font-family: 'Handon3gyeopsal300g'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal300g.woff') format('woff'); font-weight: normal; font-style: normal; }        font-family: "Handon3gyeopsal300g";
+        font-family:"Handon3gyeopsal300g";
     }
     a,p,span,b,div{
+        text-decoration:none;
     color: ${theme.black};
     }
     

@@ -11,7 +11,10 @@
     "jsx-a11y/anchor-is-valid": "off", // next js에서는 a에 href없이 사용
     "react/prop-types": "off", //proptype 구문 사용 X
     "spaced-comment": "off", // 주석만 있는 라인 가능
-    "object-curly-newline": "off" //{ 다음은 항상 enter off
+    "object-curly-newline": "off", //{ 다음은 항상 enter off
+    "arrow-body-style": "off", //arrow {return}없이 사용하기
+    "jsx-a11y/click-events-have-key-events": "off", //div buttons 시 event 요구
+    "jsx-a11y/interactive-supports-focus": "off" // div buttons focus
   },
 
   "settings": {

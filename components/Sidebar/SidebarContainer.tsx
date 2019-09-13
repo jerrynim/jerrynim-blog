@@ -1,20 +1,17 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import SidebarPresenter from "./SidebarPresenter";
 
-interface IProps {
-  SidebarStatus: boolean;
-  toggleSidebar: Dispatch<SetStateAction<boolean>>;
-}
-
-const SidebarContainer: React.FC<IProps> = ({ SidebarStatus, toggleSidebar }) => (
-  <OutsideClickHandler
-    onOutsideClick={() => {
-      if (SidebarStatus === true) toggleSidebar(!SidebarStatus);
-    }}
-  >
-    <SidebarPresenter Side={SidebarStatus} toggleSidebar={toggleSidebar} />
-  </OutsideClickHandler>
-);
-
+const SidebarContainer: React.FC = () => {
+  const [status, toggleStatus] = useState<boolean>(true);
+  return (
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        if (status === true) toggleStatus(!status);
+      }}
+    >
+      <SidebarPresenter status={status} toggleStatus={toggleStatus} />
+    </OutsideClickHandler>
+  );
+};
 export default SidebarContainer;

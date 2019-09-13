@@ -85,7 +85,7 @@ interface IProps {
 const LinearList: React.FC<IProps> = ({ posts }) => (
   <Container>
     {posts.map(post => (
-      <LinearCard>
+      <LinearCard key={post.id}>
         <div>
           <div className="image_wrapper">
             <img src={post.thumbnail} alt="" />

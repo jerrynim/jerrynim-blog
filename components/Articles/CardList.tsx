@@ -88,7 +88,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
   <Container>
     <Left>
       {posts.map((post, index) => {
-        if (index % 2 !== 0) {
+        if (index % 2 === 0) {
           return (
             <Card key={post.id}>
               <div className="img_wrapper">
@@ -107,12 +107,12 @@ const CardList: React.FC<IProps> = ({ posts }) => (
             </Card>
           );
         }
-        return <></>;
+        return null;
       })}
     </Left>
     <Right>
       {posts.map((post, index) => {
-        if (index % 2 === 0) {
+        if (index % 2 !== 0) {
           return (
             <Card className="right_card" key={post.id}>
               <div className="img_wrapper">
@@ -131,7 +131,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
             </Card>
           );
         }
-        return <></>;
+        return null;
       })}
     </Right>
   </Container>

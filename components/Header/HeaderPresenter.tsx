@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Container = styled.div`
   opacity: 0.8;
@@ -16,23 +17,14 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-  width: 300px;
   height: 100%;
   display: flex;
   align-items: center;
   color: ${props => props.theme.softGray};
   justify-content: space-between;
-  & button {
-    margin-left: 24px;
-  }
-
-  & img {
-    width: 25px;
-    height: 20px;
-  }
-
-  & a {
+  a {
     font-size: 24px;
+    line-height: 28px;
     margin-left: 30px;
     margin-right: 35px;
     cursor: pointer;
@@ -45,9 +37,10 @@ const Right = styled.div`
   align-items: center;
 
   & img {
-    width: 28px;
-    height: 28px;
-    margin-right: 25px;
+    width: 24px;
+    height: 24px;
+    margin-right: 40px;
+    cursor: pointer;
   }
 `;
 
@@ -64,7 +57,12 @@ const HeaderPresenter: React.FC<IProps> = ({ path }) => (
         </Link>
       </Left>
       <Right>
-        <img src="../../static/shareIcon.png" alt="" />
+        <CopyToClipboard
+          text={`https://jerrynim.com/${path}`}
+          onCopy={() => alert(`copied to clipboard https://jerrynim.com${path}`)}
+        >
+          <img src="../../static/shareIcon.png" alt="" />
+        </CopyToClipboard>
       </Right>
     </Container>
   </>
