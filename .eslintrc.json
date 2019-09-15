@@ -14,7 +14,9 @@
     "object-curly-newline": "off", //{ 다음은 항상 enter off
     "arrow-body-style": "off", //arrow {return}없이 사용하기
     "jsx-a11y/click-events-have-key-events": "off", //div buttons 시 event 요구
-    "jsx-a11y/interactive-supports-focus": "off" // div buttons focus
+    "jsx-a11y/interactive-supports-focus": "off", // div buttons focus
+    "no-multi-assign": "off", //중복선언
+    "no-shadow": "off" //중복 이름
   },
 
   "settings": {

@@ -47,25 +47,27 @@ interface IProps {
 
 const ArticlesPresenter: React.FC<IProps> = ({ posts, align, setAlign }) => (
   <Container>
-    <div className="wrapper">
-      <div className="head">
-        <h1>Articles</h1>
-        <div className="icons">
-          <FaTrello
-            onClick={() => setAlign("card")}
-            size={24}
-            color={align === "card" ? theme.blue : theme.black}
-          />
-          <FaList
-            onClick={() => setAlign("linear")}
-            size={24}
-            color={align === "linear" ? theme.blue : theme.black}
-          />
+    {posts && (
+      <div className="wrapper">
+        <div className="head">
+          <h1>Articles</h1>
+          <div className="icons">
+            <FaTrello
+              onClick={() => setAlign("card")}
+              size={24}
+              color={align === "card" ? theme.blue : theme.black}
+            />
+            <FaList
+              onClick={() => setAlign("linear")}
+              size={24}
+              color={align === "linear" ? theme.blue : theme.black}
+            />
+          </div>
         </div>
+        {align === "card" && <CardList posts={posts} />}
+        {align === "linear" && <LinearList posts={posts} />}
       </div>
-      {align === "card" && <CardList posts={posts} />}
-      {align === "linear" && <LinearList posts={posts} />}
-    </div>
+    )}
   </Container>
 );
 

@@ -11,11 +11,17 @@ const Container = styled.div<{ status: boolean }>`
   position: fixed;
   height: 100%;
   width: 280px;
-  transform: ${props => (props.status ? "" : "translateX(-300px)")};
+  transform: ${props => (props.status ? "" : "translateX(-280px)")};
   transition: 0.4s ease-in-out;
   background-color: white;
   box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
-  background: linear-gradient(180deg, #dff4f2 30%, white 100%);
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #dff4f2 30%, white 100%);
+  }
 
   .title_wrapper {
     height: 56px;
@@ -35,17 +41,20 @@ const Container = styled.div<{ status: boolean }>`
   .toggle_button {
     position: absolute;
     bottom: 200px;
-    right: -30px;
-    width: 50px;
-    height: 50px;
+    right: -35px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: -1;
     background-color: ${theme.black};
     p {
       color: white;
-      rotate: 90%;
+      transform: rotate(-90deg);
+      font-size: 20px;
+      padding-top: 20px;
     }
   }
 
@@ -69,17 +78,19 @@ interface IProps {
 
 const SidebarPresenter: React.FC<IProps> = ({ status, toggleStatus }) => (
   <Container status={status}>
-    <div className="title_wrapper">
-      <Link href="/">
-        <a className="title">Jerrynim Blog</a>
-      </Link>
+    <div className="background">
+      <div className="title_wrapper">
+        <Link href="/">
+          <a className="title">Jerrynim Blog</a>
+        </Link>
+      </div>
+      <div className="bottom">
+        <GoMarkGithub color={theme.black} size={24} />
+        <IoMdMail color={theme.black} size={24} />
+      </div>
     </div>
     <div role="button" onClick={() => toggleStatus(!status)} className="toggle_button">
       <p>{status ? "close" : "open"}</p>
-    </div>
-    <div className="bottom">
-      <GoMarkGithub color={theme.black} size={24} />
-      <IoMdMail color={theme.black} size={24} />
     </div>
   </Container>
 );

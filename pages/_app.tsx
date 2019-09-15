@@ -1,25 +1,28 @@
-import App, { Container } from "next/app";
 import React from "react";
+import App from "next/app";
+import { NextComponentType } from "next";
 import { ApolloProvider } from "@apollo/react-hooks";
-import withApolloClient from "../lib/with-apollo-client";
+import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
+import withApollo from "../lib/withApollo";
 import GlobalStyles from "../style/GlobalStyle";
 
-interface AppProps {
-  apolloClient: any;
+interface IProps {
+  Component: NextComponentType;
+  apollo: ApolloClient<NormalizedCacheObject>;
 }
 
-class MyApp extends App<AppProps> {
+class MyApp extends App<IProps> {
   render() {
-    const { Component, pageProps, apolloClient } = this.props;
+    const { Component, pageProps, apollo } = this.props;
     return (
-      <Container>
+      <>
         <GlobalStyles />
-        <ApolloProvider client={apolloClient}>
+        <ApolloProvider client={apollo}>
           <Component {...pageProps} />
         </ApolloProvider>
-      </Container>
+      </>
     );
   }
 }
 
-export default withApolloClient(MyApp);
+export default withApollo(MyApp);

@@ -52,11 +52,7 @@ const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
       }
     };
     await axios
-      .post(
-        "https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev",
-        formData,
-        config
-      )
+      .post("https://vxp9d59gt7.execute-api.us-east-1.amazonaws.com/dev", formData, config)
       .then(response => {
         setContent(`
           ${content}
@@ -66,7 +62,7 @@ const PostInputContainer: React.FC<IProps> = ({ content, setContent }) => {
               `);
       })
       .catch(error => {
-        console.log("error:", error);
+        console.error("error:", error);
       });
   };
 

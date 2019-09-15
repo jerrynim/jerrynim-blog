@@ -1,29 +1,35 @@
 import React from "react";
-import { NextPage, NextPageContext } from "next";
-import { useQuery } from "@apollo/react-hooks";
+import { NextPage } from "next";
 import Header from "../components/Header";
 import Articles from "../components/Articles";
-import Posts from "../data/Posts";
 import Sidebar from "../components/Sidebar";
 import { GET_POSTS } from "../queries/index";
+import { Post } from "../../jerrynim-blog-server/types/graph.d";
+import { ApolloNextPageContext } from "../types/type";
 
 interface IProps {
   pathname: string;
+  posts: Post[];
 }
 
-const App: NextPage<IProps> = ({ pathname: path }) => {
-  const { data: posts } = useQuery(GET_POSTS);
+const App: NextPage<IProps> = ({ pathname, posts }) => {
   return (
     <>
-      <Header path={path} />
+      <Header path={pathname} />
       <Sidebar />
-      <Articles posts={Posts} />
+      <Articles posts={posts} />
     </>
   );
 };
 
-App.getInitialProps = async ({ pathname }: NextPageContext) => {
-  return { pathname };
+App.getInitialProps = async (ctx: ApolloNextPageContext) => {
+  const { apolloClient, pathname } = ctx;
+  const { data: posts } = await apolloClient.query<{ getPosts: Post[] }>({
+    query: GET_POSTS,
+    fetchPolicy: "network-only"
+  });
+
+  return { posts: posts.getPosts, pathname };
 };
 
 export default App;

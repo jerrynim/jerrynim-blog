@@ -27,7 +27,7 @@ const PostInfoContainer: React.FC<IProps> = ({
     const file = e.target.files![0];
     fileUploadMuation({ variables: { file } });
   };
-  console.log(data, error);
+  console.error(data, error);
   return (
     <PostInfoPresenter
       title={title}
