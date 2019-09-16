@@ -8,8 +8,6 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        @font-face { font-family: 'ON-IGothic'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
-                      font-family:'ON-IGothic';
                       background-color:#F1F5FB;
                       ::-webkit-scrollbar {
                           display: none;

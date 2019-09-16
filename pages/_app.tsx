@@ -1,13 +1,11 @@
 import React from "react";
 import App from "next/app";
-import { NextComponentType } from "next";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
 import withApollo from "../lib/withApollo";
 import GlobalStyles from "../style/GlobalStyle";
 
 interface IProps {
-  Component: NextComponentType;
   apollo: ApolloClient<NormalizedCacheObject>;
 }
 

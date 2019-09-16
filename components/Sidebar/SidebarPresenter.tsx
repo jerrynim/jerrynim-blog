@@ -2,9 +2,11 @@ import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { GoMarkGithub } from "react-icons/go";
 import { IoMdMail } from "react-icons/io";
+import dynamic from "next/dynamic";
 import styled from "../../style/typed-components";
-
 import theme from "../../style/theme";
+
+const Category = dynamic(() => import("../Category"), { ssr: false });
 
 const Container = styled.div<{ status: boolean }>`
   z-index: 7;
@@ -84,6 +86,7 @@ const SidebarPresenter: React.FC<IProps> = ({ status, toggleStatus }) => (
           <a className="title">Jerrynim Blog</a>
         </Link>
       </div>
+      <Category />
       <div className="bottom">
         <GoMarkGithub color={theme.black} size={24} />
         <IoMdMail color={theme.black} size={24} />
