@@ -68,6 +68,9 @@ const GlobalStyles = createGlobalStyle`
     .bold {
         color:#2F80ED;
     }
+    .code {
+        white-space: initial;
+    }
 `;
 
 export default GlobalStyles;

@@ -3,7 +3,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import SidebarPresenter from "./SidebarPresenter";
 
 const SidebarContainer: React.FC = () => {
-  const [status, toggleStatus] = useState<boolean>(true);
+  const [status, toggleStatus] = useState<boolean>(false);
   return (
     <OutsideClickHandler
       onOutsideClick={() => {

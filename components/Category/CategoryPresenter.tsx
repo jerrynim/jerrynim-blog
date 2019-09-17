@@ -1,45 +1,62 @@
 import * as React from "react";
 import Link from "next/link";
+import styled from "styled-components";
 import Tree from "./Tree";
 
+const Container = styled.div`
+  padding: 0px 15px;
+  padding-top: 150px;
+  a {
+    font-size: 24px;
+  }
+`;
 const CategoryPresenter: React.FC = () => {
   return (
-    <>
+    <Container>
       <Tree
-        name={() => (
+        name={
           <Link href="/">
-            <a>main</a>
+            <a>Home</a>
           </Link>
-        )}
-        defaultOpen
+        }
       >
-        <Tree name="hello" />
-        <Tree name="subtree with children">
-          <Tree name="hello" />
-          <Tree name="sub-subtree with children">
-            <Tree name="child 1" style={{ color: "#37ceff" }} />
-            <Tree name="child 2" style={{ color: "#37ceff" }} />
-            <Tree name="child 3" style={{ color: "#37ceff" }} />
-            <Tree name="custom content">
-              <div style={{ position: "relative", width: "100%", height: 200, padding: 10 }}>
-                <div
-                  style={{ width: "100%", height: "100%", background: "black", borderRadius: 5 }}
-                />
-              </div>
-            </Tree>
-          </Tree>
-          <Tree name="hello" />
-        </Tree>
-        <Tree name="world" />
         <Tree
-          name={() => (
-            <span role="img" aria-label="cat">
-              🙀 something something
-            </span>
-          )}
+          name={
+            <Link href="/">
+              <a>React</a>
+            </Link>
+          }
         />
       </Tree>
-    </>
+      <Tree
+        name={
+          <Link href="/">
+            <a>Libarary</a>
+          </Link>
+        }
+      />
+      <Tree
+        name={
+          <Link href="/">
+            <a>Project</a>
+          </Link>
+        }
+      />
+      <Tree
+        name={
+          <Link href="/">
+            <a>Aboutme</a>
+          </Link>
+        }
+      />
+      <Tree
+        name={
+          <Link href="/">
+            <a>Tags</a>
+          </Link>
+        }
+      />
+    </Container>
   );
 };
 

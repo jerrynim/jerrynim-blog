@@ -18,7 +18,8 @@
     "no-multi-assign": "off", //중복선언
     "no-shadow": "off", //중복 이름
     "react/no-children-prop": "off", //child props 금지
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "react/jsx-wrap-multilines": "off" //
   },
 
   "settings": {

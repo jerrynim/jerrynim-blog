@@ -1,5 +1,5 @@
 import { ServerStyleSheet } from "styled-components";
-import Document, { Head, Main, NextScript, DocumentContext } from "next/document";
+import Document, { Main, NextScript, DocumentContext } from "next/document";
 import React from "react";
 
 export default class MyDocument extends Document {
@@ -17,13 +17,6 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="ko">
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"
-          />
-        </Head>
-
         <body>
           <Main />
           <NextScript />

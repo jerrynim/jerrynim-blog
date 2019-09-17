@@ -1,29 +1,41 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { useRouter } from "next/router";
+import { NextPage } from "next";
+import Head from "next/head";
 import FullArticle from "../../components/FullArticle";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Loader from "../../components/Loader";
-import Error from "../../components/Error";
 import { GET_POST } from "../../queries/index";
-import { Post } from "../../types/type";
+import { Post, ApolloNextPageContext } from "../../types/type";
 
-const App: React.FC = () => {
-  const router = useRouter();
-  const { article } = router.query;
-  const { data, loading, error } = useQuery<{ getPost: Post }>(GET_POST, {
-    variables: {
-      title: article,
-    },
-  });
+interface IProps {
+  post: Post;
+}
+
+const article: NextPage<IProps> = ({ post }) => {
   return (
     <>
-      {loading && <Loader />}
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"
+        />
+      </Head>
       <Header />
-      {data && data.getPost && <FullArticle post={data} />}
+      <FullArticle post={post} />
       <Footer />
     </>
   );
 };
-export default App;
+
+article.getInitialProps = async (ctx: ApolloNextPageContext) => {
+  const { apolloClient, query } = ctx;
+  const { data: post } = await apolloClient.query<{ getPost: Post }>({
+    query: GET_POST,
+    variables: { title: query.article },
+    fetchPolicy: "network-only"
+  });
+
+  return { post: post.getPost };
+};
+
+export default article;

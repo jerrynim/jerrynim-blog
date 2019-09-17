@@ -39,8 +39,11 @@ const Right = styled.div`
   & img {
     width: 24px;
     height: 24px;
-    margin-right: 40px;
+    margin-right: 16px;
     cursor: pointer;
+    :last-child {
+      margin-right: 40px;
+    }
   }
 `;
 
@@ -57,8 +60,9 @@ const HeaderPresenter: React.FC<IProps> = ({ path }) => (
         </Link>
       </Left>
       <Right>
+        <img src="../../static/halfmoon.svg" alt="" />
         <CopyToClipboard
-          text={`https://jerrynim.com/${path}`}
+          text={`https://jerrynim.com${path}`}
           onCopy={() => alert(`copied to clipboard https://jerrynim.com${path}`)}
         >
           <img src="../../static/shareIcon.png" alt="" />

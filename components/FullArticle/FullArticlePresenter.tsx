@@ -29,6 +29,17 @@ const PostHeader = styled.div<{ image: string }>`
   background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
+
+  h1 {
+    z-index: 5;
+    position: absolute;
+    font-size: 36px;
+    color: white;
+    left: 40px;
+    bottom: 40px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    opacity: 0.9;
+  }
 `;
 
 const Overlay = styled.div`
@@ -38,26 +49,6 @@ const Overlay = styled.div`
   height: 100%;
   background-color: black;
   opacity: 0.3;
-`;
-
-const PostTitle = styled.h1`
-  z-index: 5;
-  position: absolute;
-  font-size: 36px;
-  color: white;
-  left: 40px;
-  bottom: 79px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  opacity: 0.9;
-`;
-const PostSubTitle = styled.h2`
-  z-index: 5;
-  left: 40px;
-  bottom: 39px;
-  position: absolute;
-  opacity: 0.9;
-  color: white;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const PostView = styled.div`
@@ -103,13 +94,15 @@ const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
         </NavigatorPosition>
         <Background>
           <PostHeader image={post.thumbnail}>
-            <PostTitle>{post.title}</PostTitle>
-            <PostSubTitle>{post.subTitle}</PostSubTitle>
+            <h1>{post.title}</h1>
             <Overlay />
           </PostHeader>
           <PostView>
+            <p className="text">{post.subTitle}</p>
+
             {parse(post.content, {
-              replace: ({ attribs, children }) => {
+              replace: domNode => {
+                const { attribs, children } = domNode;
                 if (attribs && attribs.class === "title" && children) {
                   const ref2: LegacyRef<HTMLHeadingElement> = React.createRef();
                   refs.push(ref2);
@@ -122,12 +115,12 @@ const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
                 }
                 if (attribs && attribs.class === "code" && children) {
                   return (
-                    <Highlighted language="typescript" className="">
-                      {domToReact(children)}
+                    <Highlighted language="typescript" className="code">
+                      {children[0].data}
                     </Highlighted>
                   );
                 }
-                return <div />;
+                return domNode;
               }
             })}
           </PostView>

@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import { Post } from "../../types/type";
 import theme from "../../style/theme";
@@ -91,15 +92,27 @@ const CardList: React.FC<IProps> = ({ posts }) => (
         if (index % 2 === 0) {
           return (
             <Card key={post.id}>
-              <div className="img_wrapper">
-                <img src={post.thumbnail} alt="" />
-              </div>
-              <h1>{post.title}</h1>
+              <Link href={`/articles/${post.title}`}>
+                <a>
+                  <div className="img_wrapper">
+                    <img src={post.thumbnail} alt="" />
+                  </div>
+                </a>
+              </Link>
+              <h1>
+                <Link href={`/articles/${post.title}`}>
+                  <a>{post.title}</a>
+                </Link>
+              </h1>
               <h2>{post.subTitle}</h2>
               <div className="bottom">
                 <div className="tag_box">
                   {post.tags.map(tag => (
-                    <p key={tag.id}>{tag.term}</p>
+                    <p key={tag.id}>
+                      <Link href={`/tags/${tag.term}`}>
+                        <a>{tag.term}</a>
+                      </Link>
+                    </p>
                   ))}
                 </div>
                 <p className="date">{post.createdAt}</p>
@@ -123,7 +136,11 @@ const CardList: React.FC<IProps> = ({ posts }) => (
               <div className="bottom">
                 <div className="tag_box">
                   {post.tags.map(tag => (
-                    <p key={tag.id}>{tag.term}</p>
+                    <p key={tag.id}>
+                      <Link href={`/tags/${tag.term}`}>
+                        <a>{tag.term}</a>
+                      </Link>
+                    </p>
                   ))}
                 </div>
                 <p className="date">{post.createdAt}</p>

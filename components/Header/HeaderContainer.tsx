@@ -1,9 +1,9 @@
 import React from "react";
+import { useRouter } from "next/router";
 import HeaderPresenter from "./HeaderPresenter";
 
-interface IProps {
-  path: string;
-}
-
-const HeaderContainer: React.FC<IProps> = ({ path }) => <HeaderPresenter path={path} />;
+const HeaderContainer: React.FC = () => {
+  const router = useRouter();
+  return <HeaderPresenter path={router.asPath} />;
+};
 export default HeaderContainer;
