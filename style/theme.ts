@@ -3,6 +3,7 @@ const theme = {
   thin_gray: "#757575",
   blue_gray: "#F1F5FB",
   light_gray: "#D7D7D7",
-  blue: "#2F80ED"
+  blue: "#2F80ED",
+  orange: "#E19C21"
 };
 export default theme;

@@ -15,7 +15,7 @@ interface IProps {
 const App: NextPage<IProps> = ({ pathname, posts }) => {
   return (
     <>
-      <Header path={pathname} />
+      <Header />
       <Sidebar />
       <Articles posts={posts} />
     </>
