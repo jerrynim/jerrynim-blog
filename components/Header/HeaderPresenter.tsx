@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
+import { IoIosSunny } from "react-icons/io";
 import Switch from "react-switch";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import theme from "../../style/theme";
@@ -69,7 +70,7 @@ const Right = styled.div`
     background: #fff;
     margin-left: -214px;
     border: solid 1px #e6e6e6;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.0975);
     width: 280px;
     height: 200px;
@@ -114,6 +115,7 @@ const CheckedIcon = styled.div`
   font-size: 15;
   color: orange;
   padding-right: 2;
+  padding-top: 3px;
 `;
 const UnCheckedIcon = styled.div`
   display: flex;
@@ -123,6 +125,14 @@ const UnCheckedIcon = styled.div`
   font-size: 15;
   color: orange;
   padding-right: 2;
+  .switch_text {
+    color: ${theme.black};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+    padding-left: 3px;
+  }
 `;
 
 interface IProps {
@@ -159,7 +169,11 @@ const HeaderPresenter: React.FC<IProps> = ({ path }) => (
                   height={25}
                   width={60}
                   uncheckedIcon={<CheckedIcon>☾</CheckedIcon>}
-                  checkedIcon={<UnCheckedIcon>on</UnCheckedIcon>}
+                  checkedIcon={
+                    <UnCheckedIcon>
+                      <span className="switch_text">🕶</span>
+                    </UnCheckedIcon>
+                  }
                 />
               </div>
             </div>
