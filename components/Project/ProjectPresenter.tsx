@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  IoLogoGithub,
-  IoLogoYoutube,
-  IoIosDesktop,
-  IoIosColorPalette
-} from "react-icons/io";
+import { IoLogoGithub, IoLogoYoutube, IoIosDesktop, IoIosColorPalette } from "react-icons/io";
 import { MdEventNote } from "react-icons/md";
 import styled from "../../style/typed-components";
 
@@ -12,7 +7,7 @@ const Container = styled.div`
   padding-top: 56px;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.theme.blueGray};
+  background-color: ${props => props.theme.blue_gray};
   display: flex;
   justify-content: center;
   position: relative;
@@ -86,11 +81,10 @@ const ProjectPresenter: React.FC = () => (
           <Texts>
             <Title>Jerrynim Blog</Title>
             <Des>
-              블로그 글을 쓰면서 기술을 공유하는게 재미있어서 개인블로그를
-              만드려고 한다.
+              블로그 글을 쓰면서 기술을 공유하는게 재미있어서 개인블로그를 만드려고 한다.
               <br />
-              가능한 영어로 작성하여 많은 개발자들이 볼수 있도록 하고 벨로그에
-              한글로 작성하려고 한다.
+              가능한 영어로 작성하여 많은 개발자들이 볼수 있도록 하고 벨로그에 한글로 작성하려고
+              한다.
               <br />
               Next.js 9, Apollo, Graphql, Prisma 2.0 등 을 사용하려고한다.
             </Des>
@@ -122,8 +116,8 @@ const ProjectPresenter: React.FC = () => (
             <Des>
               인스타그렘의 UI, 주요 기능들을 구현하였다.
               <br />
-              로그인, 이메일인증, 팔로우, 좋아요, 댓글달기, 태그하기, 프로필
-              변경, 글쓰기, 피드보기 등..
+              로그인, 이메일인증, 팔로우, 좋아요, 댓글달기, 태그하기, 프로필 변경, 글쓰기, 피드보기
+              등..
               <br />
               React, Prisma, Graphql, Serverless 등 을 사용하였다.
             </Des>
@@ -227,9 +221,8 @@ const ProjectPresenter: React.FC = () => (
             <Des>
               주말에 뭐하지라는 멋진 앱을 따라 만들어 보고 싶어 시도하였다.
               <br />
-              처음 해보는 웹개발이라 공부에 많은 시간을 사용하였다.
-              React-Native, Expo, React-navigation,Animated 등을 사용하여 UI를
-              따라 만들어 보았다.
+              처음 해보는 웹개발이라 공부에 많은 시간을 사용하였다. React-Native, Expo,
+              React-navigation,Animated 등을 사용하여 UI를 따라 만들어 보았다.
             </Des>
             <Period>Period : 2019.03 ~ 2019.04</Period>
             <Links>

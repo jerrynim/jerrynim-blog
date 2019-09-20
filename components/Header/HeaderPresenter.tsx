@@ -3,8 +3,10 @@ import React from "react";
 import Link from "next/link";
 import { IoIosSunny } from "react-icons/io";
 import Switch from "react-switch";
+import { ApolloClient } from "apollo-boost";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import theme from "../../style/theme";
+import { GET_NIGHTMODE } from "../../queries/index";
 
 const Container = styled.div`
   opacity: 0.8;
@@ -23,7 +25,7 @@ const Left = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  color: ${props => props.theme.softGray};
+  color: ${props => props.theme.thin_gray};
   justify-content: space-between;
   a {
     font-size: 24px;
@@ -137,10 +139,11 @@ const UnCheckedIcon = styled.div`
 
 interface IProps {
   path: string;
+  nightmode: boolean;
 }
 
 const a = true;
-const HeaderPresenter: React.FC<IProps> = ({ path }) => (
+const HeaderPresenter: React.FC<IProps> = ({ path, nightmode }) => (
   <>
     <Container>
       <Left>
@@ -159,9 +162,9 @@ const HeaderPresenter: React.FC<IProps> = ({ path }) => (
               <p>You can change to night mode!</p>
               <div className="switch_wrapper">
                 <Switch
-                  checked={a}
-                  onChange={() => {
-                    console.log("hi");
+                  checked={nightmode}
+                  onChange={checked => {
+                    console.log(checked);
                   }}
                   className="react-switch"
                   offColor={theme.black}

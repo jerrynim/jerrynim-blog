@@ -26,7 +26,7 @@ const Title = styled.a`
 `;
 const SubTitle = styled.div`
   font-size: 22px;
-  color: ${props => props.theme.softGray};
+  color: ${props => props.theme.thin_gray};
   margin: 12px 0px;
 `;
 const Tags = styled.div`
@@ -53,11 +53,7 @@ const ArticlePresenter: React.FC<IProps> = ({ data }) => (
   <div>
     <Container>
       <Texts>
-        <Link
-          prefetch={false}
-          as={`/articles/${data.title}`}
-          href={`/articles/${data.title}`}
-        >
+        <Link prefetch={false} as={`/articles/${data.title}`} href={`/articles/${data.title}`}>
           <Title>{data.title}</Title>
         </Link>
 
@@ -68,11 +64,7 @@ const ArticlePresenter: React.FC<IProps> = ({ data }) => (
           ))}
         </Tags>
       </Texts>
-      <Link
-        prefetch={false}
-        as={`/articles/${data.title}`}
-        href={`/articles/${data.title}`}
-      >
+      <Link prefetch={false} as={`/articles/${data.title}`} href={`/articles/${data.title}`}>
         <a>
           <Image src={data.thumbnail} alt="" />
         </a>

@@ -1,11 +1,15 @@
 import React from "react";
 import App, { AppContext } from "next/app";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
+import { ApolloClient, NormalizedCacheObject, gql } from "apollo-boost";
 import nextCookie from "next-cookies";
+import { GET_NIGHTMODE } from "../queries";
 import withApollo from "../lib/withApollo";
 import GlobalStyles from "../style/GlobalStyle";
 import NightGlobalStyle from "../style/NightGlobalStyle";
+import nightTheme from "../style/nightTheme";
+import { ThemeProvider } from "../style/typed-components";
+import theme from "../style/theme";
 
 interface IProps {
   apolloState: any;
@@ -21,8 +25,6 @@ class MyApp extends App<IProps> {
     let pageProps = {};
 
     const { nightmode } = nextCookie(ctx);
-    console.log(nightmode);
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
@@ -34,13 +36,19 @@ class MyApp extends App<IProps> {
 
   render() {
     const { Component, pageProps, apollo, nightmode } = this.props;
-    console.log(nightmode);
+    if (nightmode === "on") {
+      apollo.writeData({ data: { nightmode: true } });
+    }
+
+    const { nightmode: option } = apollo.cache.readQuery({ query: GET_NIGHTMODE });
     return (
       <>
-        {nightmode === "on" ? <NightGlobalStyle /> : <GlobalStyles />}
-        <ApolloProvider client={apollo}>
-          <Component {...pageProps} />
-        </ApolloProvider>
+        <GlobalStyles />
+        <ThemeProvider theme={option ? nightTheme : theme}>
+          <ApolloProvider client={apollo}>
+            <Component {...pageProps} />
+          </ApolloProvider>
+        </ThemeProvider>
       </>
     );
   }

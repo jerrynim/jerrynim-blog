@@ -2,9 +2,11 @@ import * as styledComponents from "styled-components";
 
 interface IThemeInterface {
   black: string;
+  thin_gray: string;
   blue_gray: string;
   light_gray: string;
   blue: string;
+  orange: string;
 }
 
 const {

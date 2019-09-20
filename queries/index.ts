@@ -1,8 +1,14 @@
 import { gql } from "apollo-boost";
 
 export const GET_NIGHTMODE = gql`
-  {
+  query getNightMode {
     nightmode @client
+  }
+`;
+
+export const TOGGLE_NIGHTMODE = gql`
+  mutation toggleNightmode($mode: boolean) {
+    toggleNightmode(mode: $mode) @client
   }
 `;
 

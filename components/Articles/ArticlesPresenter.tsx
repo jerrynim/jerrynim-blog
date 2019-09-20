@@ -8,7 +8,7 @@ import LinearList from "./LinearList";
 
 const Container = styled.div`
   width: 928px;
-  background-color: white;
+  background-color: ${props => props.theme.black};
   margin: auto;
   padding-top: 56px;
   .head {

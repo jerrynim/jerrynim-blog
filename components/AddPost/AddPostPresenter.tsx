@@ -9,7 +9,7 @@ const Container = styled.div`
   padding-top: 96px;
   width: 100%;
   height: -webkit-fill-available;
-  background-color: ${props => props.theme.blueGray};
+  background-color: ${props => props.theme.blue_gray};
   display: flex;
   justify-content: center;
   position: relative;
