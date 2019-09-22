@@ -20,7 +20,7 @@ const Container = styled.div`
   align-items: center;
   position: fixed;
   border-bottom: 1px solid ${props => props.theme.light_gray};
-  background-color: ${props => props.theme.background_color};
+  background-color: ${props => props.theme.white_black};
 `;
 
 const Left = styled.div`
@@ -45,7 +45,7 @@ const Right = styled.div`
   .popup_wrapper {
   }
   .popup_shadow {
-    background-color: ${props => props.theme.background_color};
+    background-color: ${props => props.theme.white_black};
     border: 1px solid #e6e6e6;
     -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
@@ -72,7 +72,7 @@ const Right = styled.div`
     height: fit-content;
     position: absolute;
     top: 55px;
-    background-color: ${props => props.theme.background_color};
+    background-color: ${props => props.theme.white_black};
     margin-left: -214px;
     border: solid 1px #e6e6e6;
     border-radius: 5px;

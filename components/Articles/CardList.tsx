@@ -13,7 +13,6 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: white;
   padding: 20px 16px 12px 0px;
   border-bottom: 2px solid ${theme.light_gray};
   position: relative;
@@ -36,11 +35,14 @@ const Card = styled.div`
     line-height: 28px;
     margin-bottom: 16px;
     width: 100%;
+    a {
+      color: ${props => props.theme.black_white};
+    }
   }
 
   h2 {
-    color: ${theme.thin_gray};
     margin-bottom: 12px;
+    color: ${props => props.theme.black_lightgray};
   }
 
   .bottom {
@@ -51,10 +53,14 @@ const Card = styled.div`
   .tag_box {
     display: flex;
     p {
+      border-radius: 5px;
       font-size: 14px;
       line-height: 20px;
       padding: 4px 6px;
-      background-color: ${theme.blue_gray};
+      background-color: ${props => props.theme.bluegray_darkblue};
+      a {
+        color: ${props => props.theme.black_white};
+      }
       margin-right: 12px;
 
       :last-child {
@@ -131,7 +137,11 @@ const CardList: React.FC<IProps> = ({ posts }) => (
               <div className="img_wrapper">
                 <img src={post.thumbnail} alt="" />
               </div>
-              <h1>{post.title}</h1>
+              <h1>
+                <Link href={`/articles/${post.title}`}>
+                  <a>{post.title}</a>
+                </Link>
+              </h1>
               <h2>{post.subTitle}</h2>
               <div className="bottom">
                 <div className="tag_box">

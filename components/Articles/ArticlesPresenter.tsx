@@ -6,11 +6,16 @@ import CardList from "./CardList";
 import LinearList from "./LinearList";
 import styled from "../../style/typed-components";
 
+const Body = styled.div`
+  background-color: ${props => props.theme.background_color};
+  transition: 0.2s ease-in-out;
+  width: 100%;
+`;
 const Container = styled.div`
   width: 928px;
-  background-color: ${props => props.theme.background_color};
   margin: auto;
   padding-top: 56px;
+  background-color: ${props => props.theme.white_gray};
   .head {
     display: flex;
     justify-content: space-between;
@@ -19,6 +24,7 @@ const Container = styled.div`
     padding-bottom: 8px;
     border-bottom: 2px solid ${theme.light_gray};
     & h1 {
+      color: ${props => props.theme.black_white};
       font-size: 24px;
     }
 
@@ -28,8 +34,12 @@ const Container = styled.div`
       & svg {
         cursor: pointer;
         transition: 0.2s ease-in-out;
+        color: ${props => props.theme.black_white};
         :first-child {
           margin-right: 12px;
+        }
+        :hover {
+          fill: ${props => props.theme.blue};
         }
       }
     }
@@ -46,29 +56,31 @@ interface IProps {
 }
 
 const ArticlesPresenter: React.FC<IProps> = ({ posts, align, setAlign }) => (
-  <Container>
-    {posts && (
-      <div className="wrapper">
-        <div className="head">
-          <h1>Articles</h1>
-          <div className="icons">
-            <FaTrello
-              onClick={() => setAlign("card")}
-              size={24}
-              color={align === "card" ? theme.blue : theme.black}
-            />
-            <FaList
-              onClick={() => setAlign("linear")}
-              size={24}
-              color={align === "linear" ? theme.blue : theme.black}
-            />
+  <Body>
+    <Container>
+      {posts && (
+        <div className="wrapper">
+          <div className="head">
+            <h1>Articles</h1>
+            <div className="icons">
+              <FaTrello
+                onClick={() => setAlign("card")}
+                size={24}
+                color={align === "card" ? theme.blue : null}
+              />
+              <FaList
+                onClick={() => setAlign("linear")}
+                size={24}
+                color={align === "linear" ? theme.blue : null}
+              />
+            </div>
           </div>
+          {align === "card" && <CardList posts={posts} />}
+          {align === "linear" && <LinearList posts={posts} />}
         </div>
-        {align === "card" && <CardList posts={posts} />}
-        {align === "linear" && <LinearList posts={posts} />}
-      </div>
-    )}
-  </Container>
+      )}
+    </Container>
+  </Body>
 );
 
 export default ArticlesPresenter;

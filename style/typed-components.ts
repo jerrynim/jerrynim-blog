@@ -6,6 +6,10 @@ interface IThemeInterface {
   black_yellow: string;
   black_white: string;
   black: string;
+  bluegray_darkblue: string;
+  white_black: string;
+  white_gray: string;
+  black_lightgray: string;
   thin_gray: string;
   blue_gray: string;
   light_gray: string;
