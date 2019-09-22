@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import PostInfo from "../PostInfo";
 import PostInput from "../PostInput";
 import { UseInput } from "../../Hooks/useInput";
 import PostPreview from "../PostPreview";
+import styled from "../../style/typed-components";
 
 const Container = styled.div`
   padding-top: 96px;

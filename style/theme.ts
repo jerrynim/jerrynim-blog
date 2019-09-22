@@ -1,5 +1,10 @@
 const theme = {
+  background_color: "#ffffff",
+  text_color: "#141414",
+  black_yellow: "#141414",
+  black_white: "#141414",
   black: "#141414",
+
   thin_gray: "#757575",
   blue_gray: "#F1F5FB",
   light_gray: "#D7D7D7",

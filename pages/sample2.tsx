@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPageContext, NextComponentType } from "next";
-import styled from "styled-components";
+import styled from "../style/typed-components";
 
 interface IProps extends NextPageContext {
   apolloClient: any;

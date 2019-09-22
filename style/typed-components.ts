@@ -1,6 +1,10 @@
 import * as styledComponents from "styled-components";
 
 interface IThemeInterface {
+  background_color: string;
+  text_color: string;
+  black_yellow: string;
+  black_white: string;
   black: string;
   thin_gray: string;
   blue_gray: string;

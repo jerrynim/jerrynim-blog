@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import styled from "styled-components";
+import styled from "../../style/typed-components";
 import { Post } from "../../types/type";
 import theme from "../../style/theme";
 

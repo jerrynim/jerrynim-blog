@@ -1,10 +1,10 @@
 import React, { LegacyRef } from "react";
-import styled from "styled-components";
 import Highlight from "react-highlight";
 import parse, { domToReact } from "html-react-parser";
 import Comments from "../Comments";
 import Navigator from "../Navigator";
 import { Post } from "../../types/type";
+import styled from "../../style/typed-components";
 
 const Container = styled.div`
   padding-top: 96px;

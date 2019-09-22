@@ -74,6 +74,7 @@
     "@types/react-redux": "^7.1.2",
     "@types/styled-components": "^4.1.19",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.6",
     "eslint": "6.1.0",
     "eslint-config-airbnb-typescript": "^4.0.1",

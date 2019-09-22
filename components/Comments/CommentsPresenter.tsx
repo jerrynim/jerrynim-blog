@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import TextareaAutosize from "react-autosize-textarea";
+import styled from "../../style/typed-components";
 import { Comment } from "../../types/type";
 
 const Container = styled.div`

@@ -1,15 +1,10 @@
 import React from "react";
 import App, { AppContext } from "next/app";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { ApolloClient, NormalizedCacheObject, gql } from "apollo-boost";
+import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
 import nextCookie from "next-cookies";
-import { GET_NIGHTMODE } from "../queries";
 import withApollo from "../lib/withApollo";
 import GlobalStyles from "../style/GlobalStyle";
-import NightGlobalStyle from "../style/NightGlobalStyle";
-import nightTheme from "../style/nightTheme";
-import { ThemeProvider } from "../style/typed-components";
-import theme from "../style/theme";
 
 interface IProps {
   apolloState: any;
@@ -39,16 +34,12 @@ class MyApp extends App<IProps> {
     if (nightmode === "on") {
       apollo.writeData({ data: { nightmode: true } });
     }
-
-    const { nightmode: option } = apollo.cache.readQuery({ query: GET_NIGHTMODE });
     return (
       <>
         <GlobalStyles />
-        <ThemeProvider theme={option ? nightTheme : theme}>
-          <ApolloProvider client={apollo}>
-            <Component {...pageProps} />
-          </ApolloProvider>
-        </ThemeProvider>
+        <ApolloProvider client={apollo}>
+          <Component {...pageProps} />
+        </ApolloProvider>
       </>
     );
   }

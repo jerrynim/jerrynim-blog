@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
-import styled from "styled-components";
 import Tree from "./Tree";
+import styled from "../../style/typed-components";
 
 const Container = styled.div`
   padding: 0px 15px;

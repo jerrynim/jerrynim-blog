@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { GoMarkGithub } from "react-icons/go";
 import { IoLogoYoutube } from "react-icons/io";
+import styled from "../../style/typed-components";
 
 const Container = styled.div`
   width: 100%;
@@ -31,20 +31,10 @@ const FooterPresenter: React.FC = () => (
         <IoLogoYoutube size={42} color="white" />
       </a>
       <a href="https://www.wanted.co.kr/">
-        <img
-          src="../../static/wantedWhite.png"
-          width="42px"
-          height="42px"
-          alt=""
-        />
+        <img src="../../static/wantedWhite.png" width="42px" height="42px" alt="" />
       </a>
       <a href="https://www.rocketpunch.com/@tgeddy3/info">
-        <img
-          src="../../static/rocketPunchWhite.png"
-          width="42px"
-          height="42px"
-          alt=""
-        />
+        <img src="../../static/rocketPunchWhite.png" width="42px" height="42px" alt="" />
       </a>
     </Icons>
     <Text>Thanks</Text>

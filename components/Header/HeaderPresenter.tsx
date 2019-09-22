@@ -1,14 +1,15 @@
-import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
-import { IoIosSunny } from "react-icons/io";
+import OutsideClickHandler from "react-outside-click-handler";
 import Switch from "react-switch";
-import { ApolloClient } from "apollo-boost";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Share from "../../static/header/share.svg";
 import theme from "../../style/theme";
-import { GET_NIGHTMODE } from "../../queries/index";
+import styled from "../../style/typed-components";
+import Halfmoon from "../../static/header/halfmoon.svg";
 
 const Container = styled.div`
+  transition: 0.2s ease-in-out;
   opacity: 0.8;
   z-index: 6;
   height: 56px;
@@ -18,14 +19,14 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  background-color: white;
+  border-bottom: 1px solid ${props => props.theme.light_gray};
+  background-color: ${props => props.theme.background_color};
 `;
 
 const Left = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  color: ${props => props.theme.thin_gray};
   justify-content: space-between;
   a {
     font-size: 24px;
@@ -33,6 +34,7 @@ const Left = styled.div`
     margin-left: 30px;
     margin-right: 35px;
     cursor: pointer;
+    color: ${props => props.theme.text_color};
   }
 `;
 
@@ -43,7 +45,7 @@ const Right = styled.div`
   .popup_wrapper {
   }
   .popup_shadow {
-    background: #fff;
+    background-color: ${props => props.theme.background_color};
     border: 1px solid #e6e6e6;
     -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
@@ -57,7 +59,7 @@ const Right = styled.div`
   }
   .popup_triangle {
     position: absolute;
-    border-color: transparent transparent #fff;
+    border-color: transparent transparent ${props => props.theme.background_color};
     border-style: solid;
     border-width: 0 10px 10px;
     height: 0;
@@ -67,19 +69,20 @@ const Right = styled.div`
     margin-left: 2px;
   }
   .popup {
+    height: fit-content;
     position: absolute;
     top: 55px;
-    background: #fff;
+    background-color: ${props => props.theme.background_color};
     margin-left: -214px;
     border: solid 1px #e6e6e6;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.0975);
     width: 280px;
-    height: 200px;
     cursor: auto;
-    padding: 16px;
 
     img {
+      padding: 16px;
+
       margin: auto;
       width: 100%;
       transform: rotateY(180deg);
@@ -87,9 +90,11 @@ const Right = styled.div`
     }
 
     p {
+      padding-left: 16px;
+      color: ${props => props.theme.text_color};
     }
     .switch_wrapper {
-      margin-top: 4px;
+      margin: 6px 12px 12px 0px;
       display: flex;
       justify-content: flex-end;
     }
@@ -98,14 +103,20 @@ const Right = styled.div`
       margin-left: 4px;
     }
   }
-  .icon {
+  .icon_halfmoon {
     width: 24px;
     height: 24px;
     margin-right: 16px;
     cursor: pointer;
-    :last-child {
-      margin-right: 40px;
-    }
+    margin-top: 5px;
+    fill: ${props => props.theme.black_yellow};
+  }
+  .icon_share {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 40px;
+    fill: ${props => props.theme.black_white};
   }
 `;
 
@@ -140,10 +151,18 @@ const UnCheckedIcon = styled.div`
 interface IProps {
   path: string;
   nightmode: boolean;
+  toggleNightmode: any;
+  popupStatus: boolean;
+  setPopupStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const a = true;
-const HeaderPresenter: React.FC<IProps> = ({ path, nightmode }) => (
+const HeaderPresenter: React.FC<IProps> = ({
+  path,
+  nightmode,
+  toggleNightmode,
+  popupStatus,
+  setPopupStatus
+}) => (
   <>
     <Container>
       <Left>
@@ -153,40 +172,48 @@ const HeaderPresenter: React.FC<IProps> = ({ path, nightmode }) => (
       </Left>
       <Right>
         <div>
-          <img className="icon" src="../../static/halfmoon.svg" alt="" />
-          <div className="popup_wrapper">
-            <div className="popup_shadow" />
-            <div className="popup_triangle" />
-            <div className="popup">
-              <img src="../../static/nightmodeImage.png" alt="" />
-              <p>You can change to night mode!</p>
-              <div className="switch_wrapper">
-                <Switch
-                  checked={nightmode}
-                  onChange={checked => {
-                    console.log(checked);
-                  }}
-                  className="react-switch"
-                  offColor={theme.black}
-                  onColor={theme.orange}
-                  height={25}
-                  width={60}
-                  uncheckedIcon={<CheckedIcon>☾</CheckedIcon>}
-                  checkedIcon={
-                    <UnCheckedIcon>
-                      <span className="switch_text">🕶</span>
-                    </UnCheckedIcon>
-                  }
-                />
+          <Halfmoon className="icon_halfmoon" onClick={() => setPopupStatus(!popupStatus)} />
+          {popupStatus && (
+            <OutsideClickHandler
+              onOutsideClick={() => {
+                setPopupStatus(false);
+              }}
+            >
+              <div className="popup_wrapper">
+                <div className="popup_shadow" />
+                <div className="popup_triangle" />
+                <div className="popup">
+                  <img src="../../static/nightmodeImage.png" alt="" />
+                  <p>You can change to night mode!</p>
+                  <div className="switch_wrapper">
+                    <Switch
+                      checked={nightmode}
+                      onChange={() => {
+                        toggleNightmode(nightmode);
+                      }}
+                      className="react-switch"
+                      offColor={theme.black}
+                      onColor={theme.orange}
+                      height={25}
+                      width={60}
+                      uncheckedIcon={<CheckedIcon>☾</CheckedIcon>}
+                      checkedIcon={
+                        <UnCheckedIcon>
+                          <span className="switch_text">🕶</span>
+                        </UnCheckedIcon>
+                      }
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </OutsideClickHandler>
+          )}
         </div>
         <CopyToClipboard
           text={`https://jerrynim.com${path}`}
           onCopy={() => alert(`copied to clipboard https://jerrynim.com${path}`)}
         >
-          <img className="icon" src="../../static/shareIcon.png" alt="" />
+          <Share className="icon_share" />
         </CopyToClipboard>
       </Right>
     </Container>

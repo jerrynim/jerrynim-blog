@@ -1,6 +1,6 @@
 import React from "react";
 import { UseInput } from "../../Hooks/useInput";
-import styled from "styled-components";
+import styled from "../../style/typed-components";
 
 const Container = styled.div`
   width: 250px;
@@ -34,7 +34,7 @@ const CategoryInput = styled.input`
 `;
 
 const UploadButton = styled.button`
-  background-color: ${(props) => props.theme.blue};
+  background-color: ${props => props.theme.blue};
   margin: auto;
   font-size: 18px;
   padding: 10px 15px;
@@ -49,13 +49,7 @@ interface IProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PostInfoPresenter: React.FC<IProps> = ({
-  title,
-  subTitle,
-  tags,
-  password,
-  onChange
-}) => {
+const PostInfoPresenter: React.FC<IProps> = ({ title, subTitle, tags, password, onChange }) => {
   return (
     <Container>
       <Category>

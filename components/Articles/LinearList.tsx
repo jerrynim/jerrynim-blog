@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "../../style/typed-components";
 import { Post } from "../../types/type";
 import theme from "../../style/theme";
 

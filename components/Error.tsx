@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "../style/typed-components";
 
 const Container = styled.div`
   display: flex;
