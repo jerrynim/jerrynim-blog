@@ -22,7 +22,7 @@ const Container = styled.div<{ status: boolean }>`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #dff4f2 30%, white 100%);
+    background: ${props => props.theme.gradient};
   }
 
   .title_wrapper {
@@ -35,9 +35,11 @@ const Container = styled.div<{ status: boolean }>`
   .title {
     opacity: ${props => (props.status ? "1" : "0")};
     transition: 1.5s ease-in-out;
+    color: ${props => props.theme.black_white};
     margin-left: 30px;
     font-size: 24px;
     line-height: 28px;
+    margin-top: 14px;
   }
 
   .toggle_button {
@@ -70,6 +72,10 @@ const Container = styled.div<{ status: boolean }>`
     padding: 0px 30px;
     align-items: center;
     border-top: 2px solid ${theme.light_gray};
+
+    svg {
+      color: ${props => props.theme.black_white};
+    }
   }
 `;
 
@@ -88,8 +94,10 @@ const SidebarPresenter: React.FC<IProps> = ({ status, toggleStatus }) => (
       </div>
       <Category />
       <div className="bottom">
-        <GoMarkGithub color={theme.black} size={24} />
-        <IoMdMail color={theme.black} size={24} />
+        <Link href="https://github.com/jerrynim" prefetch={false}>
+          <GoMarkGithub size={24} />
+        </Link>
+        <IoMdMail size={24} />
       </div>
     </div>
     <div role="button" onClick={() => toggleStatus(!status)} className="toggle_button">

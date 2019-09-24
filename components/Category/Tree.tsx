@@ -15,6 +15,10 @@ const Frame = styled("div")`
   vertical-align: middle;
   color: ${theme.black};
   fill: ${theme.black};
+
+  svg {
+    fill: ${props => props.theme.black_white};
+  }
 `;
 
 const Title = styled("span")`
@@ -25,7 +29,7 @@ const Content = styled(animated.div)`
   will-change: transform, opacity, height;
   margin-left: 6px;
   padding: 0px 0px 0px 14px;
-  border-left: 1px dashed ${theme.black};
+  border-left: 1px dashed ${props => props.theme.black_white};
   overflow: hidden;
 `;
 

@@ -13,6 +13,7 @@ const theme = {
   light_gray: "#D7D7D7",
   dark_blue: "#1b2733",
   blue: "#2F80ED",
-  orange: "#FCB532"
+  orange: "#FCB532",
+  gradient: "linear-gradient(180deg, #dff4f2 30%, white 100%)"
 };
 export default theme;

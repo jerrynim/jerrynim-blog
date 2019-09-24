@@ -59,7 +59,7 @@ const Right = styled.div`
   }
   .popup_triangle {
     position: absolute;
-    border-color: transparent transparent ${props => props.theme.background_color};
+    border-color: transparent transparent ${props => props.theme.white_black};
     border-style: solid;
     border-width: 0 10px 10px;
     height: 0;

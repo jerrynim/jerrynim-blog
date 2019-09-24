@@ -7,6 +7,7 @@ const Container = styled.div`
   padding: 0px 15px;
   padding-top: 150px;
   a {
+    color: ${props => props.theme.black_white};
     font-size: 24px;
   }
 `;

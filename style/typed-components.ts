@@ -15,6 +15,7 @@ interface IThemeInterface {
   light_gray: string;
   blue: string;
   orange: string;
+  gradient: string;
 }
 
 const {

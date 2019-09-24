@@ -38,12 +38,13 @@ const LinearCard = styled.div`
     padding-left: 30px;
 
     h1 {
+      color: ${props => props.theme.black_white};
       font-size: 24px;
       font-weight: 28px;
       margin-bottom: 16px;
     }
     h2 {
-      color: ${theme.thin_gray};
+      color: ${props => props.theme.black_lightgray};
       font-size: 14px;
       line-height: 16px;
       margin-bottom: 12px;
@@ -52,6 +53,7 @@ const LinearCard = styled.div`
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .tag_box {
@@ -63,8 +65,9 @@ const LinearCard = styled.div`
         line-height: 16px;
         padding: 4px 6px;
         margin-right: 12px;
-        background-color: ${theme.blue_gray};
-
+        background-color: ${props => props.theme.bluegray_darkblue};
+        color: ${props => props.theme.black_white};
+        border-radius: 5px;
         :last-child {
           margin: 0;
         }
