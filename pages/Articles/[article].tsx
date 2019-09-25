@@ -4,7 +4,6 @@ import Head from "next/head";
 import { useQuery } from "@apollo/react-hooks";
 import FullArticle from "../../components/FullArticle";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import { GET_POST, GET_NIGHTMODE } from "../../queries/index";
 import { Post, ApolloNextPageContext } from "../../types/type";
 import nightTheme from "../../style/nightTheme";
@@ -13,12 +12,14 @@ import { ThemeProvider } from "../../style/typed-components";
 
 interface IProps {
   post: Post;
+  title: string | string[];
 }
 
-const article: NextPage<IProps> = ({ post }) => {
+const article: NextPage<IProps> = ({ post, title }) => {
   const {
     data: { nightmode }
   } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE);
+
   return (
     <ThemeProvider theme={nightmode ? nightTheme : theme}>
       <>
@@ -29,8 +30,7 @@ const article: NextPage<IProps> = ({ post }) => {
           />
         </Head>
         <Header />
-        <FullArticle post={post} />
-        <Footer />
+        <FullArticle post={post} title={title} />
       </>
     </ThemeProvider>
   );
@@ -43,8 +43,8 @@ article.getInitialProps = async (ctx: ApolloNextPageContext) => {
     variables: { title: query.article },
     fetchPolicy: "network-only"
   });
-
-  return { post: post.getPost };
+  console.log(query.article);
+  return { post: post.getPost, title: query.article };
 };
 
 export default article;

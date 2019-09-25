@@ -1,7 +1,6 @@
 import React, { LegacyRef } from "react";
 import Highlight from "react-highlight";
 import parse, { domToReact } from "html-react-parser";
-import Comments from "../Comments";
 import Navigator from "../Navigator";
 import { Post } from "../../types/type";
 import styled from "../../style/typed-components";
@@ -10,14 +9,62 @@ const Container = styled.div`
   padding-top: 96px;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.theme.blue_gray};
+  background-color: ${props => props.theme.background_color};
   display: flex;
   justify-content: center;
   position: relative;
+  color: ${props => props.theme.text_color};
+  .utterances {
+    width: calc(100% - 80px);
+  }
+  .utterances-frame {
+    border-top: 2px solid ${props => props.theme.light_gray};
+  }
+
+  .title {
+    margin-bottom: 18px;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    color: ${props => props.theme.black_white};
+    word-break: break-word;
+  }
+  .text {
+    color: ${props => props.theme.text_color};
+    margin-bottom: 18px;
+    font-size: 17px;
+    line-height: 22px;
+    word-break: break-word;
+  }
+
+  .imgbox {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .img {
+    width: 430px;
+    height: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .line {
+    height: 2px;
+    background-color: #777777;
+    border-radius: 4px;
+    margin: 18px 0px;
+  }
+  .bold {
+    color: #2f80ed;
+  }
+  .code {
+    white-space: initial;
+  }
 `;
 
 const Background = styled.div`
-  background-color: white;
+  background-color: ${props => props.theme.white_gray};
   height: 100%;
   width: 758px;
 `;
@@ -68,9 +115,10 @@ const Highlighted = styled(Highlight)<{ language: string }>`
 
 interface IProps {
   post: Post;
+  commentRef: React.MutableRefObject<any>;
 }
 
-const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
+const FullArticlePresenter: React.FC<IProps> = ({ post, commentRef }) => {
   const refs = [];
   const refsYPositon: number[] = [];
 
@@ -124,7 +172,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ post }) => {
               }
             })}
           </PostView>
-          <Comments comments={post.comments} />
+          <div ref={commentRef} className="ut" />
         </Background>
       </Container>
     </>

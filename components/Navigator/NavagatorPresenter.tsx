@@ -5,7 +5,7 @@ import styled from "../../style/typed-components";
 const Container = styled.div<{ number: number }>`
   font-size: 14px;
   line-height: 20px;
-  color: #757575;
+  color: ${props => props.theme.text_color};
 
   h1 {
     cursor: pointer;

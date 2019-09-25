@@ -1,6 +1,6 @@
 const nightTheme = {
   background_color: "#141D26",
-  text_color: "#ffffff",
+  text_color: "#ECF2F2",
   black_yellow: "yellow",
   black_white: "white",
   black: "#141414",

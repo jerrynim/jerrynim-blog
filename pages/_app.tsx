@@ -31,7 +31,6 @@ class MyApp extends App<IProps> {
 
   render() {
     const { Component, pageProps, apollo, nightmode } = this.props;
-    console.log(nightmode);
     if (nightmode === "on") {
       apollo.writeData({ data: { nightmode: true } });
     }
