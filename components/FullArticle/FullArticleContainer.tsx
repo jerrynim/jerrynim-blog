@@ -9,13 +9,12 @@ interface IProps {
 
 const FullArticleContainer: React.FC<IProps> = ({ post, title }) => {
   const commentRef = useRef(null);
-
   useEffect(() => {
     const scriptEl = document.createElement("script");
     scriptEl.async = true;
     scriptEl.src = "https://utteranc.es/client.js";
     scriptEl.setAttribute("repo", "jerrynim/jerrynim-blog");
-    scriptEl.setAttribute("issue-term", title);
+    scriptEl.setAttribute("issue-term", title as string);
     scriptEl.setAttribute("theme", "github-light");
     scriptEl.setAttribute("crossorigin", "anonymous");
     commentRef.current.appendChild(scriptEl);

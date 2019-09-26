@@ -66,3 +66,23 @@ export const CREATE_POST = gql`
     )
   }
 `;
+
+export const GET_TAGS = gql`
+  query getTags {
+    getTags {
+      id
+      term
+    }
+  }
+`;
+export const GET_TAG = gql`
+  query getTag($id: String) {
+    getTag(id: $id) {
+      id
+      term
+      Posts {
+        id
+      }
+    }
+  }
+`;

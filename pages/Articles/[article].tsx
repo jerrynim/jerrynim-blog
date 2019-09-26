@@ -43,7 +43,6 @@ article.getInitialProps = async (ctx: ApolloNextPageContext) => {
     variables: { title: query.article },
     fetchPolicy: "network-only"
   });
-  console.log(query.article);
   return { post: post.getPost, title: query.article };
 };
 
