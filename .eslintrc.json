@@ -19,7 +19,8 @@
     "no-shadow": "off", //중복 이름
     "react/no-children-prop": "off", //child props 금지
     "no-nested-ternary": "off",
-    "react/jsx-wrap-multilines": "off" //
+    "react/jsx-wrap-multilines": "off", //
+    "array-callback-return": "off" //array function return
   },
 
   "settings": {

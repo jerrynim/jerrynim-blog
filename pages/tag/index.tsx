@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { update, has, upperCase } from "lodash";
 import { NextPage } from "next";
 import { ApolloNextPageContext, Tag } from "../../types/type";
 import { GET_NIGHTMODE, GET_TAGS } from "../../queries/index";
@@ -10,28 +11,50 @@ import Header from "../../components/Header";
 import TagLIst from "../../components/TagList";
 
 interface IProps {
-  tags: Tag[];
+  alphabetList: any;
 }
 
-const tag: NextPage<IProps> = ({ tags }) => {
+const tag: NextPage<IProps> = ({ alphabetList }) => {
   const {
     data: { nightmode }
-  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE);
+  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
   return (
     <ThemeProvider theme={nightmode ? nightTheme : theme}>
       <>
         <Header />
-        <TagLIst tags={tags} />
+        <TagLIst alphabetList={alphabetList} />
       </>
     </ThemeProvider>
   );
 };
 
 tag.getInitialProps = async ({ apolloClient }: ApolloNextPageContext) => {
-  const { data: tags } = await apolloClient.query<{ getTags: Tag[] }>({
+  const {
+    data: { getTags }
+  } = await apolloClient.query<{ getTags: Tag[] }>({
     query: GET_TAGS,
     fetchPolicy: "network-only"
   });
-  return { tags: tags.getTags };
+  const alphabets = {};
+  getTags.map(tag => {
+    //배열이 가지고 있는지 확인
+    const alphabet = upperCase(tag.term[0]);
+    if (alphabet === "") {
+      return;
+    }
+    const containAlphabet = has(alphabets, alphabet);
+    if (!containAlphabet) {
+      //없던 값이라면 배열생성
+      update(alphabets, alphabet, () => [tag.term]);
+      return;
+    }
+    //있던 키값이라면 push
+    update(alphabets, alphabet, (value): string[] => {
+      value.push(tag.term);
+      return value;
+    });
+  });
+
+  return { alphabetList: alphabets };
 };
 export default tag;

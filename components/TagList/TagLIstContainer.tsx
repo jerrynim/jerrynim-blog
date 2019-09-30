@@ -1,13 +1,13 @@
 import React from "react";
 import TagListPresenter from "./TagListPresenter";
-import { Tag } from "../../types/type";
 
 interface IProps {
-  tags: Tag[];
+  alphabetList: any;
 }
 
-const TagLIstContainer: React.FC<IProps> = ({ tags }) => {
-  return <TagListPresenter tags={tags} />;
+const TagLIstContainer: React.FC<IProps> = ({ alphabetList }) => {
+  const array = Object.keys(alphabetList);
+  return <TagListPresenter alphabetList={alphabetList} />;
 };
 
 export default TagLIstContainer;

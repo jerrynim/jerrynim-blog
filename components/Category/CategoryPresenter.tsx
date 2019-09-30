@@ -38,21 +38,21 @@ const CategoryPresenter: React.FC = () => {
       />
       <Tree
         name={
-          <Link href="/">
+          <Link href="/project">
             <a>Project</a>
           </Link>
         }
       />
       <Tree
         name={
-          <Link href="/">
+          <Link href="/aboutme">
             <a>Aboutme</a>
           </Link>
         }
       />
       <Tree
         name={
-          <Link href="/">
+          <Link href="/tag">
             <a>Tags</a>
           </Link>
         }
