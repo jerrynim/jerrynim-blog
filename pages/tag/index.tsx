@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { update, has, upperCase } from "lodash";
+import { update, has, upperCase, toPairs, sortBy } from "lodash";
 import { NextPage } from "next";
 import { ApolloNextPageContext, Tag } from "../../types/type";
 import { GET_NIGHTMODE, GET_TAGS } from "../../queries/index";
@@ -54,7 +54,8 @@ tag.getInitialProps = async ({ apolloClient }: ApolloNextPageContext) => {
       return value;
     });
   });
-
-  return { alphabetList: alphabets };
+  const array = toPairs(alphabets);
+  const pairsAlphabets = sortBy(array, 0);
+  return { alphabetList: pairsAlphabets };
 };
 export default tag;

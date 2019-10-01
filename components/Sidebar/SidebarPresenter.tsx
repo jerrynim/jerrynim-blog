@@ -95,7 +95,9 @@ const SidebarPresenter: React.FC<IProps> = ({ status, toggleStatus }) => (
       <Category />
       <div className="bottom">
         <Link href="https://github.com/jerrynim" prefetch={false}>
-          <GoMarkGithub size={24} />
+          <a>
+            <GoMarkGithub size={24} />
+          </a>
         </Link>
         <IoMdMail size={24} />
       </div>

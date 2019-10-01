@@ -20,7 +20,8 @@
     "react/no-children-prop": "off", //child props 금지
     "no-nested-ternary": "off",
     "react/jsx-wrap-multilines": "off", //
-    "array-callback-return": "off" //array function return
+    "array-callback-return": "off", //array function return
+    "jsx-a11y/accessible-emoji": "off" //imoji
   },
 
   "settings": {

@@ -6,7 +6,6 @@ interface IProps {
 }
 
 const TagLIstContainer: React.FC<IProps> = ({ alphabetList }) => {
-  const array = Object.keys(alphabetList);
   return <TagListPresenter alphabetList={alphabetList} />;
 };
 

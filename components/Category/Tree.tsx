@@ -8,7 +8,7 @@ import styled from "../../style/typed-components";
 
 const Frame = styled("div")`
   position: relative;
-  padding: 4px 0px 0px 0px;
+  padding: 8px 0px 0px 8px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow-x: hidden;
@@ -18,6 +18,9 @@ const Frame = styled("div")`
 
   svg {
     fill: ${props => props.theme.black_white};
+  }
+  .nav {
+    display: flex;
   }
 `;
 
@@ -63,8 +66,10 @@ const Tree: React.FC<IProps> = memo(({ children, name, style, defaultOpen = fals
   const Icon = Icons[`${children ? (isOpen ? "Minus" : "Plus") : "Close"}SquareO`];
   return (
     <Frame>
-      <Icon style={{ ...toggle, opacity: children ? 1 : 0.3 }} onClick={() => setOpen(!isOpen)} />
-      <Title style={style}>{name}</Title>
+      <div className="nav">
+        <Icon style={{ ...toggle, opacity: children ? 1 : 0.3 }} onClick={() => setOpen(!isOpen)} />
+        <Title style={style}>{name}</Title>
+      </div>
       <Content style={{ opacity, height: isOpen && previous === isOpen ? "auto" : height }}>
         <animated.div style={{ transform }} {...bind} children={children} />
       </Content>

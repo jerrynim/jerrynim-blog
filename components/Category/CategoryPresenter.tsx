@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import { FaPencilAlt, FaHammer, FaTags } from "react-icons/fa";
 import Tree from "./Tree";
 import styled from "../../style/typed-components";
 
@@ -8,7 +9,16 @@ const Container = styled.div`
   padding-top: 150px;
   a {
     color: ${props => props.theme.black_white};
-    font-size: 24px;
+    font-size: 18px;
+    position: relative;
+    svg {
+      color: ${props => props.theme.black_white};
+    }
+    span {
+      position: absolute;
+      margin-left: 3px;
+      top: 1px;
+    }
   }
 `;
 const CategoryPresenter: React.FC = () => {
@@ -17,43 +27,45 @@ const CategoryPresenter: React.FC = () => {
       <Tree
         name={
           <Link href="/">
-            <a>Home</a>
+            <a>
+              <FaPencilAlt size={16} />
+              <span>Posts</span>
+            </a>
           </Link>
         }
       >
         <Tree
           name={
             <Link href="/">
-              <a>React</a>
+              <a>
+                <FaHammer size={16} />
+                <span>Libarary</span>
+              </a>
             </Link>
           }
         />
       </Tree>
       <Tree
         name={
-          <Link href="/">
-            <a>Libarary</a>
-          </Link>
-        }
-      />
-      <Tree
-        name={
           <Link href="/project">
-            <a>Project</a>
+            <a>🚀Project</a>
           </Link>
         }
       />
       <Tree
         name={
           <Link href="/aboutme">
-            <a>Aboutme</a>
+            <a>😺Aboutme</a>
           </Link>
         }
       />
       <Tree
         name={
           <Link href="/tag">
-            <a>Tags</a>
+            <a>
+              <FaTags size={16} />
+              <span>Tags</span>
+            </a>
           </Link>
         }
       />

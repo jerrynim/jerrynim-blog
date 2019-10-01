@@ -8,7 +8,7 @@ const HeaderContainer: React.FC = () => {
   const router = useRouter();
   const {
     data: { nightmode }
-  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE);
+  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
   const [toggleNightmode] = useMutation(TOGGLE_NIGHTMODE, {
     variables: { mode: nightmode },
     update(cache) {

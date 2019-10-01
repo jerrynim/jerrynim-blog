@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "../../style/typed-components";
-import alphabets from "./alphabets";
 
 const Container = styled.div`
   background-color: ${props => props.theme.background_color};
   transition: 0.2s ease-in-out;
   width: 100%;
   height: -webkit-fill-available;
-  padding-top: 76px;
-  background-color: ${props => props.theme.white_gray};
+  padding-top: 57px;
 
   .conent {
     width: 928px;
     height: inherit;
     margin: auto;
+    padding: 0px 16px;
     background-color: ${props => props.theme.white_gray};
   }
 
@@ -26,20 +25,20 @@ const Container = styled.div`
     border-bottom: 2px solid ${props => props.theme.light_gray};
     & h1 {
       color: ${props => props.theme.black_white};
+      margin-top: 18px;
       font-size: 24px;
     }
   }
 
   .alphabet_nav {
     height: 35px;
-    width: 100%;
+    width: calc(100% - 32px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 30px;
     border: 1px solid ${props => props.theme.black_white};
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 18px 16px 20px;
     div {
       padding-top: 4px;
       font-size: 24px;
@@ -54,9 +53,9 @@ const Container = styled.div`
   }
   .alphabet {
     width: 213px;
+    height: 650px;
     h1 {
       width: fit-content;
-      margin-top: 18px;
       font-size: 24px;
       line-height: 28px;
       color: ${props => props.theme.black_white};
@@ -66,12 +65,14 @@ const Container = styled.div`
     flex-wrap: wrap;
   }
   .tag_list {
+    margin-left: 16px;
     position: relative;
-    overflow: scroll;
   }
   .alphabet-items {
     height: 100%;
     width: 100%;
+    overflow-y: scroll;
+
     margin-top: 18px;
     p {
       font-size: 18px;
@@ -93,27 +94,31 @@ const TagListPresenter: React.FC<IProps> = ({ alphabetList }) => {
           <h1>Tags</h1>
         </div>
         <div className="alphabet_nav">
-          {alphabets.map(alphabet => (
+          {alphabetList.map(alphabetPair => (
             <div
               role="button"
-              key={alphabet}
+              key={alphabetPair[0]}
               onClick={() =>
-                document.getElementById(`tag_${alphabet}`).scrollIntoView({
+                document.getElementById(`tag_${alphabetPair[0]}`).scrollIntoView({
                   behavior: "smooth",
                   block: "start"
                 })
               }
             >
-              {alphabet}
+              {alphabetPair[0]}
             </div>
           ))}
         </div>
         <div className="tag_list">
           <div className="scrollbar">
-            {alphabets.map(alphabet => (
-              <div className="alphabet" key={alphabet} id={`tag_${alphabet}`}>
-                <h1>{alphabet}</h1>
-                <div className="alphabet-items" />
+            {alphabetList.map(alpahbetPair => (
+              <div className="alphabet" key={alpahbetPair[0]} id={`tag_${alpahbetPair[0]}`}>
+                <h1>{alpahbetPair[0]}</h1>
+                <div className="alphabet-items">
+                  {alpahbetPair[1].map(tag => (
+                    <p>{tag}</p>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
