@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
+import { useQuery } from "@apollo/react-hooks";
 import FullArticlePresenter from "./FullArticlePresenter";
 import { Post } from "../../types/type";
+import { GET_NIGHTMODE } from "../../queries/index";
 
 interface IProps {
   post: Post;
@@ -8,18 +10,28 @@ interface IProps {
 }
 
 const FullArticleContainer: React.FC<IProps> = ({ post, title }) => {
-  const commentRef = useRef(null);
+  const Ref = useRef(null);
+  const {
+    data: { nightmode }
+  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
+
   useEffect(() => {
-    const scriptEl = document.createElement("script");
-    scriptEl.async = true;
-    scriptEl.src = "https://utteranc.es/client.js";
-    scriptEl.setAttribute("repo", "jerrynim/jerrynim-blog");
-    scriptEl.setAttribute("issue-term", title as string);
-    scriptEl.setAttribute("theme", "github-light");
-    scriptEl.setAttribute("crossorigin", "anonymous");
-    commentRef.current.appendChild(scriptEl);
-  }, []);
-  return <FullArticlePresenter post={post} commentRef={commentRef} />;
+    const Element = document.createElement("script");
+    Element.async = true;
+    Element.src = "https://utteranc.es/client.js";
+    Element.setAttribute("repo", "jerrynim/jerrynim-blog");
+    Element.setAttribute("issue-term", title as string);
+    Element.setAttribute("crossorigin", "anonymous");
+    Element.removeAttribute("theme");
+    Element.setAttribute("theme", nightmode ? "photon-dark" : "github-light");
+    //차일드가 있다면
+    if (Ref.current.hasChildNodes()) {
+      Ref.current.removeChild(Ref.current.firstChild);
+    }
+    Ref.current.appendChild(Element);
+  }, [nightmode]);
+
+  return <FullArticlePresenter post={post} Ref={Ref} />;
 };
 
 export default FullArticleContainer;

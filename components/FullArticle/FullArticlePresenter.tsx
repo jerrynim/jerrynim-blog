@@ -115,10 +115,10 @@ const Highlighted = styled(Highlight)<{ language: string }>`
 
 interface IProps {
   post: Post;
-  commentRef: React.MutableRefObject<any>;
+  Ref: React.MutableRefObject<any>;
 }
 
-const FullArticlePresenter: React.FC<IProps> = ({ post, commentRef }) => {
+const FullArticlePresenter: React.FC<IProps> = ({ post, Ref }) => {
   const refs = [];
   const refsYPositon: number[] = [];
 
@@ -172,7 +172,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ post, commentRef }) => {
               }
             })}
           </PostView>
-          <div ref={commentRef} className="ut" />
+          <div ref={Ref} id="comment" />
         </Background>
       </Container>
     </>
