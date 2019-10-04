@@ -21,13 +21,14 @@ const PostInfoContainer: React.FC<IProps> = ({
   setFile,
   addPostMutation
 }) => {
-  const [fileUploadMuation, { data, error }] = useMutation(FILE_UPLOAD);
+  const [fileUploadMuation, { data, error }] = useMutation<{ singleUpload: string }>(FILE_UPLOAD, {
+    onCompleted: data => setFile(data.singleUpload)
+  });
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = async e => {
     const file = e.target.files![0];
     fileUploadMuation({ variables: { file } });
   };
-  console.error(data, error);
   return (
     <PostInfoPresenter
       title={title}
