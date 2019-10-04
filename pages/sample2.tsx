@@ -1,6 +1,7 @@
 import React from "react";
 import { NextPageContext, NextComponentType } from "next";
 import styled from "../style/typed-components";
+import { GET_NIGHTMODE } from "../queries/index";
 
 interface IProps extends NextPageContext {
   apolloClient: any;

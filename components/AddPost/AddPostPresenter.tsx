@@ -22,7 +22,6 @@ interface IProps {
   password: UseInput;
   content: string;
   setContent: React.Dispatch<React.SetStateAction<string>>;
-
   file: string;
   setFile: React.Dispatch<React.SetStateAction<string>>;
   addPostMutation: any;

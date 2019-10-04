@@ -16,11 +16,12 @@ interface IProps {
 }
 
 const App: NextPage<IProps> = ({ posts }) => {
-  const {
-    data: { nightmode }
-  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
+  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, {
+    ssr: false,
+    fetchPolicy: "cache-only"
+  });
   return (
-    <ThemeProvider theme={nightmode ? nightTheme : theme}>
+    <ThemeProvider theme={data.nightmode ? nightTheme : theme}>
       <>
         <Header />
         <Sidebar />

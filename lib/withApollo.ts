@@ -1,19 +1,27 @@
 import withApollo from "next-with-apollo";
+import nextCookie from "next-cookies";
 import cookie from "js-cookie";
-import ApolloClient, { InMemoryCache } from "apollo-boost";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
+import { createUploadLink } from "apollo-upload-client";
 
 export default withApollo(({ ctx, headers, initialState }) => {
+  const cache = new InMemoryCache().restore(initialState || {});
+  const { nightmode } = nextCookie(ctx);
+  if (nightmode === "on") {
+    cache.writeData({ data: { nightmode: true } });
+  } else {
+    cache.writeData({ data: { nightmode: false } });
+  }
   return new ApolloClient({
-    uri: "http://localhost:4000/",
-    cache: new InMemoryCache().restore(initialState || {}),
-    clientState: {
-      defaults: { nightmode: false },
-      resolvers: {
-        Mutation: {
-          toggleNightmode: (_, args) => {
-            cookie.set("nightmode", `${!args.mode ? "on" : "off"}`, { expires: 30 });
-            return null;
-          }
+    link: createUploadLink({ uri: "http://localhost:4000/" }),
+    cache,
+    ssrMode: typeof window !== "undefined",
+    resolvers: {
+      Mutation: {
+        toggleNightmode: (_, args) => {
+          cookie.set("nightmode", `${!args.mode ? "on" : "off"}`, { expires: 30 });
+          return null;
         }
       }
     }
