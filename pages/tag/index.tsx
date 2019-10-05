@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { update, has, upperCase, toPairs, sortBy } from "lodash";
 import { NextPage } from "next";
-import { ApolloNextPageContext, Tag } from "../../types/type";
+import { Tag, ApolloReduxNextPageContext } from "../../types/type";
 import { GET_NIGHTMODE, GET_TAGS } from "../../queries/index";
 import { ThemeProvider } from "../../style/typed-components";
 import nightTheme from "../../style/nightTheme";
@@ -28,7 +28,7 @@ const tag: NextPage<IProps> = ({ alphabetList }) => {
   );
 };
 
-tag.getInitialProps = async ({ apolloClient }: ApolloNextPageContext) => {
+tag.getInitialProps = async ({ apolloClient }: ApolloReduxNextPageContext) => {
   const {
     data: { getTags }
   } = await apolloClient.query<{ getTags: Tag[] }>({

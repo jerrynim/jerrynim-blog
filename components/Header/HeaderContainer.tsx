@@ -7,13 +7,14 @@ import { GET_NIGHTMODE, TOGGLE_NIGHTMODE } from "../../queries/index";
 const HeaderContainer: React.FC = () => {
   const router = useRouter();
   const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, {
-    ssr: false,
+    ssr: true,
     fetchPolicy: "cache-only"
   });
+  const nightmode = data && data.nightmode;
   const [toggleNightmode] = useMutation(TOGGLE_NIGHTMODE, {
-    variables: { mode: data.nightmode },
+    variables: { mode: nightmode },
     update(cache) {
-      cache.writeData({ data: { nightmode: !data.nightmode } });
+      cache.writeData({ data: { nightmode: !nightmode } });
     }
   });
   const [popupStatus, setPopupStatus] = useState(false);
@@ -21,7 +22,7 @@ const HeaderContainer: React.FC = () => {
     <>
       <HeaderPresenter
         path={router.asPath}
-        nightmode={data.nightmode}
+        nightmode={nightmode}
         toggleNightmode={toggleNightmode}
         popupStatus={popupStatus}
         setPopupStatus={setPopupStatus}

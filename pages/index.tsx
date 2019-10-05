@@ -6,10 +6,10 @@ import Articles from "../components/Articles";
 import Sidebar from "../components/Sidebar";
 import { GET_POSTS, GET_NIGHTMODE } from "../queries/index";
 import { Post } from "../../jerrynim-blog-server/types/graph.d";
-import { ApolloNextPageContext } from "../types/type";
 import { ThemeProvider } from "../style/typed-components";
 import theme from "../style/theme";
 import nightTheme from "../style/nightTheme";
+import { ApolloReduxNextPageContext } from "../types/type";
 
 interface IProps {
   posts: Post[];
@@ -17,11 +17,12 @@ interface IProps {
 
 const App: NextPage<IProps> = ({ posts }) => {
   const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, {
-    ssr: false,
+    ssr: true,
     fetchPolicy: "cache-only"
   });
+  const nightmode = data && data.nightmode;
   return (
-    <ThemeProvider theme={data.nightmode ? nightTheme : theme}>
+    <ThemeProvider theme={nightmode ? nightTheme : theme}>
       <>
         <Header />
         <Sidebar />
@@ -31,7 +32,7 @@ const App: NextPage<IProps> = ({ posts }) => {
   );
 };
 
-App.getInitialProps = async (ctx: ApolloNextPageContext) => {
+App.getInitialProps = async (ctx: ApolloReduxNextPageContext) => {
   const { apolloClient } = ctx;
   const { data: posts } = await apolloClient.query<{ getPosts: Post[] }>({
     query: GET_POSTS,

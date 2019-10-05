@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery } from "@apollo/react-hooks";
 import { NextPageContext, NextComponentType } from "next";
 import styled from "../style/typed-components";
 import { GET_NIGHTMODE } from "../queries/index";
@@ -58,6 +59,12 @@ const HeartPopText = styled.h2`
   font-size: 14px;
 `;
 const Page: NextComponentType = () => {
+  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, {
+    ssr: true,
+    fetchPolicy: "cache-only"
+  });
+  const nightmode = data && data.nightmode;
+  console.log(nightmode);
   return (
     <div>
       <div>a</div>

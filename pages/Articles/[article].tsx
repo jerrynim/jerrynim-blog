@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 import FullArticle from "../../components/FullArticle";
 import Header from "../../components/Header";
 import { GET_POST, GET_NIGHTMODE } from "../../queries/index";
-import { Post, ApolloNextPageContext } from "../../types/type";
+import { Post, ApolloReduxNextPageContext } from "../../types/type";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";
 import { ThemeProvider } from "../../style/typed-components";
@@ -36,7 +36,7 @@ const article: NextPage<IProps> = ({ post, title }) => {
   );
 };
 
-article.getInitialProps = async (ctx: ApolloNextPageContext) => {
+article.getInitialProps = async (ctx: ApolloReduxNextPageContext) => {
   const { apolloClient, query } = ctx;
   const { data: post } = await apolloClient.query<{ getPost: Post }>({
     query: GET_POST,

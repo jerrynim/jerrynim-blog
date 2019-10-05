@@ -1,9 +1,11 @@
 import { NextPageContext } from "next";
 import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
+import { NextJSContext } from "next-redux-wrapper";
 
-export interface ApolloNextPageContext extends NextPageContext {
-  apolloClient: ApolloClient<NormalizedCacheObject>;
-}
+type ReduxInitialState = { post: Post };
+
+export type ApolloReduxNextPageContext = NextPageContext &
+  NextJSContext<ReduxInitialState> & { apolloClient: ApolloClient<NormalizedCacheObject> }; //eslint-disable-line
 
 export type Post = {
   id: string;
