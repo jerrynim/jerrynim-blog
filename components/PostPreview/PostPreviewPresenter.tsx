@@ -1,27 +1,33 @@
 import React from "react";
 import Highlight from "react-highlight";
-import parse, { domToReact } from "html-react-parser";
-import { UseInput } from "../../Hooks/useInput";
 import styled from "../../style/typed-components";
 
 const Container = styled.div`
   width: 758px;
   min-height: 350px;
-  height: -webkit-fill-available;
+  height: fit-content;
   background-color: white;
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  position: relative;
 `;
 
-const PostHeader = styled.div<{ image: string }>`
+const PostHeader = styled.div`
   position: relative;
   height: 350px;
   width: 100%;
 
-  background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Overlay = styled.div`
@@ -62,40 +68,22 @@ const Post = styled.div`
 `;
 
 interface IProps {
-  title: UseInput;
-  subTitle: UseInput;
-  tags: UseInput;
-  content: string;
-  file: string;
+  title: any;
+  subTitle: any;
+  tags: any;
+  content: any;
+  thumbnail: any;
 }
 
-const PostPreviewPresenter: React.FC<IProps> = ({
-  title,
-  subTitle,
-  tags,
-  content,
-  file
-}) => (
+const PostPreviewPresenter: React.FC<IProps> = ({ title, subTitle, tags, content, thumbnail }) => (
   <Container>
-    <PostHeader image={file}>
+    <PostHeader>
+      <img src={thumbnail.value} alt="" />
       <PostTitle>{title.value}</PostTitle>
       <PostSubTitle>{subTitle.value}</PostSubTitle>
       <Overlay />
     </PostHeader>
-    <Post>
-      {parse(content, {
-        replace: ({ attribs, children }) => {
-          if (attribs && attribs.class === "code" && children) {
-            return (
-              <Highlighted language="typescript" className="">
-                {domToReact(children)}
-              </Highlighted>
-            );
-          }
-          return <div />;
-        }
-      })}
-    </Post>
+    <Post />
     {tags.value}
   </Container>
 );

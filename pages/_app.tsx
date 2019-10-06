@@ -8,12 +8,12 @@ import { Store } from "redux";
 import withApollo from "../lib/withApollo";
 import GlobalStyles from "../style/GlobalStyle";
 import configureStore from "../store";
-import { Post } from "../types/type";
+import { AddPost } from "../types/type";
 
 interface IProps {
   apolloState: any;
   apollo: ApolloClient<NormalizedCacheObject>;
-  store: Store<{ post: Post }>;
+  store: Store<{ addPost: AddPost }>;
 }
 
 class MyApp extends App<IProps> {

@@ -1,5 +1,4 @@
 import React from "react";
-import parse, { domToReact } from "html-react-parser";
 import styled from "../../style/typed-components";
 
 const Container = styled.div<{ number: number }>`
@@ -25,21 +24,6 @@ interface IProps {
 }
 
 const NavigatorPresenter: React.FC<IProps> = ({ focus, scrollToTitle, content }) => {
-  return (
-    <Container number={focus}>
-      {parse(content, {
-        replace: ({ attribs, children }) => {
-          if (attribs && attribs.class === "title" && children) {
-            return (
-              <h1 role="presentation" onClick={() => scrollToTitle(children[0].data)}>
-                {domToReact(children)}
-              </h1>
-            );
-          }
-          return <></>;
-        }
-      })}
-    </Container>
-  );
+  return <Container number={focus} />;
 };
 export default NavigatorPresenter;

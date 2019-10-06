@@ -21,7 +21,9 @@
     "no-nested-ternary": "off",
     "react/jsx-wrap-multilines": "off", //
     "array-callback-return": "off", //array function return
-    "jsx-a11y/accessible-emoji": "off" //imoji
+    "jsx-a11y/accessible-emoji": "off", //imoji
+    "no-param-reassign": "off",
+    "react/jsx-props-no-spreading": "off" //spread off
   },
 
   "settings": {

@@ -2,7 +2,7 @@ import { NextPageContext } from "next";
 import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
 import { NextJSContext } from "next-redux-wrapper";
 
-type ReduxInitialState = { post: Post };
+export type ReduxInitialState = { addPost: AddPost };
 
 export type ApolloReduxNextPageContext = NextPageContext &
   NextJSContext<ReduxInitialState> & { apolloClient: ApolloClient<NormalizedCacheObject> }; //eslint-disable-line
@@ -17,6 +17,16 @@ export type Post = {
   comments?: Comment[];
   createdAt?: string;
   updatedAt?: string;
+};
+
+export type AddPost = {
+  id: string;
+  title: string;
+  subTitle: string;
+  thumbnail: string;
+  tags: string;
+  content: string;
+  password: string;
 };
 
 export type Comment = {

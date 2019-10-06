@@ -2,33 +2,29 @@ import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { FILE_UPLOAD } from "../../queries/upload";
 import PostInfoPresenter from "./PostInfoPresenter";
-import { UseInput } from "../../Hooks/useInput";
+import usePost from "../../Hooks/usePost";
+import { CREATE_POST } from "../../queries/index";
 
-interface IProps {
-  title: UseInput;
-  subTitle: UseInput;
-  tags: UseInput;
-  password: UseInput;
-  setFile: React.Dispatch<React.SetStateAction<string>>;
-  addPostMutation: any;
-}
-
-const PostInfoContainer: React.FC<IProps> = ({
-  title,
-  subTitle,
-  tags,
-  password,
-  setFile,
-  addPostMutation
-}) => {
-  const [fileUploadMuation, { data, error }] = useMutation<{ singleUpload: string }>(FILE_UPLOAD, {
-    onCompleted: data => setFile(data.singleUpload)
+const PostInfoContainer: React.FC = () => {
+  const { title, subTitle, tags, password, content, thumbnail } = usePost();
+  const [fileUploadMuation] = useMutation<{ singleUpload: string }>(FILE_UPLOAD, {
+    onCompleted: data => thumbnail.onChange(data.singleUpload)
   });
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = async e => {
     const file = e.target.files![0];
     fileUploadMuation({ variables: { file } });
   };
+  const [addPostMutation] = useMutation(CREATE_POST, {
+    variables: {
+      title: title.value,
+      subTitle: subTitle.value,
+      tags: tags.value,
+      password: password.value,
+      content: content.value,
+      thumbnail: thumbnail.value
+    }
+  });
   return (
     <PostInfoPresenter
       title={title}
@@ -36,6 +32,7 @@ const PostInfoContainer: React.FC<IProps> = ({
       tags={tags}
       password={password}
       onChange={onChange}
+      addPostMutation={addPostMutation}
     />
   );
 };

@@ -1,3 +1,11 @@
 .next
 node_modules
 now.json
+
+.env
+.env
+package-lock.json
+now.json
+utterances.json
+next-env.d.ts
+yarn.lock

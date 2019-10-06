@@ -42,14 +42,22 @@ const UploadButton = styled.button`
 `;
 
 interface IProps {
-  title: UseInput;
-  subTitle: UseInput;
-  tags: UseInput;
-  password: UseInput;
+  title: any;
+  subTitle: any;
+  tags: any;
+  password: any;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  addPostMutation: any;
 }
 
-const PostInfoPresenter: React.FC<IProps> = ({ title, subTitle, tags, password, onChange }) => {
+const PostInfoPresenter: React.FC<IProps> = ({
+  title,
+  subTitle,
+  tags,
+  password,
+  onChange,
+  addPostMutation
+}) => {
   return (
     <Container>
       <Category>
@@ -66,13 +74,13 @@ const PostInfoPresenter: React.FC<IProps> = ({ title, subTitle, tags, password, 
       </Category>
       <Category>
         <CategoryText>Thumbnail</CategoryText>
-        <CategoryInput {...tags} />
+        <CategoryInput type="text" {...tags} autocomplete="off" />
       </Category>
       <Category>
         <CategoryText>Password</CategoryText>
-        <CategoryInput type="password" {...password} />
+        <CategoryInput type="password" {...password} autocomplete="off" />
       </Category>
-      <UploadButton onClick={() => {}}>Upload</UploadButton>
+      <UploadButton onClick={() => addPostMutation()}>Upload</UploadButton>
     </Container>
   );
 };

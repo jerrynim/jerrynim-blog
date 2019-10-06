@@ -4,7 +4,6 @@ import Articles from "../../components/Articles";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { GET_POSTS } from "../../queries";
-import Loader from "../../components/Loader";
 import { Post } from "../../types/type";
 
 const App: React.FC = () => {
@@ -13,7 +12,6 @@ const App: React.FC = () => {
   }>(GET_POSTS);
   return (
     <>
-      {loading && <Loader />}
       {!loading && data && data.getPosts && (
         <>
           <Header />

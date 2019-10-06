@@ -1,6 +1,5 @@
-import React, { LegacyRef } from "react";
+import React from "react";
 import Highlight from "react-highlight";
-import parse, { domToReact } from "html-react-parser";
 import Navigator from "../Navigator";
 import { Post } from "../../types/type";
 import styled from "../../style/typed-components";
@@ -147,30 +146,6 @@ const FullArticlePresenter: React.FC<IProps> = ({ post, Ref }) => {
           </PostHeader>
           <PostView>
             <p className="text">{post.subTitle}</p>
-
-            {parse(post.content, {
-              replace: domNode => {
-                const { attribs, children } = domNode;
-                if (attribs && attribs.class === "title" && children) {
-                  const ref2: LegacyRef<HTMLHeadingElement> = React.createRef();
-                  refs.push(ref2);
-                  const title = children[0].data;
-                  return (
-                    <h1 ref={ref2} className="title" id={title}>
-                      {domToReact(children)}
-                    </h1>
-                  );
-                }
-                if (attribs && attribs.class === "code" && children) {
-                  return (
-                    <Highlighted language="typescript" className="code">
-                      {children[0].data}
-                    </Highlighted>
-                  );
-                }
-                return domNode;
-              }
-            })}
           </PostView>
           <div ref={Ref} id="comment" />
         </Background>

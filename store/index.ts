@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import post from "./post";
+import addPost from "./addPost";
 
 const reducer = combineReducers({
-  post
+  addPost
 });
 
 const configureStore = (initialState, options) => {

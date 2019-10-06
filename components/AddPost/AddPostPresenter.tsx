@@ -1,7 +1,6 @@
 import React from "react";
 import PostInfo from "../PostInfo";
 import PostInput from "../PostInput";
-import { UseInput } from "../../Hooks/useInput";
 import PostPreview from "../PostPreview";
 import styled from "../../style/typed-components";
 
@@ -15,41 +14,12 @@ const Container = styled.div`
   position: relative;
 `;
 
-interface IProps {
-  title: UseInput;
-  subTitle: UseInput;
-  tags: UseInput;
-  password: UseInput;
-  content: string;
-  setContent: React.Dispatch<React.SetStateAction<string>>;
-  file: string;
-  setFile: React.Dispatch<React.SetStateAction<string>>;
-  addPostMutation: any;
-}
-
-const AddCommentAddPost: React.FC<IProps> = ({
-  title,
-  subTitle,
-  tags,
-  password,
-  content,
-  file,
-  setFile,
-  setContent,
-  addPostMutation
-}) => (
+const AddPostPresenter: React.FC = () => (
   <Container>
-    <PostInfo
-      title={title}
-      subTitle={subTitle}
-      tags={tags}
-      password={password}
-      setFile={setFile}
-      addPostMutation={addPostMutation}
-    />
-    <PostPreview title={title} subTitle={subTitle} tags={tags} content={content} file={file} />
-    <PostInput content={content} setContent={setContent} />
+    <PostInfo />
+    <PostPreview />
+    <PostInput />
   </Container>
 );
 
-export default AddCommentAddPost;
+export default AddPostPresenter;

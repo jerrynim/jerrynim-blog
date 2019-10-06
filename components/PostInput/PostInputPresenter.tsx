@@ -51,48 +51,30 @@ const Input = styled.input`
 `;
 
 interface IProps {
-  content: string;
-  setContent: React.Dispatch<React.SetStateAction<string>>;
-  addHeader: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  addText: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  addBold: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  addLine: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  addCode: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  addImage: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  content: any;
 }
 
-const PostInputPresenter: React.FC<IProps> = ({
-  content,
-  setContent,
-  addHeader,
-  addText,
-  addBold,
-  addLine,
-  addImage,
-  addCode
-}) => (
+const PostInputPresenter: React.FC<IProps> = ({ content }) => (
   <Container>
-    <TextArea value={content} onChange={e => setContent(e.target.value)} />
+    <TextArea {...content} />
     <Buttons>
-      <Button onClick={addHeader}>
+      <Button onClick={() => {}}>
         <FaHeading size={24} />
       </Button>
-      <Button onClick={addText}>
+      <Button onClick={() => {}}>
         <TiDocumentText size={24} />
       </Button>
       <InputWrapper>
         <IoIosImage size={24} />
-
-        <Input type="file" onChange={addImage} />
+        <Input type="file" onChange={() => {}} />
       </InputWrapper>
-
-      <Button onClick={addLine}>
+      <Button onClick={() => {}}>
         <MdDragHandle size={24} />
       </Button>
-      <Button onClick={addBold}>
+      <Button onClick={() => {}}>
         <MdFormatBold size={24} />
       </Button>
-      <Button onClick={addCode}>
+      <Button onClick={() => {}}>
         <MdCode size={24} />
       </Button>
     </Buttons>
