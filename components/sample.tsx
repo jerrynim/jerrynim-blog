@@ -17,7 +17,9 @@ const sample: React.FC = () => {
       <button type="button" onClick={() => click()}>
         asdfasdf
       </button>
-      <div id="lit"><div>hello world</div></div>
+      <div id="lit">
+        <div>hello world</div>
+      </div>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import * as React from "react";
+import moment from "moment";
 import Link from "next/link";
 import styled from "../../style/typed-components";
 import { Post } from "../../types/type";
@@ -121,7 +122,11 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                     </p>
                   ))}
                 </div>
-                <p className="date">{post.createdAt}</p>
+                <p className="date">
+                  {moment(post.createdAt)
+                    .startOf("day")
+                    .fromNow()}
+                </p>
               </div>
             </Card>
           );
@@ -153,7 +158,11 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                     </p>
                   ))}
                 </div>
-                <p className="date">{post.createdAt}</p>
+                <p className="date">
+                  {moment(post.createdAt)
+                    .startOf("day")
+                    .fromNow()}
+                </p>
               </div>
             </Card>
           );

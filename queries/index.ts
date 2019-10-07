@@ -19,6 +19,7 @@ export const GET_POSTS = gql`
       title
       subTitle
       thumbnail
+      createdAt
       tags {
         id
         term
@@ -35,6 +36,7 @@ export const GET_POST = gql`
       subTitle
       content
       thumbnail
+      createdAt
       comments {
         id
         text

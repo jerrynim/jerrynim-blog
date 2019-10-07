@@ -12,6 +12,6 @@ module.exports = withCSS({
   },
 
   env: {
-    KEY: process.env.KEY,
-  },
+    API_ENDPOINT: process.env.API_ENDPOINT
+  }
 });

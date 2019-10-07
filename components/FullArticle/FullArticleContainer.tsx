@@ -11,9 +11,8 @@ interface IProps {
 
 const FullArticleContainer: React.FC<IProps> = ({ post, title }) => {
   const Ref = useRef(null);
-  const {
-    data: { nightmode }
-  } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
+  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
+  const nightmode = data && data.nightmode;
 
   useEffect(() => {
     const Element = document.createElement("script");

@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import Highlight from "react-highlight";
 import styled from "../../style/typed-components";
 
@@ -84,6 +85,20 @@ const PostPreviewPresenter: React.FC<IProps> = ({ title, subTitle, tags, content
       <Overlay />
     </PostHeader>
     <Post />
+    {parse(content.value, {
+      replace: domNode => {
+        const { attribs, children } = domNode;
+
+        if (attribs && attribs.class === "code" && children) {
+          return (
+            <Highlighted language="typescript" className="code">
+              {children[0].data}
+            </Highlighted>
+          );
+        }
+        return domNode;
+      }
+    })}
     {tags.value}
   </Container>
 );
