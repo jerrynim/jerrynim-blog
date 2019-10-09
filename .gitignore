@@ -8,3 +8,4 @@ utterances.json
 next-env.d.ts
 yarn.lock
 .env
+now.json
