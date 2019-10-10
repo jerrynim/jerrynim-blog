@@ -14,7 +14,7 @@ export default withApollo(({ ctx, headers, initialState }) => {
     cache.writeData({ data: { nightmode: false } });
   }
   return new ApolloClient({
-    link: createUploadLink({ uri: process.env.API_ENDPOINT }),
+    link: createUploadLink({ uri: process.env.END_POINT }),
     cache,
     ssrMode: typeof window !== "undefined",
     resolvers: {

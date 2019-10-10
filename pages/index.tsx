@@ -5,11 +5,10 @@ import Header from "../components/Header";
 import Articles from "../components/Articles";
 import Sidebar from "../components/Sidebar";
 import { GET_POSTS, GET_NIGHTMODE } from "../queries/index";
-import { Post } from "../../jerrynim-blog-server/types/graph.d";
 import { ThemeProvider } from "../style/typed-components";
 import theme from "../style/theme";
 import nightTheme from "../style/nightTheme";
-import { ApolloReduxNextPageContext } from "../types/type";
+import { ApolloReduxNextPageContext, Post } from "../types/type";
 
 interface IProps {
   posts: Post[];

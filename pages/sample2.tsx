@@ -64,7 +64,6 @@ const Page: NextComponentType = () => {
     fetchPolicy: "cache-only"
   });
   const nightmode = data && data.nightmode;
-  console.log(nightmode);
   return (
     <div>
       <div>a</div>
