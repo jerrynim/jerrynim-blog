@@ -5,8 +5,8 @@ interface IProps {
   alphabetList: any;
 }
 
-const TagLIstContainer: React.FC<IProps> = ({ alphabetList }) => {
+const TagListContainer: React.FC<IProps> = ({ alphabetList }) => {
   return <TagListPresenter alphabetList={alphabetList} />;
 };
 
-export default TagLIstContainer;
+export default TagListContainer;

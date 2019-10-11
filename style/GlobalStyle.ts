@@ -3,6 +3,9 @@ import { createGlobalStyle } from "./typed-components";
 
 const GlobalStyles = createGlobalStyle`
     ${reset};
+    html{
+        scroll-behavior:smooth;
+    }
     *{
         box-sizing:border-box;
     }
@@ -25,9 +28,6 @@ const GlobalStyles = createGlobalStyle`
     a,p,span,b,div{
         text-decoration:none;
     }
-    
-
-    
 `;
 
 export default GlobalStyles;

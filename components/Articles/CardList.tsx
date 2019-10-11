@@ -116,7 +116,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 <div className="tag_box">
                   {post.tags.map(tag => (
                     <p key={tag.id}>
-                      <Link href={`/tags/${tag.term}`}>
+                      <Link href={`/tag/${tag.term}`}>
                         <a>{tag.term}</a>
                       </Link>
                     </p>
@@ -152,7 +152,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 <div className="tag_box">
                   {post.tags.map(tag => (
                     <p key={tag.id}>
-                      <Link href={`/tags/${tag.term}`}>
+                      <Link href={`/tag/${tag.term}`}>
                         <a>{tag.term}</a>
                       </Link>
                     </p>

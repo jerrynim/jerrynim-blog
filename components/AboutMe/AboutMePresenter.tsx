@@ -254,7 +254,7 @@ const AboutMePresenter: React.FC = () => (
             🎢
           </span>
         </h2>
-        <Link href="/Project">
+        <Link href="/project">
           <a>
             <ProjectLink>Project =></ProjectLink>
           </a>
