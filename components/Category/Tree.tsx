@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import usePrevious from "../../Hooks/usePrevious";
 import useMeasure from "../../Hooks/useMeasure";
-import * as Icons from "../../static/icons";
+import * as Icons from "../../public/static/icons";
 import theme from "../../style/theme";
 import styled from "../../style/typed-components";
 

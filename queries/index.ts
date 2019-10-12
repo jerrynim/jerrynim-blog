@@ -84,6 +84,14 @@ export const GET_TAG = gql`
       term
       Posts {
         id
+        title
+        subTitle
+        thumbnail
+        createdAt
+        tags {
+          id
+          term
+        }
       }
     }
   }

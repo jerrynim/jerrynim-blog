@@ -7,20 +7,25 @@ import { ThemeProvider } from "../../style/typed-components";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";
 import Header from "../../components/Header";
-import TagTermList from "../../components/TagTermList";
+import Sidebar from "../../components/Sidebar";
+import Articles from "../../components/Articles";
 
 interface IProps {
   tag: Tag;
 }
 
 const tag: NextPage<IProps> = ({ tag }) => {
-  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
+  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, {
+    ssr: true,
+    fetchPolicy: "cache-only"
+  });
   const nightmode = data && data.nightmode;
   return (
     <ThemeProvider theme={nightmode ? nightTheme : theme}>
       <>
         <Header />
-        <TagTermList tag={tag} />
+        <Sidebar />
+        <Articles posts={tag.posts} />
       </>
     </ThemeProvider>
   );

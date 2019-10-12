@@ -14,7 +14,9 @@ export default withApollo(({ ctx, headers, initialState }) => {
     cache.writeData({ data: { nightmode: false } });
   }
   return new ApolloClient({
-    link: createUploadLink({ uri: process.env.END_POINT }),
+    link: createUploadLink({
+      uri: process.env.NODE_ENV === "production" ? process.env.END_POINT : "http://localhost:4000/"
+    }),
     cache,
     ssrMode: typeof window !== "undefined",
     resolvers: {

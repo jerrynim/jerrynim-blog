@@ -3,10 +3,10 @@ import Link from "next/link";
 import OutsideClickHandler from "react-outside-click-handler";
 import Switch from "react-switch";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Share from "../../static/header/share.svg";
+import Share from "../../public/static/header/share.svg";
 import theme from "../../style/theme";
 import styled from "../../style/typed-components";
-import Halfmoon from "../../static/header/halfmoon.svg";
+import Halfmoon from "../../public/static/header/halfmoon.svg";
 
 const Container = styled.div`
   transition: 0.2s ease-in-out;
