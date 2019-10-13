@@ -9,12 +9,12 @@ const Container = styled.div`
   display: flex;
 
   .right_card {
-    padding: 20px 0px 12px 16px;
+    padding: 20px 0px 0px 16px;
   }
 `;
 
 const Card = styled.div`
-  padding: 20px 16px 12px 0px;
+  padding: 20px 16px 0px 0px;
   border-bottom: 2px solid ${theme.light_gray};
   position: relative;
   .img_wrapper {
@@ -49,28 +49,33 @@ const Card = styled.div`
   .bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
   .tag_box {
     display: flex;
+    flex-wrap: wrap;
     p {
       border-radius: 5px;
       font-size: 14px;
       line-height: 20px;
       padding: 4px 6px;
       background-color: ${props => props.theme.bluegray_darkblue};
+      box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+      margin-bottom: 12px;
       a {
         color: ${props => props.theme.black_white};
       }
       margin-right: 12px;
 
       :last-child {
-        margin: 0;
+        margin-right: 0px;
       }
     }
   }
   .date {
     color: ${theme.blue};
+    white-space: pre;
+    margin-bottom: 12px;
   }
 `;
 

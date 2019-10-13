@@ -1,4 +1,6 @@
 import * as React from "react";
+import moment from "moment";
+import Link from "next/link";
 import styled from "../../style/typed-components";
 import { Post } from "../../types/type";
 import theme from "../../style/theme";
@@ -68,6 +70,10 @@ const LinearCard = styled.div`
         background-color: ${props => props.theme.bluegray_darkblue};
         color: ${props => props.theme.black_white};
         border-radius: 5px;
+        box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+        a {
+          color: ${props => props.theme.black_white};
+        }
         :last-child {
           margin: 0;
         }
@@ -99,10 +105,18 @@ const LinearList: React.FC<IProps> = ({ posts }) => (
           <h2>{post.subTitle}</h2>
           <div className="tag_box">
             {post.tags.map(tag => (
-              <p>{tag.term}</p>
+              <p key={tag.id}>
+                <Link href={`/tag/${tag.term}`}>
+                  <a>{tag.term}</a>
+                </Link>
+              </p>
             ))}
           </div>
-          <p className="date">{post.createdAt}</p>
+          <p className="date">
+            {moment(post.createdAt)
+              .startOf("day")
+              .fromNow()}
+          </p>
         </div>
       </LinearCard>
     ))}

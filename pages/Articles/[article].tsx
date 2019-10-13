@@ -9,6 +9,7 @@ import { Post, ApolloReduxNextPageContext } from "../../types/type";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";
 import { ThemeProvider } from "../../style/typed-components";
+import Sidebar from "../../components/Sidebar";
 
 interface IProps {
   post: Post;
@@ -22,11 +23,13 @@ const article: NextPage<IProps> = ({ post, title }) => {
     <ThemeProvider theme={nightmode ? nightTheme : theme}>
       <>
         <Head>
+          <title>{`Jerrynim | ${title}`}</title>
           <link
             rel="stylesheet"
             href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"
           />
         </Head>
+        <Sidebar />
         <Header />
         <FullArticle post={post} title={title} />
       </>

@@ -5,6 +5,8 @@ import { Post } from "../../types/type";
 import CardList from "./CardList";
 import LinearList from "./LinearList";
 import styled from "../../style/typed-components";
+import size from "../../style/size";
+import MobileCardList from "../MobileCardList";
 
 const Body = styled.div`
   background-color: ${props => props.theme.background_color};
@@ -16,6 +18,9 @@ const Container = styled.div`
   margin: auto;
   padding-top: 56px;
   background-color: ${props => props.theme.white_gray};
+  @media (max-width: ${size.tablet}) {
+    width: 100%;
+  }
   .head {
     display: flex;
     justify-content: space-between;
@@ -53,15 +58,17 @@ interface IProps {
   posts: Post[];
   align: string;
   setAlign: Dispatch<string>;
+  category: string;
+  width: number;
 }
 
-const ArticlesPresenter: React.FC<IProps> = ({ posts, align, setAlign }) => (
+const ArticlesPresenter: React.FC<IProps> = ({ posts, align, setAlign, category, width }) => (
   <Body>
     <Container>
       {posts && (
         <div className="wrapper">
           <div className="head">
-            <h1>Articles</h1>
+            <h1>{category}</h1>
             <div className="icons">
               <FaTrello
                 onClick={() => setAlign("card")}
@@ -75,7 +82,7 @@ const ArticlesPresenter: React.FC<IProps> = ({ posts, align, setAlign }) => (
               />
             </div>
           </div>
-          {align === "card" && <CardList posts={posts} />}
+          {align === "card" && (width > 640 ? <CardList posts={posts} /> : <MobileCardList posts={posts} />)}
           {align === "linear" && <LinearList posts={posts} />}
         </div>
       )}

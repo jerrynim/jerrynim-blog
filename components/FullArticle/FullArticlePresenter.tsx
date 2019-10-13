@@ -3,6 +3,7 @@ import Highlight from "react-highlight";
 import parse, { domToReact } from "html-react-parser";
 import { Post } from "../../types/type";
 import styled from "../../style/typed-components";
+import size from "../../style/size";
 
 const Container = styled.div`
   padding-top: 96px;
@@ -17,6 +18,9 @@ const Container = styled.div`
     background-color: ${props => props.theme.white_gray};
     height: 100%;
     width: 758px;
+    @media (max-width: ${size.tablet}) {
+      width: 100%;
+    }
   }
   .post_head {
     position: relative;

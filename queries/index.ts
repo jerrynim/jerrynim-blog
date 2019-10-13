@@ -78,11 +78,11 @@ export const GET_TAGS = gql`
   }
 `;
 export const GET_TAG = gql`
-  query getTag($id: String) {
-    getTag(id: $id) {
+  query getTag($term: String!) {
+    getTag(term: $term) {
       id
       term
-      Posts {
+      posts {
         id
         title
         subTitle
