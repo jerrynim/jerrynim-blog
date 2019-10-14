@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const MobileCardListContainer: React.FC<IProps> = ({ posts }) => {
-  return <MobileCardListPresenter />;
+  return <MobileCardListPresenter posts={posts} />;
 };
 
 export default MobileCardListContainer;
