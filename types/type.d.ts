@@ -43,3 +43,5 @@ export type Tag = {
   term: string;
   posts?: Post[];
 };
+
+export type AlphabetTuple = [string, string[]];

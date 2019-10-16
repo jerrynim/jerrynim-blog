@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "../../style/typed-components";
+import { AlphabetTuple } from "../../types/type";
 
 const Container = styled.div`
   background-color: ${props => props.theme.background_color};
@@ -83,7 +84,7 @@ const Container = styled.div`
   }
 `;
 interface IProps {
-  alphabetList: any;
+  alphabetList: AlphabetTuple[];
 }
 
 const TagListPresenter: React.FC<IProps> = ({ alphabetList }) => {
@@ -116,7 +117,7 @@ const TagListPresenter: React.FC<IProps> = ({ alphabetList }) => {
                 <h1>{alpahbetPair[0]}</h1>
                 <div className="alphabet-items">
                   {alpahbetPair[1].map(tag => (
-                    <p>{tag}</p>
+                    <p key={tag}>{tag}</p>
                   ))}
                 </div>
               </div>

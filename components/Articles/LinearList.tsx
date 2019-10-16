@@ -9,6 +9,9 @@ const Container = styled.div`
   width: 696px;
   padding-top: 60px;
   margin: auto;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const LinearCard = styled.div`
@@ -60,8 +63,7 @@ const LinearCard = styled.div`
 
     .tag_box {
       display: flex;
-      margin-bottom: 12px;
-
+      flex-wrap: wrap;
       p {
         font-size: 14px;
         line-height: 16px;
@@ -71,11 +73,15 @@ const LinearCard = styled.div`
         color: ${props => props.theme.black_white};
         border-radius: 5px;
         box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+        margin-bottom: 12px;
+        margin-right: 12px;
+
         a {
           color: ${props => props.theme.black_white};
         }
+
         :last-child {
-          margin: 0;
+          margin-right: 0;
         }
       }
     }

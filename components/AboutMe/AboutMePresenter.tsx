@@ -7,7 +7,7 @@ const Container = styled.div`
   padding-top: 96px;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.theme.blue_gray};
+  background-color: ${props => props.theme.background_color};
   display: flex;
   justify-content: center;
   position: relative;
@@ -17,10 +17,15 @@ const Background = styled.div`
   background-color: white;
   height: 100%;
   width: 758px;
+  @media (max-width: 758px) {
+    width: 100%;
+  }
 `;
 
 const Post = styled.div`
   padding: 20px 40px;
+  background-color: ${props => props.theme.white_black};
+  color: ${props => props.theme.text_color};
 `;
 const Bar = styled.div`
   height: 2px;
@@ -37,8 +42,8 @@ const LgSpan = styled.span`
   margin-left: 50px;
 `;
 const GrayBox = styled.div`
-  background-color: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 18px;
@@ -51,7 +56,6 @@ const TechBox = styled.div`
 const TechBubble = styled.div`
   width: 80px;
   height: 80px;
-  background-color: #f1f5fb;
   border-radius: 50%;
   margin-bottom: 12px;
   display: flex;
@@ -114,9 +118,9 @@ const AboutMePresenter: React.FC = () => (
 
         <br />
         <p className="text">
-          Hi!, I'm Jerrynim and likes Javascript!! I want to share My Exprerience Or Learned Or New
-          Things with others, So, I made my own Blog and i will write lots of articles If you have
-          any Question or there are something to fixing mail on Me!
+          Hi!, I'm Jerrynim and likes Javascript!! I want to share My Exprerience Or Learned Or New Things with others,
+          So, I made my own Blog and i will write lots of articles If you have any Question or there are something to
+          fixing mail on Me!
         </p>
         <Mail>
           <IoMdMail size={25} color="#757575" />
@@ -209,9 +213,9 @@ const AboutMePresenter: React.FC = () => (
           </span>
         </h2>
         <p className="text">
-          AWS(CloudFormation, EC2, Lambda, S3) Animated Axios Bcrypt Blockchain Chai ChromeExtension
-          Css Expo Git GoogleMaps Gulp Heroku Html Jest Jwt Mocha Netlify Nodemailer Now Passport
-          Pubsub React-native React-navigation Redux Socket.io SQL Serverless Twillio TypeOrm
+          AWS(CloudFormation, EC2, Lambda, S3) Animated Axios Bcrypt Blockchain Chai ChromeExtension Css Expo Git
+          GoogleMaps Gulp Heroku Html Jest Jwt Mocha Netlify Nodemailer Now Passport Pubsub React-native
+          React-navigation Redux Socket.io SQL Serverless Twillio TypeOrm
         </p>
         <Bar />
         <h2 className="title">

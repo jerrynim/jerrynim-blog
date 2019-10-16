@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { update, has, upperCase, toPairs, sortBy } from "lodash";
 import { NextPage } from "next";
-import { Tag, ApolloReduxNextPageContext } from "../../types/type";
+import { Tag, ApolloReduxNextPageContext, AlphabetTuple } from "../../types/type";
 import { GET_NIGHTMODE, GET_TAGS } from "../../queries/index";
 import { ThemeProvider } from "../../style/typed-components";
 import nightTheme from "../../style/nightTheme";
@@ -11,7 +11,7 @@ import Header from "../../components/Header";
 import TagLIst from "../../components/TagList";
 
 interface IProps {
-  alphabetList: any;
+  alphabetList: AlphabetTuple[];
 }
 
 const tag: NextPage<IProps> = ({ alphabetList }) => {
@@ -55,7 +55,7 @@ tag.getInitialProps = async ({ apolloClient }: ApolloReduxNextPageContext) => {
     });
   });
   const array = toPairs(alphabets);
-  const pairsAlphabets = sortBy(array, 0);
+  const pairsAlphabets: any = sortBy(array, 0);
   return { alphabetList: pairsAlphabets };
 };
 export default tag;

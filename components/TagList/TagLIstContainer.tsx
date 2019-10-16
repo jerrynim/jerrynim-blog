@@ -1,8 +1,9 @@
 import React from "react";
 import TagListPresenter from "./TagListPresenter";
+import { AlphabetTuple } from "../../types/type";
 
 interface IProps {
-  alphabetList: any;
+  alphabetList: AlphabetTuple[];
 }
 
 const TagListContainer: React.FC<IProps> = ({ alphabetList }) => {

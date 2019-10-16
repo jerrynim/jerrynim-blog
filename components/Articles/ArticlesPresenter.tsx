@@ -47,6 +47,9 @@ const Container = styled.div`
           fill: ${props => props.theme.blue};
         }
       }
+      @media (max-width: 640px) {
+        display: none;
+      }
     }
   }
   .wrapper {
@@ -70,20 +73,12 @@ const ArticlesPresenter: React.FC<IProps> = ({ posts, align, setAlign, category,
           <div className="head">
             <h1>{category}</h1>
             <div className="icons">
-              <FaTrello
-                onClick={() => setAlign("card")}
-                size={24}
-                color={align === "card" ? theme.blue : null}
-              />
-              <FaList
-                onClick={() => setAlign("linear")}
-                size={24}
-                color={align === "linear" ? theme.blue : null}
-              />
+              <FaTrello onClick={() => setAlign("card")} size={24} color={align === "card" ? theme.blue : null} />
+              <FaList onClick={() => setAlign("linear")} size={24} color={align === "linear" ? theme.blue : null} />
             </div>
           </div>
           {align === "card" && (width > 640 ? <CardList posts={posts} /> : <MobileCardList posts={posts} />)}
-          {align === "linear" && <LinearList posts={posts} />}
+          {align === "linear" && (width > 640 ? <LinearList posts={posts} /> : <MobileCardList posts={posts} />)}
         </div>
       )}
     </Container>

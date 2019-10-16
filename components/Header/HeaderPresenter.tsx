@@ -34,6 +34,7 @@ const Left = styled.div`
     margin-left: 30px;
     margin-right: 35px;
     cursor: pointer;
+    white-space: pre;
     color: ${props => props.theme.text_color};
   }
 `;

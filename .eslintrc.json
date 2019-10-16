@@ -23,7 +23,9 @@
     "array-callback-return": "off", //array function return
     "jsx-a11y/accessible-emoji": "off", //imoji
     "no-param-reassign": "off",
-    "react/jsx-props-no-spreading": "off" //spread off
+    "react/jsx-props-no-spreading": "off", //spread off
+    "max-len": "off",
+    "react/jsx-curly-newline": "off" //bracket newline disable
   },
 
   "settings": {
