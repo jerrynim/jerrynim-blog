@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "../../style/typed-components";
 
-const Container = styled.div<{ number: number }>`
+const Container = styled.div<{ focus: number }>`
   font-size: 14px;
   line-height: 20px;
   color: ${props => props.theme.text_color};
@@ -11,19 +11,33 @@ const Container = styled.div<{ number: number }>`
     :hover {
       color: ${props => props.theme.blue};
     }
-    :nth-child(${props => props.number}) {
+    :nth-child(${props => props.focus}) {
       color: ${props => props.theme.blue};
     }
   }
 `;
 
 interface IProps {
-  scrollToTitle: (title: string) => void;
+  titles: any[];
   focus: number;
-  content: string;
 }
 
-const NavigatorPresenter: React.FC<IProps> = ({ focus, scrollToTitle, content }) => {
-  return <Container number={focus} />;
+const NavigatorPresenter: React.FC<IProps> = ({ titles, focus }) => {
+  console.log(titles, focus);
+  return (
+    <>
+      {titles.length > 0 && (
+        <Container focus={focus}>
+          <ul>
+            {titles.map(title => (
+              <li key={title.offsetTop} onClick={() => title.scrollIntoView()}>
+                {title.innerText}
+              </li>
+            ))}
+          </ul>
+        </Container>
+      )}
+    </>
+  );
 };
 export default NavigatorPresenter;

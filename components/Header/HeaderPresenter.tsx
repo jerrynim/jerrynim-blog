@@ -167,7 +167,7 @@ const HeaderPresenter: React.FC<IProps> = ({
   <>
     <Container>
       <Left>
-        <Link href="/">
+        <Link href="/" as="/" prefetch>
           <a>Jerrynim Blog</a>
         </Link>
       </Left>

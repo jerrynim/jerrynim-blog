@@ -1,3 +1,3 @@
-import NavigatorContainer from "./NavagatorContainer";
+import Navigator from "./NavagatorContainer";
 
-export default NavigatorContainer;
+export default Navigator;

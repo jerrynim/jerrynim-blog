@@ -1,10 +1,12 @@
 import React from "react";
 import Highlight from "react-highlight";
-import parse, { domToReact } from "html-react-parser";
+import parse from "html-react-parser";
+import dynamic from "next/dynamic";
 import { Post } from "../../types/type";
 import styled from "../../style/typed-components";
 import size from "../../style/size";
 
+const Navigator = dynamic(() => import("../Navigator"), { ssr: false });
 const Container = styled.div`
   padding-top: 96px;
   width: 100%;
@@ -37,7 +39,7 @@ const Container = styled.div`
       height: 100%;
     }
 
-    h1 {
+    h2 {
       z-index: 5;
       position: absolute;
       font-size: 36px;
@@ -126,20 +128,19 @@ interface IProps {
 const FullArticlePresenter: React.FC<IProps> = ({ post, Ref }) => {
   return (
     <>
+      <Navigator />
       <Container>
         <div className="content">
           <div className="post_head">
             <img src={post.thumbnail} alt="" />
-            <h1>{post.title}</h1>
+            <h2>{post.title}</h2>
             <div className="overlay" />
           </div>
           <div className="post_article">
             <h2>{post.subTitle}</h2>
-
             {parse(post.content, {
               replace: domNode => {
                 const { attribs, children } = domNode;
-
                 if (attribs && attribs.class === "code" && children) {
                   return (
                     <Highlighted language="typescript" className="code">

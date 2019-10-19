@@ -1,6 +1,8 @@
 import React from "react";
+import Link from "next/link";
 import styled from "../../style/typed-components";
 import { AlphabetTuple } from "../../types/type";
+import size from "../../style/size";
 
 const Container = styled.div`
   background-color: ${props => props.theme.background_color};
@@ -15,6 +17,9 @@ const Container = styled.div`
     margin: auto;
     padding: 0px 16px;
     background-color: ${props => props.theme.white_gray};
+    @media (max-width: ${size.tablet}) {
+      width: 100%;
+    }
   }
 
   .head {
@@ -68,6 +73,7 @@ const Container = styled.div`
   .tag_list {
     margin-left: 16px;
     position: relative;
+    overflow: scroll;
   }
   .alphabet-items {
     height: 100%;
@@ -117,7 +123,11 @@ const TagListPresenter: React.FC<IProps> = ({ alphabetList }) => {
                 <h1>{alpahbetPair[0]}</h1>
                 <div className="alphabet-items">
                   {alpahbetPair[1].map(tag => (
-                    <p key={tag}>{tag}</p>
+                    <Link href="/tag/[tag]" as={`/tag/${tag}`} key={tag}>
+                      <a>
+                        <p>{tag}</p>
+                      </a>
+                    </Link>
                   ))}
                 </div>
               </div>

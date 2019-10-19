@@ -1,52 +1,34 @@
 import React, { useState, useEffect, useCallback } from "react";
-import _ from "lodash";
+import { throttle } from "lodash";
 import NavigatorPresenter from "./NavagatorPresenter";
 
-interface IProps {
-  refsYPositon: Array<number>;
-  refs: any;
-  scrollToTitle: (title: string) => void;
-  content: string;
-}
-
-const NavigatorContainer: React.FC<IProps> = ({
-  refsYPositon,
-  refs,
-  scrollToTitle,
-  content
-}) => {
+const NavigatorContainer: React.FC = () => {
+  const [titles, setTitles] = useState([]);
   const [focus, setFocus] = useState(0);
-
-  const handler = useCallback(() => {
-    for (let i = 0; i < refsYPositon.length; i += 1) {
-      if (window.pageYOffset < refsYPositon[i]) {
+  let offsetTops = [];
+  const scrollHandler = useCallback(() => {
+    for (let i = 0; i < offsetTops.length; i += 1) {
+      if (window.pageYOffset < offsetTops[i]) {
         setFocus(i);
         break;
       }
     }
   }, []);
-
   useEffect(() => {
-    refs.map((ref: any) => {
-      if (ref.current) {
-        refsYPositon.push(ref.current.offsetTop);
-      }
-      return true;
-    });
-    refsYPositon.push(9999);
-
-    window.addEventListener("scroll", _.throttle(handler, 300));
+    if (typeof window !== "undefined") {
+      const h1titles = Array.from(document.getElementsByTagName("h1"));
+      const tempOffsetTops = [];
+      h1titles.map(title => tempOffsetTops.push(title.offsetTop));
+      offsetTops = tempOffsetTops;
+      setTitles(h1titles);
+      scrollHandler();
+    }
+    console.log("renderd");
+    window.addEventListener("scroll", throttle(scrollHandler, 150));
     return () => {
-      window.removeEventListener("scroll", handler);
+      window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
-
-  return (
-    <NavigatorPresenter
-      scrollToTitle={scrollToTitle}
-      focus={focus}
-      content={content}
-    />
-  );
+  return <NavigatorPresenter titles={titles} focus={focus} />;
 };
 export default NavigatorContainer;

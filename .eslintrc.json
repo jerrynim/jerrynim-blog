@@ -25,7 +25,8 @@
     "no-param-reassign": "off",
     "react/jsx-props-no-spreading": "off", //spread off
     "max-len": "off",
-    "react/jsx-curly-newline": "off" //bracket newline disable
+    "react/jsx-curly-newline": "off", //bracket newline disable
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
   },
 
   "settings": {

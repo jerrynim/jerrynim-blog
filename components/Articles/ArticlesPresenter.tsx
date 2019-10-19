@@ -15,6 +15,7 @@ const Body = styled.div`
 `;
 const Container = styled.div`
   width: 928px;
+  min-height: 100vh;
   margin: auto;
   padding-top: 56px;
   background-color: ${props => props.theme.white_gray};
