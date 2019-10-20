@@ -20,6 +20,7 @@ const Container = styled.div`
     background-color: ${props => props.theme.white_gray};
     height: 100%;
     width: 758px;
+    position: relative;
     @media (max-width: ${size.tablet}) {
       width: 100%;
     }
@@ -128,9 +129,9 @@ interface IProps {
 const FullArticlePresenter: React.FC<IProps> = ({ post, Ref }) => {
   return (
     <>
-      <Navigator />
       <Container>
         <div className="content">
+          <Navigator />
           <div className="post_head">
             <img src={post.thumbnail} alt="" />
             <h2>{post.title}</h2>

@@ -8,7 +8,7 @@ const NavigatorContainer: React.FC = () => {
   let offsetTops = [];
   const scrollHandler = useCallback(() => {
     for (let i = 0; i < offsetTops.length; i += 1) {
-      if (window.pageYOffset < offsetTops[i]) {
+      if (window.pageYOffset - 100 < offsetTops[i]) {
         setFocus(i);
         break;
       }
@@ -20,11 +20,11 @@ const NavigatorContainer: React.FC = () => {
       const tempOffsetTops = [];
       h1titles.map(title => tempOffsetTops.push(title.offsetTop));
       offsetTops = tempOffsetTops;
+      offsetTops.push(99999);
       setTitles(h1titles);
       scrollHandler();
     }
-    console.log("renderd");
-    window.addEventListener("scroll", throttle(scrollHandler, 150));
+    window.addEventListener("scroll", throttle(scrollHandler, 50));
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };

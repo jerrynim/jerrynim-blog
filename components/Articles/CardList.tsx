@@ -144,9 +144,14 @@ const CardList: React.FC<IProps> = ({ posts }) => (
         if (index % 2 !== 0) {
           return (
             <Card className="right_card" key={post.id}>
-              <div className="img_wrapper">
-                <img src={post.thumbnail} alt="" />
-              </div>
+              <Link href={`/articles/${post.title}`}>
+                <a>
+                  <div className="img_wrapper">
+                    <img src={post.thumbnail} alt="" />
+                  </div>
+                </a>
+              </Link>
+
               <h1>
                 <Link href={`/articles/${post.title}`}>
                   <a>{post.title}</a>

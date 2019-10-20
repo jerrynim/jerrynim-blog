@@ -101,13 +101,19 @@ const LinearList: React.FC<IProps> = ({ posts }) => (
   <Container>
     {posts.map(post => (
       <LinearCard key={post.id}>
-        <div>
-          <div className="image_wrapper">
-            <img src={post.thumbnail} alt="" />
-          </div>
-        </div>
+        <Link href={`/articles/${post.title}`}>
+          <a>
+            <div className="image_wrapper">
+              <img src={post.thumbnail} alt="" />
+            </div>
+          </a>
+        </Link>
         <div className="text_box">
-          <h1>{post.title}</h1>
+          <Link href={`/articles/${post.title}`}>
+            <a>
+              <h1>{post.title}</h1>
+            </a>
+          </Link>
           <h2>{post.subTitle}</h2>
           <div className="tag_box">
             {post.tags.map(tag => (

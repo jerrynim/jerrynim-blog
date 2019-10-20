@@ -1,11 +1,30 @@
 import React from "react";
 import styled from "../../style/typed-components";
+import size from "../../style/size";
 
 const Container = styled.div<{ focus: number }>`
   font-size: 14px;
   line-height: 20px;
   color: ${props => props.theme.text_color};
+  position: absolute;
+  top: 0;
+  right: -80px;
+  @media (max-width: ${size.tablet}) {
+    display: none;
+  }
 
+  ul {
+    position: fixed;
+    font-size: 18px;
+    line-height: 21px;
+  }
+  li {
+    :nth-child(${props => props.focus}) {
+      color: ${props => props.theme.blue};
+      font-size: 21px;
+      line-height: 24px;
+    }
+  }
   h1 {
     cursor: pointer;
     :hover {
@@ -23,7 +42,6 @@ interface IProps {
 }
 
 const NavigatorPresenter: React.FC<IProps> = ({ titles, focus }) => {
-  console.log(titles, focus);
   return (
     <>
       {titles.length > 0 && (
