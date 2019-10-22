@@ -1,5 +1,4 @@
 import React from "react";
-import { UseInput } from "../../Hooks/useInput";
 import styled from "../../style/typed-components";
 
 const Container = styled.div`
@@ -42,11 +41,20 @@ const UploadButton = styled.button`
 `;
 
 interface IProps {
-  title: any;
-  subTitle: any;
-  tags: any;
+  title: {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+  subTitle: {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+  tags: {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  };
   password: any;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  thumbnailOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   addPostMutation: any;
 }
 
@@ -55,7 +63,7 @@ const PostInfoPresenter: React.FC<IProps> = ({
   subTitle,
   tags,
   password,
-  onChange,
+  thumbnailOnChange,
   addPostMutation
 }) => {
   return (
@@ -70,11 +78,11 @@ const PostInfoPresenter: React.FC<IProps> = ({
       </Category>
       <Category>
         <CategoryText>Tags</CategoryText>
-        <input type="file" onChange={onChange} />
+        <CategoryInput type="text" {...tags} />
       </Category>
       <Category>
         <CategoryText>Thumbnail</CategoryText>
-        <CategoryInput type="text" {...tags} autocomplete="off" />
+        <input type="file" onChange={thumbnailOnChange} />
       </Category>
       <Category>
         <CategoryText>Password</CategoryText>

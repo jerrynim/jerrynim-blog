@@ -80,44 +80,39 @@ interface IProps {
 const MobileCardListPresenter: React.FC<IProps> = ({ posts }) => {
   return (
     <Container>
-      {posts.map((post, index) => {
-        if (index % 2 === 0) {
-          return (
-            <Card key={post.id}>
-              <Link href={`/articles/${post.title}`}>
-                <a>
-                  <div className="img_wrapper">
-                    <img src={post.thumbnail} alt="" />
-                  </div>
-                </a>
-              </Link>
-              <h1>
-                <Link href={`/articles/${post.title}`}>
-                  <a>{post.title}</a>
-                </Link>
-              </h1>
-              <h2>{post.subTitle}</h2>
-              <div className="bottom">
-                <div className="tag_box">
-                  {post.tags.map(tag => (
-                    <p key={tag.id}>
-                      <Link href={`/tag/${tag.term}`}>
-                        <a>{tag.term}</a>
-                      </Link>
-                    </p>
-                  ))}
-                </div>
-                <p className="date">
-                  {moment(post.createdAt)
-                    .startOf("day")
-                    .fromNow()}
-                </p>
+      {posts.map(post => (
+        <Card key={post.id}>
+          <Link href={`/articles/${post.title}`}>
+            <a>
+              <div className="img_wrapper">
+                <img src={post.thumbnail} alt="" />
               </div>
-            </Card>
-          );
-        }
-        return null;
-      })}
+            </a>
+          </Link>
+          <h1>
+            <Link href={`/articles/${post.title}`}>
+              <a>{post.title}</a>
+            </Link>
+          </h1>
+          <h2>{post.subTitle}</h2>
+          <div className="bottom">
+            <div className="tag_box">
+              {post.tags.map(tag => (
+                <p key={tag.id}>
+                  <Link href={`/tag/${tag.term}`}>
+                    <a>{tag.term}</a>
+                  </Link>
+                </p>
+              ))}
+            </div>
+            <p className="date">
+              {moment(post.createdAt)
+                .startOf("day")
+                .fromNow()}
+            </p>
+          </div>
+        </Card>
+      ))}
     </Container>
   );
 };

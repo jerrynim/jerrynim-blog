@@ -1,20 +1,14 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { FILE_UPLOAD } from "../../queries/upload";
 import PostInfoPresenter from "./PostInfoPresenter";
 import usePost from "../../Hooks/usePost";
 import { CREATE_POST } from "../../queries/index";
+import useUpload from "../../Hooks/useUpload";
 
 const PostInfoContainer: React.FC = () => {
   const { title, subTitle, tags, password, content, thumbnail } = usePost();
-  const [fileUploadMuation] = useMutation<{ singleUpload: string }>(FILE_UPLOAD, {
-    onCompleted: data => thumbnail.onChange(data.singleUpload)
-  });
+  const { thumbnailOnChange } = useUpload();
 
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = async e => {
-    const file = e.target.files![0];
-    fileUploadMuation({ variables: { file } });
-  };
   const [addPostMutation] = useMutation(CREATE_POST, {
     variables: {
       title: title.value,
@@ -31,7 +25,7 @@ const PostInfoContainer: React.FC = () => {
       subTitle={subTitle}
       tags={tags}
       password={password}
-      onChange={onChange}
+      thumbnailOnChange={thumbnailOnChange}
       addPostMutation={addPostMutation}
     />
   );

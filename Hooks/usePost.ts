@@ -11,16 +11,10 @@ import {
 } from "../store/addPost";
 
 export default function usePost() {
-  const addPost = useSelector((state: ReduxInitialState) => state.addPost);
+  const { title, subTitle, thumbnail, content, tags, password } = useSelector(
+    (state: ReduxInitialState) => state.addPost
+  );
   const dispatch = useDispatch();
-  const {
-    title = "",
-    subTitle = "",
-    thumbnail = "",
-    content = "",
-    tags = "",
-    password = ""
-  } = addPost;
 
   const titleOnChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(changeTitle(e.target.value));
@@ -31,7 +25,7 @@ export default function usePost() {
   const thumbnailOnChange = (url: string) => {
     dispatch(changeThumbnail(url));
   };
-  const contentOnChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+  const contentOnChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
     dispatch(changeContent(e.target.value));
   };
   const tagsOnChange: React.ChangeEventHandler<HTMLInputElement> = e => {
@@ -39,6 +33,9 @@ export default function usePost() {
   };
   const passwordOnChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(changePassword(e.target.value));
+  };
+  const insertImage = (url: string) => {
+    dispatch(changeContent(`${content}<div class="image-wrapper"><img src="${url}" alt="${url}" /></div>`));
   };
   return {
     title: {
@@ -55,7 +52,8 @@ export default function usePost() {
     },
     content: {
       value: content,
-      onChange: contentOnChange
+      onChange: contentOnChange,
+      insertImage
     },
     tags: {
       value: tags,

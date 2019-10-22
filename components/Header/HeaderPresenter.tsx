@@ -157,17 +157,11 @@ interface IProps {
   setPopupStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HeaderPresenter: React.FC<IProps> = ({
-  path,
-  nightmode,
-  toggleNightmode,
-  popupStatus,
-  setPopupStatus
-}) => (
+const HeaderPresenter: React.FC<IProps> = ({ path, nightmode, toggleNightmode, popupStatus, setPopupStatus }) => (
   <>
     <Container>
       <Left>
-        <Link href="/" as="/" prefetch>
+        <Link href="/" as="/">
           <a>Jerrynim Blog</a>
         </Link>
       </Left>

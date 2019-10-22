@@ -51,12 +51,17 @@ const Input = styled.input`
 `;
 
 interface IProps {
-  content: any;
+  content: {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    insertImage: (url: string) => void;
+  };
+  insertImage: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PostInputPresenter: React.FC<IProps> = ({ content }) => (
+const PostInputPresenter: React.FC<IProps> = ({ content, insertImage }) => (
   <Container>
-    <TextArea {...content} />
+    <TextArea value={content.value} onChange={content.onChange} />
     <Buttons>
       <Button onClick={() => {}}>
         <FaHeading size={24} />
@@ -66,7 +71,7 @@ const PostInputPresenter: React.FC<IProps> = ({ content }) => (
       </Button>
       <InputWrapper>
         <IoIosImage size={24} />
-        <Input type="file" onChange={() => {}} />
+        <Input type="file" onChange={insertImage} />
       </InputWrapper>
       <Button onClick={() => {}}>
         <MdDragHandle size={24} />

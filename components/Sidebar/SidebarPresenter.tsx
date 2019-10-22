@@ -77,6 +77,24 @@ const Container = styled.div<{ status: boolean }>`
       color: ${props => props.theme.black_white};
     }
   }
+  .profile-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    img {
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  h2 {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 21px;
+  }
 `;
 
 interface IProps {
@@ -92,6 +110,10 @@ const SidebarPresenter: React.FC<IProps> = ({ status, toggleStatus }) => (
           <a className="title">Jerrynim Blog</a>
         </Link>
       </div>
+      <div className="profile-wrapper">
+        <img src="../../static/jerrynim_profile.jpeg" alt="jerrynim-profile" />
+      </div>
+      <h2>Javascript Developer🕹</h2>
       <Category />
       <div className="bottom">
         <Link href="https://github.com/jerrynim" prefetch={false}>

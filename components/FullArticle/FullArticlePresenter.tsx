@@ -62,11 +62,26 @@ const Container = styled.div`
   .post_article {
     padding: 18px 40px;
 
-    h2 {
+    h1 {
       font-size: 18px;
       line-height: 24px;
       color: ${props => props.theme.black_white};
       margin-bottom: 18px;
+      margin-bottom: 18px;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 33px;
+      color: ${props => props.theme.black_white};
+      word-break: break-word;
+    }
+
+    p,
+    h2 {
+      color: ${props => props.theme.text_color};
+      margin-bottom: 18px;
+      font-size: 18px;
+      line-height: 24px;
+      word-break: break-word;
     }
   }
   .utterances {
@@ -76,32 +91,19 @@ const Container = styled.div`
     border-top: 2px solid ${props => props.theme.light_gray};
   }
 
-  .title {
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 55%;
     margin-bottom: 18px;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 33px;
-    color: ${props => props.theme.black_white};
-    word-break: break-word;
-  }
-  .text {
-    color: ${props => props.theme.text_color};
-    margin-bottom: 18px;
-    font-size: 18px;
-    line-height: 24px;
-    word-break: break-word;
-  }
-
-  .imgbox {
-    text-align: center;
-    margin-bottom: 18px;
-  }
-  .img {
-    width: 430px;
-    height: 320px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    img {
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .line {

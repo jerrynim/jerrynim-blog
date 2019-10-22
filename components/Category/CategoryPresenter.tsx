@@ -6,7 +6,6 @@ import styled from "../../style/typed-components";
 
 const Container = styled.div`
   padding: 0px 15px;
-  padding-top: 150px;
   a {
     color: ${props => props.theme.black_white};
     font-size: 18px;
@@ -36,7 +35,7 @@ const CategoryPresenter: React.FC = () => {
       >
         <Tree
           name={
-            <Link href="/">
+            <Link href="/tag/Library">
               <a>
                 <FaHammer size={16} />
                 <span>Libarary</span>

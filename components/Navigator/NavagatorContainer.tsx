@@ -8,7 +8,7 @@ const NavigatorContainer: React.FC = () => {
   let offsetTops = [];
   const scrollHandler = useCallback(() => {
     for (let i = 0; i < offsetTops.length; i += 1) {
-      if (window.pageYOffset - 100 < offsetTops[i]) {
+      if (window.pageYOffset - 80 < offsetTops[i]) {
         setFocus(i);
         break;
       }
