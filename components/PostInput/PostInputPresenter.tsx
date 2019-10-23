@@ -7,13 +7,17 @@ import styled from "../../style/typed-components";
 
 const Container = styled.div`
   width: 300px;
+  height: 0;
   background-color: white;
   margin-left: 30px;
+  position: relative;
 `;
 
 const TextArea = styled.textarea`
-  width: 100%;
-  min-height: 300px;
+  position: fixed;
+  width: 300px;
+  top: 100px;
+  min-height: 600px;
   resize: none;
   border: 0;
   padding: 10px;
@@ -21,8 +25,10 @@ const TextArea = styled.textarea`
 `;
 
 const Buttons = styled.div`
+  position: fixed;
+  width: 300px;
+  top: 700px;
   display: flex;
-  width: 100%;
   box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
   justify-content: space-around;
 `;

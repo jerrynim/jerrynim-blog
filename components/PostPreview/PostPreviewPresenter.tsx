@@ -61,6 +61,7 @@ const Container = styled.div`
   }
   .post_article {
     padding: 18px 40px;
+    word-break: break-all;
 
     h1 {
       font-size: 18px;

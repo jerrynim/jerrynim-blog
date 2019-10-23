@@ -61,7 +61,7 @@ const Container = styled.div`
   }
   .post_article {
     padding: 18px 40px;
-
+    word-break: break-all;
     h1 {
       font-size: 18px;
       line-height: 24px;
@@ -78,6 +78,13 @@ const Container = styled.div`
     p,
     h2 {
       color: ${props => props.theme.text_color};
+      margin-bottom: 18px;
+      font-size: 18px;
+      line-height: 24px;
+      word-break: break-word;
+    }
+    a {
+      color: ${props => props.theme.blue};
       margin-bottom: 18px;
       font-size: 18px;
       line-height: 24px;

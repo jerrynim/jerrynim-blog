@@ -129,7 +129,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 </div>
                 <p className="date">
                   {moment(post.createdAt)
-                    .startOf("day")
+                    .endOf("day")
                     .fromNow()}
                 </p>
               </div>
@@ -170,7 +170,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 </div>
                 <p className="date">
                   {moment(post.createdAt)
-                    .startOf("day")
+                    .endOf("day")
                     .fromNow()}
                 </p>
               </div>
