@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import formatDistance from "date-fns/formatDistance";
 import Link from "next/link";
 import { Post } from "../../types/type";
 import theme from "../../style/theme";
@@ -105,11 +105,7 @@ const MobileCardListPresenter: React.FC<IProps> = ({ posts }) => {
                 </p>
               ))}
             </div>
-            <p className="date">
-              {moment(post.createdAt)
-                .startOf("day")
-                .fromNow()}
-            </p>
+            <p className="date">{formatDistance(new Date(post.createdAt), new Date(), { addSuffix: true })}</p>
           </div>
         </Card>
       ))}

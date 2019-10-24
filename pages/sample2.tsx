@@ -76,6 +76,28 @@ const Page: NextComponentType = () => {
           <HeartPopText>아직 알림이 만들어지지 않았습니다.</HeartPopText>
         </HeartPopItems>
       </HeartPop>
+      <picture>
+        <source
+          media="(max-width:1000px) 50vw, 100vw"
+          srcSet="../../static/sample.webp 1000w ../../static/sample.webp 500w"
+        />
+        <source
+          media="(max-width:1000px) 50vw, 100vw"
+          srcSet="../../static/sample.jpeg 1000w ../../static/sample.jpeg 500w"
+        />
+        <img src="../../static/sample.jpeg" alt="" loading="lazy" />
+      </picture>
+      <picture>
+        <source
+          media="(max-width:1000px) 50vw, 100vw"
+          srcSet="../../static/sample.jpeg?webp 1000w ../../static/sample.jpeg?webp 500w"
+        />
+        <source
+          media="(max-width:1000px) 50vw, 100vw"
+          srcSet="../../static/sample.jpeg 1000w ../../static/sample.jpeg 500w"
+        />
+        <img src="../../static/sample.jpeg" alt="" />
+      </picture>
     </div>
   );
 };

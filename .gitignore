@@ -1,7 +1,7 @@
 .next
 node_modules
 now.json
-
+yarn-error.log
 package-lock.json
 now.json
 utterances.json
