@@ -1,7 +1,7 @@
-import imagemin from "imagemin";
-import imageminWebp from "imagemin-webp";
-import imageminPngquant from "imagemin-pngquant";
-import imageminMozjpeg from "imagemin-mozjpeg";
+const imagemin = require("imagemin");
+const imageminWebp = require("imagemin-webp");
+const imageminPngquant = require("imagemin-pngquant");
+const imageminMozjpeg = require("imagemin-mozjpeg");
 // import imageminSvgo from "imagemin-svgo";
 
 /**
@@ -17,7 +17,7 @@ imagemin(["images/before/**/*.{jpg,png}"], {
 /**
  * * .pngquant로 압축한 png생성
  */
-imagemin(["/images/before/**/*.png"], {
+imagemin(["images/before/**/*.png"], {
   destination: "images/png",
   plugins: [
     imageminPngquant({

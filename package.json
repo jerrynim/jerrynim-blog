@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "opti": "ts-node --project tsconfig.util.json lib/fileOptimize.ts"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -84,6 +85,7 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^4.0.0-beta.1",
     "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
   }
 }
