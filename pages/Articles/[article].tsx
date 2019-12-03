@@ -10,6 +10,7 @@ import { Post, ApolloReduxNextPageContext } from "../../types/type";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";
 import Sidebar from "../../components/Sidebar";
+import useNightmode from "../../Hooks/useNightmode";
 
 interface IProps {
   post: Post;
@@ -17,8 +18,7 @@ interface IProps {
 }
 
 const article: NextPage<IProps> = ({ post, title }) => {
-  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, { fetchPolicy: "cache-only" });
-  const nightmode = data && data.nightmode;
+  const { nightmode } = useNightmode();
   return (
     <ThemeProvider theme={nightmode ? nightTheme : theme}>
       <>

@@ -16,7 +16,19 @@ class RootDocument extends Document {
   public render() {
     return (
       <Html>
-        <Head>{this.props.styles}</Head>
+        <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments)};
+                gtag('js', new Date());
+                gtag('config', '${process.env.GOOGLE_TAG_MANAGER_ID}');
+              `
+            }}
+          />
+          {this.props.styles}
+        </Head>
         <body>
           <Main />
           <NextScript />

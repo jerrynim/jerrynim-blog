@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import OutsideClickHandler from "react-outside-click-handler";
 import Switch from "react-switch";
 import styled from "styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Share from "../../public/static/header/share.svg";
-import theme from "../../style/theme";
-import Halfmoon from "../../public/static/header/halfmoon.svg";
+import { useRouter } from "next/router";
+import Share from "../public/static/header/share.svg";
+import theme from "../style/theme";
+import Halfmoon from "../public/static/header/halfmoon.svg";
+import useNightmode from "../Hooks/useNightmode";
 
 const Container = styled.div`
   transition: 0.2s ease-in-out;
@@ -149,16 +151,11 @@ const UnCheckedIcon = styled.div`
   }
 `;
 
-interface IProps {
-  path: string;
-  nightmode: boolean;
-  toggleNightmode: any;
-  popupStatus: boolean;
-  setPopupStatus: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const HeaderPresenter: React.FC<IProps> = ({ path, nightmode, toggleNightmode, popupStatus, setPopupStatus }) => (
-  <>
+const HeaderPresenter: React.FC = () => {
+  const { pathname } = useRouter();
+  const { nightmode, toggleNightmode } = useNightmode();
+  const [popupStatus, setPopupStatus] = useState(false);
+  return (
     <Container>
       <Left>
         <Link href="/" as="/">
@@ -184,7 +181,7 @@ const HeaderPresenter: React.FC<IProps> = ({ path, nightmode, toggleNightmode, p
                     <Switch
                       checked={nightmode}
                       onChange={() => {
-                        toggleNightmode(nightmode);
+                        toggleNightmode();
                       }}
                       className="react-switch"
                       offColor={theme.black}
@@ -205,14 +202,14 @@ const HeaderPresenter: React.FC<IProps> = ({ path, nightmode, toggleNightmode, p
           )}
         </div>
         <CopyToClipboard
-          text={`https://jerrynim.com${path}`}
-          onCopy={() => alert(`copied to clipboard https://jerrynim.com${path}`)}
+          text={`https://jerrynim.com${pathname}`}
+          onCopy={() => alert(`copied to clipboard https://jerrynim.com${pathname}`)}
         >
           <Share className="icon_share" />
         </CopyToClipboard>
       </Right>
     </Container>
-  </>
-);
+  );
+};
 
 export default HeaderPresenter;

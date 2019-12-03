@@ -5,17 +5,24 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloClient } from "apollo-client";
 import { createUploadLink } from "apollo-upload-client";
 
-export default withApollo(({ ctx, headers, initialState }) => {
+export default withApollo(({ ctx, initialState }) => {
+  //apollo cache 가져오기
   const cache = new InMemoryCache().restore(initialState || {});
-  const { nightmode } = nextCookie(ctx);
-  if (nightmode === "on") {
+  const cookies = ctx && ctx.req && nextCookie(ctx);
+  //nightmode 값 확인하기
+  if (cookies && cookies.nightmode === "on") {
+    //nightmode 가 on이라면
     cache.writeData({ data: { nightmode: true } });
+  } else if (cookies && cookies.nightmode === "off") {
+    //nightmode 가 off이라면
+    cache.writeData({ data: { nightmode: false } });
   } else {
+    //cookie에 nightmode가없다면
     cache.writeData({ data: { nightmode: false } });
   }
   return new ApolloClient({
     link: createUploadLink({
-      uri: process.env.NODE_ENV === "production" ? process.env.END_POINT : "http://localhost:4000/"
+      uri: process.env.NODE_ENV === "production" ? process.env.END_POINT : process.env.END_POINT
     }),
     cache,
     ssrMode: typeof window !== "undefined",
