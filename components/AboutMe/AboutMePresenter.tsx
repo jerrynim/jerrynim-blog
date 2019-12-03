@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { IoMdMail } from "react-icons/io";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 
 const Container = styled.div`
   padding-top: 96px;

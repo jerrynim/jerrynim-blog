@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { NextPage } from "next";
+import { ThemeProvider } from "styled-components";
 import { Tag, ApolloReduxNextPageContext, Post } from "../../types/type";
 import { GET_NIGHTMODE, GET_TAG } from "../../queries/index";
-import { ThemeProvider } from "../../style/typed-components";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";
 import Header from "../../components/Header";

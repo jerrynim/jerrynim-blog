@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GoMarkGithub } from "react-icons/go";
 import { IoMdMail } from "react-icons/io";
 import dynamic from "next/dynamic";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 import theme from "../../style/theme";
 
 const Category = dynamic(() => import("../Category"), { ssr: false });

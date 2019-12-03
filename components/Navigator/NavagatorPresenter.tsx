@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 import size from "../../style/size";
 
 const Container = styled.div<{ focus: number }>`

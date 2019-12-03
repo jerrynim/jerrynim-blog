@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 import theme from "../../style/theme";
 
 const Container = styled.div`
@@ -149,11 +149,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
     <>
       <Container>
         <Texts>
-          <Link
-            prefetch={false}
-            as={`/articles/${posts[0].title}`}
-            href={`/articles/${posts[0].title}`}
-          >
+          <Link prefetch={false} as={`/articles/${posts[0].title}`} href={`/articles/${posts[0].title}`}>
             <Title>{posts[0].title}</Title>
           </Link>
 
@@ -187,11 +183,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
                       <PostImg src={post.thumbnail} />
                     </a>
                   </Link>
-                  <Link
-                    prefetch={false}
-                    as={`/articles/${post.title}`}
-                    href={`/articles/${post.title}`}
-                  >
+                  <Link prefetch={false} as={`/articles/${post.title}`} href={`/articles/${post.title}`}>
                     <a>
                       <PostTitle>{post.title}</PostTitle>
                     </a>

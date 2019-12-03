@@ -1,8 +1,9 @@
 import React from "react";
 import { NextPage } from "next";
+import Head from "next/head";
 import { useQuery } from "@apollo/react-hooks";
+import { ThemeProvider } from "styled-components";
 import AddPost from "../components/AddPost";
-import { ThemeProvider } from "../style/typed-components";
 import nightTheme from "../style/nightTheme";
 import theme from "../style/theme";
 import { GET_NIGHTMODE } from "../queries/index";
@@ -15,12 +16,20 @@ const addpost: NextPage = () => {
   });
   const nightmode = data && data.nightmode;
   return (
-    <ThemeProvider theme={nightmode ? nightTheme : theme}>
-      <>
-        <Header />
-        <AddPost />
-      </>
-    </ThemeProvider>
+    <>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/atom-one-dark.min.css"
+        />
+      </Head>
+      <ThemeProvider theme={nightmode ? nightTheme : theme}>
+        <>
+          <Header />
+          <AddPost />
+        </>
+      </ThemeProvider>
+    </>
   );
 };
 export default addpost;

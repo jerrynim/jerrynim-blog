@@ -2,8 +2,8 @@ import React from "react";
 import showdown from "showdown";
 import TextareaAutosize from "react-autosize-textarea/lib";
 import parse from "html-react-parser";
+import styled from "styled-components";
 import PostInfo from "../PostInfo/PostInfo";
-import styled from "../../style/typed-components";
 import usePost from "../../Hooks/usePost";
 import size from "../../style/size";
 import useUpload from "../../Hooks/useUpload";
@@ -11,8 +11,7 @@ import useUpload from "../../Hooks/useUpload";
 const Container = styled.div`
   padding-top: 96px;
   width: 100%;
-  height: -webkit-fill-available;
-  background-color: ${props => props.theme.blue_gray};
+  background-color: ${props => props.theme.background_color};
   display: flex;
   justify-content: center;
   position: relative;
@@ -155,7 +154,6 @@ const Container = styled.div`
     }
   }
 `;
-
 const AddPostPresenter: React.FC = () => {
   const converter = new showdown.Converter();
   const { title, thumbnail, subTitle, content, contentOnChange } = usePost();

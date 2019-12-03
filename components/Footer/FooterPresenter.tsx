@@ -1,7 +1,7 @@
 import React from "react";
 import { GoMarkGithub } from "react-icons/go";
 import { IoLogoYoutube } from "react-icons/io";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;

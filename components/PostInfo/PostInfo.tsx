@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 import useUpload from "../../Hooks/useUpload";
 import usePost from "../../Hooks/usePost";
 

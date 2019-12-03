@@ -1,9 +1,9 @@
 import React from "react";
 import formatDistance from "date-fns/formatDistance";
 import Link from "next/link";
+import styled from "styled-components";
 import { Post } from "../../types/type";
 import theme from "../../style/theme";
-import styled from "../../style/typed-components";
 
 const Container = styled.div``;
 

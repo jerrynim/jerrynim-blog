@@ -1,9 +1,8 @@
 import React from "react";
-import Highlight from "react-highlight";
+import styled from "styled-components";
 import parse from "html-react-parser";
 import dynamic from "next/dynamic";
 import { Post } from "../../types/type";
-import styled from "../../style/typed-components";
 import size from "../../style/size";
 
 const Navigator = dynamic(() => import("../Navigator"), { ssr: false });
@@ -127,9 +126,6 @@ const Container = styled.div`
   }
 `;
 
-const Highlighted = styled(Highlight)<{ language: string }>`
-  margin: 0px 20px 18px 20px;
-`;
 interface IProps {
   post: Post;
   Ref: React.MutableRefObject<any>;
@@ -152,11 +148,7 @@ const FullArticlePresenter: React.FC<IProps> = ({ post, Ref }) => {
               replace: domNode => {
                 const { attribs, children } = domNode;
                 if (attribs && attribs.class === "code" && children) {
-                  return (
-                    <Highlighted language="typescript" className="code">
-                      {children[0].data}
-                    </Highlighted>
-                  );
+                  return <div className="code">{children[0].data}</div>;
                 }
                 return domNode;
               }

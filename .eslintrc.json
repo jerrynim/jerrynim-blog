@@ -26,7 +26,11 @@
     "react/jsx-props-no-spreading": "off", //spread off
     "max-len": "off",
     "react/jsx-curly-newline": "off", //bracket newline disable
-    "jsx-a11y/no-noninteractive-element-interactions": "off"
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "arrow-parens": "off", // 화살표 함수 변수 () 사용하기
+    "@typescript-eslint/quotes": ["error", "double"],
+    "@typescript-eslint/no-unused-expressions": "off",
+    "react/react-in-jsx-scope": "off"
   },
 
   "settings": {

@@ -1,10 +1,10 @@
 import React, { Dispatch } from "react";
+import styled from "styled-components";
 import { FaTrello, FaList } from "react-icons/fa";
 import theme from "../../style/theme";
 import { Post } from "../../types/type";
 import CardList from "./CardList";
 import LinearList from "./LinearList";
-import styled from "../../style/typed-components";
 import size from "../../style/size";
 import MobileCardList from "../MobileCardList";
 

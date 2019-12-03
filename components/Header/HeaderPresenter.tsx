@@ -2,10 +2,10 @@ import React from "react";
 import Link from "next/link";
 import OutsideClickHandler from "react-outside-click-handler";
 import Switch from "react-switch";
+import styled from "styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Share from "../../public/static/header/share.svg";
 import theme from "../../style/theme";
-import styled from "../../style/typed-components";
 import Halfmoon from "../../public/static/header/halfmoon.svg";
 
 const Container = styled.div`

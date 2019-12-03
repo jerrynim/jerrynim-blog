@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styled from "../../style/typed-components";
+import styled from "styled-components";
 import { AlphabetTuple } from "../../types/type";
 import size from "../../style/size";
 

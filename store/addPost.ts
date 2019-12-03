@@ -1,5 +1,5 @@
-import produce from "immer";
-import { createStandardAction, ActionType } from "typesafe-actions";
+import { produce } from "immer";
+import { createAction, ActionType } from "typesafe-actions";
 import { AddPost } from "../types/type";
 
 //type정의
@@ -12,13 +12,13 @@ const CHANGE_TAGS = "post/CHANGE_TAGS";
 const CHANGE_PASSWORD = "post/CHANGE_PASSWORD";
 
 //action생성
-export const getPost = createStandardAction(GET_POST)<null>();
-export const changeTitle = createStandardAction(CHANGE_TITLE)<string>();
-export const changeSubTitle = createStandardAction(CHANGE_SUBTITLE)<string>();
-export const changeThumbnail = createStandardAction(CHANGE_THUMBNAIL)<string>();
-export const changeContent = createStandardAction(CHANGE_CONTENT)<string>();
-export const changeTags = createStandardAction(CHANGE_TAGS)<string>();
-export const changePassword = createStandardAction(CHANGE_PASSWORD)<string>();
+export const getPost = createAction(GET_POST)<null>();
+export const changeTitle = createAction(CHANGE_TITLE)<string>();
+export const changeSubTitle = createAction(CHANGE_SUBTITLE)<string>();
+export const changeThumbnail = createAction(CHANGE_THUMBNAIL)<string>();
+export const changeContent = createAction(CHANGE_CONTENT)<string>();
+export const changeTags = createAction(CHANGE_TAGS)<string>();
+export const changePassword = createAction(CHANGE_PASSWORD)<string>();
 
 //액션 타입정의
 export type GET_POST = ActionType<typeof getPost>;

@@ -1,10 +1,10 @@
 import React, { memo, useState } from "react";
 import { animated, useSpring } from "react-spring";
+import styled from "styled-components";
 import usePrevious from "../../Hooks/usePrevious";
 import useMeasure from "../../Hooks/useMeasure";
 import * as Icons from "../../public/static/icons";
 import theme from "../../style/theme";
-import styled from "../../style/typed-components";
 
 const Frame = styled("div")`
   position: relative;

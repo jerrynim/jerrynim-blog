@@ -2,13 +2,13 @@ import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { useQuery } from "@apollo/react-hooks";
+import { ThemeProvider } from "styled-components";
 import FullArticle from "../../components/FullArticle";
 import Header from "../../components/Header";
 import { GET_POST, GET_NIGHTMODE } from "../../queries/index";
 import { Post, ApolloReduxNextPageContext } from "../../types/type";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";
-import { ThemeProvider } from "../../style/typed-components";
 import Sidebar from "../../components/Sidebar";
 
 interface IProps {
@@ -24,10 +24,7 @@ const article: NextPage<IProps> = ({ post, title }) => {
       <>
         <Head>
           <title>{`Jerrynim | ${title}`}</title>
-          <link
-            rel="stylesheet"
-            href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"
-          />
+          <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css" />
         </Head>
         <Sidebar />
         <Header />

@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { ThemeProvider } from "styled-components";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { GET_NIGHTMODE } from "../queries/index";
-import { ThemeProvider } from "../style/typed-components";
 import nightTheme from "../style/nightTheme";
 import theme from "../style/theme";
 import AboutMe from "../components/AboutMe";
