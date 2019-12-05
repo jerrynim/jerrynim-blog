@@ -26,19 +26,15 @@ const Container = styled.div`
   }
   .post_head {
     position: relative;
-    height: 350px;
     width: 100%;
     background-position: center;
     background-size: cover;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
     }
-
     h2 {
       z-index: 5;
       position: absolute;
@@ -55,6 +51,7 @@ const Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
     background-color: black;
     opacity: 0.3;
   }

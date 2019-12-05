@@ -33,11 +33,14 @@ class MyApp extends App<IProps> {
   render() {
     const { Component, pageProps, apollo, store } = this.props;
     const { cookies } = pageProps;
-    if (typeof window === "undefined" && cookies.nightmode && cookies.nightmode === "on") {
-      //쿠키에 nightmode가 있고 'on'이라면
-      apollo.writeData({ data: { nightmode: true } });
-    } else {
-      apollo.writeData({ data: { nightmode: false } });
+    if (typeof window === "undefined") {
+      if (cookies.nightmode && cookies.nightmode === "on") {
+        //쿠키에 nightmode가 있고 'on'이라면
+        console.log(cookies.nightmode);
+        apollo.writeData({ data: { nightmode: true } });
+      } else {
+        apollo.writeData({ data: { nightmode: false } });
+      }
     }
     return (
       <Provider store={store}>

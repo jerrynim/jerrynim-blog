@@ -1,11 +1,10 @@
 import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import { useQuery } from "@apollo/react-hooks";
 import { ThemeProvider } from "styled-components";
 import FullArticle from "../../components/FullArticle";
 import Header from "../../components/Header";
-import { GET_POST, GET_NIGHTMODE } from "../../queries/index";
+import { GET_POST } from "../../queries/index";
 import { Post, ApolloReduxNextPageContext } from "../../types/type";
 import nightTheme from "../../style/nightTheme";
 import theme from "../../style/theme";

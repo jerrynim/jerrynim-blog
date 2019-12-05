@@ -4,7 +4,6 @@ import { GoMarkGithub } from "react-icons/go";
 import { IoMdMail } from "react-icons/io";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
-import theme from "../../style/theme";
 
 const Category = dynamic(() => import("../Category"), { ssr: false });
 
@@ -53,7 +52,7 @@ const Container = styled.div<{ status: boolean }>`
     justify-content: center;
     align-items: center;
     z-index: -1;
-    background-color: ${theme.black};
+    background-color: ${props => props.theme.black};
     p {
       color: white;
       transform: rotate(-90deg);
@@ -71,7 +70,7 @@ const Container = styled.div<{ status: boolean }>`
     width: 100%;
     padding: 0px 30px;
     align-items: center;
-    border-top: 2px solid ${theme.light_gray};
+    border-top: 2px solid ${props => props.theme.light_gray};
 
     svg {
       color: ${props => props.theme.black_white};
