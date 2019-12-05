@@ -106,18 +106,18 @@ const SidebarPresenter: React.FC<IProps> = ({ status, toggleStatus }) => (
   <Container status={status}>
     <div className="background">
       <div className="title_wrapper">
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <a className="title">Jerrynim Blog</a>
         </Link>
       </div>
       <div className="profile-wrapper">
-        <img src="../../static/jerrynim_profile.jpeg" alt="jerrynim-profile" />
+        <img src="" alt="jerrynim-profile" />
       </div>
       <h2>Javascript Developer🕹</h2>
       <Category />
       <div className="bottom">
         <Link href="https://github.com/jerrynim" prefetch={false}>
-          <a>
+          <a target="_blank" rel="noopener" aria-label="jerrynim github link">
             <GoMarkGithub size={24} />
           </a>
         </Link>

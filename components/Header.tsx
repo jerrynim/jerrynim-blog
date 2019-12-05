@@ -159,7 +159,9 @@ const HeaderPresenter: React.FC = () => {
     <Container>
       <Left>
         <Link href="/" as="/">
-          <a>Jerrynim Blog</a>
+          <a rel="noopener" aria-label="jerrynim Blog Main">
+            Jerrynim Blog
+          </a>
         </Link>
       </Left>
       <Right>

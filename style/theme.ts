@@ -12,7 +12,8 @@ const theme = {
   blue_gray: "#F1F5FB",
   light_gray: "#D7D7D7",
   dark_blue: "#1b2733",
-  blue: "#2F80ED",
+  blue: "#3897f0",
+  brighten_blue: "#51EEFF",
   orange: "#FCB532",
   gradient: "linear-gradient(180deg, #dff4f2 30%, white 100%)"
 };

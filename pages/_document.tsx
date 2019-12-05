@@ -15,8 +15,9 @@ class RootDocument extends Document {
 
   public render() {
     return (
-      <Html>
+      <Html lang="ko">
         <Head>
+          <meta name="description" content="Jerrynim Blog consider trendy tech about web development" />
           <script
             dangerouslySetInnerHTML={{
               __html: `

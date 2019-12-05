@@ -1,38 +1,41 @@
 import React from "react";
 import { NextPage } from "next";
 import { ThemeProvider } from "styled-components";
-import { useQuery } from "@apollo/react-hooks";
+import Head from "next/head";
 import Header from "../components/Header";
 import Articles from "../components/Articles";
 import Sidebar from "../components/Sidebar";
-import { GET_POSTS, GET_NIGHTMODE } from "../queries/index";
+import { GET_POSTS } from "../queries/index";
 import theme from "../style/theme";
 import nightTheme from "../style/nightTheme";
 import { ApolloReduxNextPageContext, Post } from "../types/type";
+import useNightmode from "../Hooks/useNightmode";
 
 interface IProps {
   posts: Post[];
 }
 
 const App: NextPage<IProps> = ({ posts }) => {
-  const { data } = useQuery<{ nightmode: boolean }>(GET_NIGHTMODE, {
-    ssr: true,
-    fetchPolicy: "cache-only"
-  });
-  const nightmode = data && data.nightmode;
+  const { nightmode } = useNightmode();
   return (
-    <ThemeProvider theme={nightmode ? nightTheme : theme}>
-      <>
-        <Header />
-        <Sidebar />
-        <Articles posts={posts} />
-      </>
-    </ThemeProvider>
+    <>
+      <Head>
+        <title>Jerrynim Blog</title>
+      </Head>
+      <ThemeProvider theme={nightmode ? nightTheme : theme}>
+        <>
+          <Header />
+          <Sidebar />
+          <Articles posts={posts} />
+        </>
+      </ThemeProvider>
+    </>
   );
 };
 
 App.getInitialProps = async (ctx: ApolloReduxNextPageContext) => {
   const { apolloClient } = ctx;
+  //Posts 불러오기
   const { data: posts } = await apolloClient.query<{ getPosts: Post[] }>({
     query: GET_POSTS,
     fetchPolicy: "network-only"

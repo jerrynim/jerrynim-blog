@@ -11,7 +11,6 @@ export default () => {
   const [toggleNightmode] = useMutation(TOGGLE_NIGHTMODE, {
     variables: { mode: nightmode },
     update(cache) {
-      console.log(nightmode);
       cache.writeData({ data: { nightmode: !nightmode } });
     }
   });
