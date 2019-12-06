@@ -36,7 +36,6 @@ class MyApp extends App<IProps> {
     if (typeof window === "undefined") {
       if (cookies.nightmode && cookies.nightmode === "on") {
         //쿠키에 nightmode가 있고 'on'이라면
-        console.log(cookies.nightmode);
         apollo.writeData({ data: { nightmode: true } });
       } else {
         apollo.writeData({ data: { nightmode: false } });

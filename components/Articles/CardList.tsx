@@ -70,7 +70,7 @@ const Card = styled.div`
     }
   }
   .date {
-    color: ${theme.brighten_blue};
+    color: ${theme.link_color};
     white-space: pre;
     margin-bottom: 12px;
   }
