@@ -19,6 +19,11 @@ class RootDocument extends Document {
         <Head>
           <meta name="description" content="Jerrynim Blog consider trendy tech about web development" />
           <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#FFFFFF" />
+          <link rel="icon" sizes="192x192" href="icon_192.png" />
+          <link rel="apple-touch-icon" href="icon_192.png" />
+          <meta name="msapplication-square310x310logo" content="icon_192.png" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black" />
           <script
             dangerouslySetInnerHTML={{
               __html: `

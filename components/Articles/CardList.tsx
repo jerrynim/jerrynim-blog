@@ -102,7 +102,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
           return (
             <Card key={post.id}>
               <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
-                <a aria-label={`Post-${post.title}`}>
+                <a aria-label={`Post-${post.title}-${post.id}`}>
                   <div className="img_wrapper">
                     <img src={post.thumbnail} alt="" />
                   </div>
