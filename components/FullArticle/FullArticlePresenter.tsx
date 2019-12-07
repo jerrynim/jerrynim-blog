@@ -131,29 +131,31 @@ interface IProps {
 const FullArticlePresenter: React.FC<IProps> = ({ post, Ref }) => {
   return (
     <>
-      <Container>
-        <div className="content">
-          <Navigator />
-          <div className="post_head">
-            <img src={post.thumbnail} alt="" />
-            <h2>{post.title}</h2>
-            <div className="overlay" />
-          </div>
-          <div className="post_article">
-            <h2>{post.subTitle}</h2>
-            {parse(post.content, {
-              replace: domNode => {
-                const { attribs, children } = domNode;
-                if (attribs && attribs.class === "code" && children) {
-                  return <div className="code">{children[0].data}</div>;
+      {post && (
+        <Container>
+          <div className="content">
+            <Navigator />
+            <div className="post_head">
+              <img src={post.thumbnail} alt="" />
+              <h2>{post.title}</h2>
+              <div className="overlay" />
+            </div>
+            <div className="post_article">
+              <h2>{post.subTitle}</h2>
+              {parse(post.content, {
+                replace: domNode => {
+                  const { attribs, children } = domNode;
+                  if (attribs && attribs.class === "code" && children) {
+                    return <div className="code">{children[0].data}</div>;
+                  }
+                  return domNode;
                 }
-                return domNode;
-              }
-            })}
+              })}
+            </div>
+            <div ref={Ref} id="comment" />
           </div>
-          <div ref={Ref} id="comment" />
-        </div>
-      </Container>
+        </Container>
+      )}
     </>
   );
 };

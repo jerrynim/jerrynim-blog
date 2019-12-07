@@ -177,7 +177,10 @@ const HeaderPresenter: React.FC = () => {
                 <div className="popup_shadow" />
                 <div className="popup_triangle" />
                 <div className="popup">
-                  <img src="../../static/nightmodeImage.png" alt="" />
+                  <picture>
+                    <source type="image/webp" srcSet="images/header/nightmodeImage.webp" />
+                    <img src="images/header/nightmodeImage.png" alt="" />
+                  </picture>
                   <p>You can change to night mode!</p>
                   <div className="switch_wrapper">
                     <Switch

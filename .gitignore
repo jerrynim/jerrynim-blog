@@ -9,3 +9,5 @@ next-env.d.ts
 yarn.lock
 .env
 now.json
+#Optimizing image folder
+images

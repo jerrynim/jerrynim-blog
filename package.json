@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "opti": "ts-node --project tsconfig.util.json lib/fileOptimize.ts"
+    "opt": "ts-node --project tsconfig.util.json lib/fileOptimize.ts"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

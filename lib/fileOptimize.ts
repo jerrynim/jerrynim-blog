@@ -44,4 +44,3 @@ imagemin(["images/before/**/*.jpg"], {
 //   destination: 'images/svg',
 //   plugins: [imageminSvgo()],
 // }).then(() => console.log('Svg optimized'));
-export default null;
