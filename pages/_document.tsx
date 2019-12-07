@@ -18,6 +18,7 @@ class RootDocument extends Document {
       <Html lang="ko">
         <Head>
           <meta name="description" content="Jerrynim Blog consider trendy tech about web development" />
+          <link rel="manifest" href="/manifest.json" />
           <script
             dangerouslySetInnerHTML={{
               __html: `

@@ -1,0 +1,10 @@
+{
+  "name": "Jerrynim-blog",
+  "short_name": "Jerrynim-blog",
+  "icons": [],
+  "background_color": "#FFFFFF",
+  "description": "Jerrynim Blog consider trendy tech about web development",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#000"
+}

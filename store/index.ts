@@ -6,8 +6,12 @@ const reducer = combineReducers({
   addPost
 });
 
-const configureStore = (initialState, options) => {
-  const store = createStore(reducer, process.env.NODE_ENV === "production" ? null : composeWithDevTools());
+const configureStore = () => {
+  if (process.env.NODE_ENV === "production") {
+    const store = createStore(reducer);
+    return store;
+  }
+  const store = createStore(reducer, composeWithDevTools());
   return store;
 };
 export default configureStore;
