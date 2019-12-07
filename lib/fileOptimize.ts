@@ -36,6 +36,7 @@ imagemin(["images/before/**/*.jpg"], {
   plugins: [imageminMozjpeg({ quality: 75, progressive: true })]
 }).then(() => console.log("Jpeg Optimized"));
 
+export default null;
 /**
  * * SvgO로 압축한 svg생성
  */
