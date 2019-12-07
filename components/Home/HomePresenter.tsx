@@ -149,7 +149,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
     <>
       <Container>
         <Texts>
-          <Link prefetch={false} as={`/articles/${posts[0].title}`} href={`/articles/${posts[0].title}`}>
+          <Link href="/articles/[article]" as={`/articles/${posts[0].title}`} prefetch={false}>
             <Title>{posts[0].title}</Title>
           </Link>
 
@@ -160,7 +160,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
             ))}
           </Tags>
         </Texts>
-        <Link as={`/articles/${posts[0].title}`} href={`/articles/${posts[0].title}`}>
+        <Link href="articles/[article]" as={`/articles/${posts[0].title}`} prefetch={false}>
           <a>
             <Image src={posts[0].thumbnail} alt="" />
           </a>
@@ -169,7 +169,7 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
       <RecentPost>
         <RecentTexts>
           <RecentText>Recent Posts</RecentText>
-          <Link href="/articles">
+          <Link href="/articles" prefetch={false}>
             <SeeAll>See all</SeeAll>
           </Link>
         </RecentTexts>
@@ -178,12 +178,12 @@ const HomePresenter: React.FC<IProps> = ({ data }) => {
             if (index > 0 && index < 5) {
               return (
                 <Post key={post.id}>
-                  <Link href={`/articles/${post.title}`}>
+                  <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
                     <a>
                       <PostImg src={post.thumbnail} />
                     </a>
                   </Link>
-                  <Link prefetch={false} as={`/articles/${post.title}`} href={`/articles/${post.title}`}>
+                  <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
                     <a>
                       <PostTitle>{post.title}</PostTitle>
                     </a>

@@ -101,7 +101,7 @@ const LinearList: React.FC<IProps> = ({ posts }) => (
   <Container>
     {posts.map(post => (
       <LinearCard key={post.id}>
-        <Link href={`/articles/${post.title}`}>
+        <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
           <a>
             <div className="image_wrapper">
               <img src={post.thumbnail} alt="" />
@@ -109,7 +109,7 @@ const LinearList: React.FC<IProps> = ({ posts }) => (
           </a>
         </Link>
         <div className="text_box">
-          <Link href={`/articles/${post.title}`}>
+          <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
             <a>
               <h1>{post.title}</h1>
             </a>
@@ -118,7 +118,7 @@ const LinearList: React.FC<IProps> = ({ posts }) => (
           <div className="tag_box">
             {post.tags.map(tag => (
               <p key={tag.id}>
-                <Link href={`/tag/${tag.term}`}>
+                <Link href="/tag/[tag]" as={`/tag/${tag.term}`} prefetch={false}>
                   <a>{tag.term}</a>
                 </Link>
               </p>

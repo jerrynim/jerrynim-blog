@@ -258,7 +258,7 @@ const AboutMePresenter: React.FC = () => (
             🎢
           </span>
         </h2>
-        <Link href="/project">
+        <Link href="/project" prefetch={false}>
           <a>
             <ProjectLink>Project =></ProjectLink>
           </a>

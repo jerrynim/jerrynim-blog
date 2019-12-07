@@ -158,7 +158,7 @@ const HeaderPresenter: React.FC = () => {
   return (
     <Container>
       <Left>
-        <Link href="/" as="/">
+        <Link href="/" prefetch={false}>
           <a rel="noopener" aria-label="jerrynim Blog Main">
             Jerrynim Blog
           </a>

@@ -25,7 +25,7 @@ const CategoryPresenter: React.FC = () => {
     <Container>
       <Tree
         name={
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <a>
               <FaPencilAlt size={16} />
               <span>Posts</span>
@@ -35,7 +35,7 @@ const CategoryPresenter: React.FC = () => {
       >
         <Tree
           name={
-            <Link href="/tag/Library">
+            <Link href="/tag/Library" prefetch={false}>
               <a>
                 <FaHammer size={16} />
                 <span>Libarary</span>
@@ -46,21 +46,21 @@ const CategoryPresenter: React.FC = () => {
       </Tree>
       <Tree
         name={
-          <Link href="/project">
+          <Link href="/project" prefetch={false}>
             <a>🚀Project</a>
           </Link>
         }
       />
       <Tree
         name={
-          <Link href="/aboutme">
+          <Link href="/aboutme" prefetch={false}>
             <a>😺Aboutme</a>
           </Link>
         }
       />
       <Tree
         name={
-          <Link href="/tag">
+          <Link href="/tag" prefetch={false}>
             <a>
               <FaTags size={16} />
               <span>Tags</span>

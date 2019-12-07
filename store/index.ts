@@ -7,7 +7,7 @@ const reducer = combineReducers({
 });
 
 const configureStore = (initialState, options) => {
-  const store = createStore(reducer, composeWithDevTools());
+  const store = createStore(reducer, process.env.NODE_ENV === "production" ? null : composeWithDevTools());
   return store;
 };
 export default configureStore;

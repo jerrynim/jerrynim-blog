@@ -82,7 +82,7 @@ const MobileCardListPresenter: React.FC<IProps> = ({ posts }) => {
     <Container>
       {posts.map(post => (
         <Card key={post.id}>
-          <Link href={`/articles/${post.title}`}>
+          <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
             <a>
               <div className="img_wrapper">
                 <img src={post.thumbnail} alt="" />
@@ -90,7 +90,7 @@ const MobileCardListPresenter: React.FC<IProps> = ({ posts }) => {
             </a>
           </Link>
           <h1>
-            <Link href={`/articles/${post.title}`}>
+            <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
               <a>{post.title}</a>
             </Link>
           </h1>
@@ -99,7 +99,7 @@ const MobileCardListPresenter: React.FC<IProps> = ({ posts }) => {
             <div className="tag_box">
               {post.tags.map(tag => (
                 <p key={tag.id}>
-                  <Link href={`/tag/${tag.term}`}>
+                  <Link href="/tag/[tag]" as={`/tag/${tag.term}`} prefetch={false}>
                     <a>{tag.term}</a>
                   </Link>
                 </p>
