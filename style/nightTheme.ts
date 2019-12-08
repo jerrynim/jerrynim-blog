@@ -1,4 +1,6 @@
-const nightTheme = {
+import { ThemeType } from "./theme";
+
+const nightTheme: ThemeType = {
   background_color: "#282C35",
   text_color: "#ECF2F2",
   black_yellow: "yellow",
@@ -14,6 +16,7 @@ const nightTheme = {
   dark_blue: "#1b2733",
   blue: "#2F80ED",
   link_color: "#A8E3DB",
+  brighten_blue: "#51EEFF",
   orange: "#FCB532",
   gradient: "linear-gradient(180deg,#3d4247 30%,#000000 100%)"
 };

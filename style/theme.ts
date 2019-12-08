@@ -18,4 +18,7 @@ const theme = {
   orange: "#FCB532",
   gradient: "linear-gradient(180deg, #dff4f2 30%, white 100%)"
 };
+export type ThemeType = {
+  [key in keyof typeof theme]: string;
+};
 export default theme;

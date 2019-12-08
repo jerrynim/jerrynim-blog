@@ -93,6 +93,7 @@ const Container = styled.div<{ status: boolean }>`
     padding-left: 20px;
     padding-bottom: 10px;
     font-size: 21px;
+    color: ${props => props.theme.text_color};
   }
 `;
 

@@ -1,9 +1,8 @@
 import * as React from "react";
 import formatDistance from "date-fns/formatDistance";
 import Link from "next/link";
-import styled from "styled-components";
 import { Post } from "../../types/type";
-import theme from "../../style/theme";
+import styled from "../../style/styled-components";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +14,7 @@ const Container = styled.div`
 
 const Card = styled.div`
   padding: 20px 16px 0px 0px;
-  border-bottom: 2px solid ${theme.light_gray};
+  border-bottom: 2px solid ${props => props.theme.light_gray};
   position: relative;
   .img_wrapper {
     position: relative;
@@ -70,7 +69,7 @@ const Card = styled.div`
     }
   }
   .date {
-    color: ${theme.link_color};
+    color: ${props => props.theme.link_color};
     white-space: pre;
     margin-bottom: 12px;
   }
@@ -81,7 +80,7 @@ const Left = styled.div`
   padding-top: 20px;
   margin-left: 16px;
 
-  border-right: 2px solid ${theme.light_gray};
+  border-right: 2px solid ${props => props.theme.light_gray};
 `;
 const Right = styled.div`
   padding-top: 20px;

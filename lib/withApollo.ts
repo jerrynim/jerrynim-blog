@@ -9,7 +9,8 @@ export default withApollo(({ initialState }) => {
   const cache = new InMemoryCache().restore(initialState || {});
   return new ApolloClient({
     link: createUploadLink({
-      uri: "https://jerrynim-blog-server.herokuapp.com/"
+      uri:
+        process.env.NODE_ENV === "production" ? "https://jerrynim-blog-server.herokuapp.com/" : "http://localhost:4000/"
     }),
     cache,
     ssrMode: typeof window !== "undefined",
