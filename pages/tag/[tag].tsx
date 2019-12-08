@@ -33,10 +33,11 @@ const tag: NextPage<IProps> = ({ posts }) => {
 
 tag.getInitialProps = async ({ apolloClient, query }: ApolloReduxNextPageContext) => {
   const { tag } = query;
+  console.log(apolloClient);
   const { data } = await apolloClient.query<{ getTag: Tag }>({
     query: GET_TAG,
     variables: {
-      term: tag as string
+      term: decodeURI(tag as string)
     },
     fetchPolicy: "network-only"
   });

@@ -101,7 +101,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
         if (index % 2 === 0) {
           return (
             <Card key={post.id}>
-              <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
+              <Link href={`/articles/${post.title}`} prefetch={false}>
                 <a aria-label={`Post-${post.title}-${post.id}`}>
                   <div className="img_wrapper">
                     <img src={post.thumbnail} alt="" />
@@ -109,7 +109,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 </a>
               </Link>
               <h1>
-                <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
+                <Link href={`/articles/${post.title}`} prefetch={false}>
                   <a aria-label={`Post-${post.title}`}>{post.title}</a>
                 </Link>
               </h1>
@@ -118,7 +118,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 <div className="tag_box">
                   {post.tags.map(tag => (
                     <p key={tag.id}>
-                      <Link href="/tag/[tag]" as={`/tag/${tag.term}`} prefetch={false}>
+                      <Link href={`/tag/${tag.term}`} prefetch={false}>
                         <a aria-label={`Tag-${tag.term}`}>{tag.term}</a>
                       </Link>
                     </p>
@@ -135,9 +135,10 @@ const CardList: React.FC<IProps> = ({ posts }) => (
     <Right>
       {posts.map((post, index) => {
         if (index % 2 !== 0) {
+          console.log(post);
           return (
             <Card className="right_card" key={post.id}>
-              <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
+              <Link href={`/articles/${post.title}`} prefetch={false}>
                 <a aria-label={`Post-${post.title}`}>
                   <div className="img_wrapper">
                     <img src={post.thumbnail} alt="" />
@@ -145,7 +146,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 </a>
               </Link>
               <h1>
-                <Link href="/articles/[article]" as={`/articles/${post.title}`} prefetch={false}>
+                <Link href={`/articles/${post.title}`} prefetch={false}>
                   <a aria-label={`Post-${post.title}`}>{post.title}</a>
                 </Link>
               </h1>
@@ -154,7 +155,7 @@ const CardList: React.FC<IProps> = ({ posts }) => (
                 <div className="tag_box">
                   {post.tags.map(tag => (
                     <p key={tag.id}>
-                      <Link href="/tag/[tag]" as={`/tag/${tag.term}`} prefetch={false}>
+                      <Link href={`/tag/${tag.term}`} prefetch={false}>
                         <a aria-label={`Tag-${tag.term}`}>{tag.term}</a>
                       </Link>
                     </p>

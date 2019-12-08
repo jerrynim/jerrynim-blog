@@ -7,10 +7,9 @@ import { createUploadLink } from "apollo-upload-client";
 export default withApollo(({ initialState }) => {
   //apollo cache 가져오기
   const cache = new InMemoryCache().restore(initialState || {});
-
   return new ApolloClient({
     link: createUploadLink({
-      uri: process.env.NODE_ENV === "production" ? process.env.END_POINT : "http://localhost:4000/"
+      uri: "https://jerrynim-blog-server.herokuapp.com/"
     }),
     cache,
     ssrMode: typeof window !== "undefined",

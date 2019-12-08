@@ -37,7 +37,7 @@ article.getInitialProps = async (ctx: ApolloReduxNextPageContext) => {
   const { apolloClient, query } = ctx;
   const { data: post } = await apolloClient.query<{ getPost: Post }>({
     query: GET_POST,
-    variables: { title: query.article },
+    variables: { title: decodeURI(query.article as string) },
     fetchPolicy: "network-only"
   });
   return { post: post.getPost, title: query.article };

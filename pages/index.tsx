@@ -17,6 +17,7 @@ interface IProps {
 
 const App: NextPage<IProps> = ({ posts }) => {
   const { nightmode } = useNightmode();
+
   return (
     <>
       <Head>

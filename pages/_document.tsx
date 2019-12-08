@@ -24,16 +24,6 @@ class RootDocument extends Document {
           <link rel="apple-touch-icon" href="/icon_192.png" />
           <meta name="msapplication-square310x310logo" content="/icon_192.png" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments)};
-                gtag('js', new Date());
-                gtag('config', '${process.env.GOOGLE_TAG_MANAGER_ID}');
-              `
-            }}
-          />
           {this.props.styles}
         </Head>
         <body>
