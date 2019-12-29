@@ -15,7 +15,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: gke-test
+  name: jerrynim-blog
 spec:
   replicas: 1
   strategy:
@@ -26,11 +26,11 @@ spec:
   template:
     metadata:
       labels:
-        app: gke-test
+        app: jerrynim-blog
     spec:
       containers:
-        - name: gke-test
-          image: gcr.io/github-test-238118/gke-test:TAG
+        - name: jerrynim-blog
+          image: gcr.io/jerrynim-blog/3dbcd0b59425ffa5ca78bc02137f524046bb096c
           ports:
             - containerPort: 5000
           resources:
