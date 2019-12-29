@@ -32,7 +32,7 @@ spec:
         - name: jerrynim-blog
           image: gcr.io/jerrynim-blog/3dbcd0b59425ffa5ca78bc02137f524046bb096c
           ports:
-            - containerPort: 5000
+            - containerPort: 3000
           resources:
             requests:
               cpu: 100m
