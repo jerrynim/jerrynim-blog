@@ -22,7 +22,7 @@ CMD ["yarn", "start"]
 FROM nginx:alpine
 # copy the build folder from react to the root of nginx (www)
 
-RUN ls -al
+RUN ls /
 
 COPY --from=build /app/.next /usr/share/nginx/html
 # --------- only for those using react router ----------
@@ -31,7 +31,7 @@ COPY --from=build /app/.next /usr/share/nginx/html
 # remove default nginx configuration file
 RUN rm /etc/nginx/conf.d/default.conf
 # replace with custom one
-COPY nginx/nginx.conf /etc/nginx/conf.d
+COPY app/nginx.conf /etc/nginx/conf.d
 # --------- /only for those using react router ----------
 # expose port 80 to the outer world
 EXPOSE 80 
