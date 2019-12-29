@@ -2,7 +2,7 @@
 
 What : This is my Blog to share my exprirences with others
 
-Next.js, Apollo, typescript, styled-components, lottie, now 사용
+Next.js, Apollo, typescript, styled-components, now 사용
 
 Pigma : https://www.figma.com/file/ehSagpiTA04PaDEEUVPogREI/Portfolio-ver2
 
