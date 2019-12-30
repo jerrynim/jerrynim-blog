@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: jerrynim-blog
-          image: gcr.io/jerrynim-blog:latest
+          image: gcr.io/jerrynim-blog/jerrynim-blog
           ports:
             - containerPort: 3000
           resources:
