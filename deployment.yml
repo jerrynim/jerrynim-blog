@@ -33,8 +33,3 @@ spec:
           image: gcr.io/jerrynim-blog/jerrynim-blog
           ports:
             - containerPort: 3000
-          resources:
-            requests:
-              cpu: 100m
-            limits:
-              cpu: 100m

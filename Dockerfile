@@ -15,15 +15,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 RUN yarn && \
     yarn build
 
+EXPOSE 3000
+
 CMD ["yarn", "start"]
-
-# set up production environment
-# the base image for this is an alpine based nginx image
-FROM nginx:alpine
-# copy the build folder from react to the root of nginx (www)
-
-
-COPY --from=build /app/.next /usr/share/nginx/html
-EXPOSE 80 
-# start nginx 
-CMD ["nginx", "-g", "daemon off;"]
