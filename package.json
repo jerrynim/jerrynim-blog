@@ -41,7 +41,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "imagemin-webp": "^5.1.0",
-    "immer": "^5.0.0",
+    "immer": "^8.0.1",
     "javascript-time-ago": "^2.0.2",
     "js-cookie": "^2.2.1",
     "lint-staged": "^9.2.5",
