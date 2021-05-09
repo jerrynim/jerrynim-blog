@@ -46,7 +46,7 @@
     "js-cookie": "^2.2.1",
     "lint-staged": "^9.2.5",
     "lit-html": "^1.1.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "next": "9.1.4",
     "next-cookies": "^2.0.3",
     "next-offline": "^4.0.6",
